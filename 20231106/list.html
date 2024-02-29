@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        ul{
+            /* 無序清單預設 */
+            list-style-type: disc;
+            list-style-type: armenian;
+            list-style-type: circle;
+
+            /* list-style-position 預設outside*/
+            list-style-position: outside;
+        }
+        ol{
+            /* 有序清單預設 */
+            list-style: decimal url();
+            /* 前方有0 */
+            list-style: decimal-leading-zero;
+
+        }
+        /* bath */
+        ul{
+            list-style: none;
+            display: inline-block;
+        }
+        li{
+            display: inline-block;
+        }
+
+        .bath::after{
+            content: "/";
+            margin: 5px;
+        }
+    </style>
+</head>
+<body>
+    <ul>
+        <li>list-1</li>
+        <li>list-2</li>
+        <li>list-3</li>
+    </ul>
+    <ol>
+        <li>list-1</li>
+        <li>list-2</li>
+        <li>list-3</li>
+    </ol>
+    <!-- bath -->
+    <ul>
+        <li class="bath">list-1</li>
+        <li class="bath">list-2</li>
+        <li class="bath">list-3</li>
+        <li class="bath">list-4</li>
+        <li>list-5</li>
+    </ul>
+</body>
+</html>

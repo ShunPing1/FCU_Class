@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>fetch-hw-v2</title>
+    <style>
+        * {
+            margin: 0;
+            box-sizing: border-box;
+            font-size: 20px;
+            text-align: center;
+            
+        }
+        .all{
+            width: 100vw;
+            background-color: #eee;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            
+        }
+        .container{
+            width: 800px;
+            background-color: #faa;
+
+        }
+
+        .tabs{
+            width: 800px;
+            display: flex;
+        }
+        .tab{
+            padding: 10px 15px;
+            background-color: #333;
+            color: #eee;
+        }
+        .loc-card{
+            display: flex;
+            flex-wrap: wrap;
+            border-bottom: 3px solid #333;
+            gap: 10px;
+        }
+        .loc-card h2{
+            font-size: 40px;
+            width: 100%;
+        }
+        .card-content{
+            width: calc((800px - 20px) / 3);
+            background-color: #aaf;
+            border-radius: 0 15px 0 15px;
+            display: flex;
+            flex-wrap: wrap;
+        }
+        .card-content h3,
+        .temperature,
+        .feel{
+            width: 100%;
+        }
+        .rainy,
+        .pic{
+            width: 50%;
+            height: 60px;
+            line-height: 60px;
+
+        }
+        .card-content h3{
+            font-size: 24px;
+        }
+        .temperature{
+            font-size: 20px;
+        }
+        .feel{
+            font-size: 18px;
+        }
+
+        .pic img{
+        
+            height: 100%;
+        }
+
+
+        
+    </style>
+</head>
+
+<body>
+
+    <div class="all">
+
+        <div class="tabs">
+            <div class="tab">全台</div>
+            <div class="tab">北部</div>
+            <div class="tab">中部</div>
+            <div class="tab">南部</div>
+            <div class="tab">東部</div>
+            <div class="tab">離島</div>
+        </div>
+
+
+        <div class="container">
+
+            <div class="loc-card">
+                <h2>新北市</h2>
+                <div class="card-content">
+                    <h3>今日白天</h3>
+                    <p class="temperature">22~28</p>
+                    <p class="feel">稍有寒意至舒適</p>
+                    <p class="rainy">rain:100%</p>
+                    <p class="pic"><img src="./img/01.svg" alt=""></p>
+                </div>
+                <div class="card-content">
+                    <h3>今晚明晨</h3>
+                    <p class="temperature">08~12</p>
+                    <p class="feel">稍有寒意</p>
+                    <p class="rainy">rain:20%</p>
+                    <p class="pic"><img src="./img/01.svg" alt=""></p>
+                </div>
+                <div class="card-content">
+                    <h3>明日白天</h3>
+                    <p class="temperature">19~23</p>
+                    <p class="feel">舒適</p>
+                    <p class="rainy">rain:0%</p>
+                    <p class="pic"><img src="./img/01.svg" alt=""></p>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+
+
+
+
+</body>
+
+</html>

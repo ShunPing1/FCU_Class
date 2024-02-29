@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            font-size: 30px;
+        }
+
+        table,
+        th,
+        td {
+            border: 2px solid #000;
+            border-collapse: collapse;
+        }
+
+        table {
+            margin-top: 30px;
+            width: 300px;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 
+        猜數字遊戲複習
+        A.有一個手動輸入框(限制輸入三位數)
+        B.一個送出按鈕
+          b01.點擊送出按鈕後電腦會開始以隨機亂數的方式猜答案
+        C.過程會顯示在下方表格中，直到猜出正確結果
+     -->
+
+    <input type="number" class="content" placeholder="請輸入三位數">
+    <button type="button" class="send">送出結果</button>
+    <br>
+    <a href="#gotop">
+        <button>看結果</button>
+    </a>
+    <table>
+        <thead>
+            <tr>
+                <th>次數</th>
+                <th>結果</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <!-- <td>1</td>
+                <td>123</td> -->
+            </tr>
+        </tbody>
+    </table>
+    <a href="#" id="gotop">
+        <button>回頂部</button>
+    </a>
+
+
+
+    <script>
+        // 誰
+        const content = document.querySelector('.content');
+        const sendBtn = document.querySelector('.send');
+        const tbody = document.querySelector('tbody');
+        // console.log(tbody);
+
+
+        // 什麼時候
+        sendBtn.addEventListener('click', () => {
+            let constValue = parseInt(content.value);
+            if (isNaN(constValue)) {
+                return alert('請輸入數字');
+            } else if (constValue < 100 || constValue > 999) {
+                return alert('請輸入三位數');
+            };
+            // 使用for迴圈得到電腦猜出的數字
+            tbody.innerHTML = '';
+            let box = '';
+            let count = 1;
+            for (let i = 0; box !== constValue; i++) {
+                box = '';
+                for (let i = 0; i < 3; i++) {
+                    box += randomCalc(9, 1);
+                };
+
+                if (box == constValue) {
+                    tbody.innerHTML += `
+                    <tr>
+                        <td>第${count}次</td>
+                        <td>${box}</td>
+                    </tr>
+                    `;
+                    break;
+                }else{
+                    tbody.innerHTML += `
+                    <tr>
+                        <td>第${count}次</td>
+                        <td>${box}</td>
+                    </tr>
+                    `;
+                };
+
+                count++;
+            };
+
+
+
+
+
+            // test for迴圈出現判斷式時，無法印出所有結果
+            // for (let i = 0; i < 5; i++) {
+
+            //     if (i == 3) {
+            //         tbody.innerHTML += `
+            //         <tr>
+                        
+            //             <td>正確答案:${i}</td>
+            //         </tr>
+            //         `;
+            //         break;
+                    
+            //     }else{
+            //         tbody.innerHTML += `
+            //         <tr>
+            //             <td>${i}</td>
+            //         </tr>
+            //         `;
+            //     }
+            //     // console.log(i);
+                
+            // }
+
+
+
+
+
+
+
+        });
+
+
+        // 要做什麼
+        function randomCalc(max, min) {
+            return Math.floor((Math.random() * max) + min);
+        };
+        // console.log(randomCalc(9,1));
+
+    </script>
+
+
+</body>
+
+</html>

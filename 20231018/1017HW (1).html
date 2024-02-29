@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>1017HW</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            width: 100vw;
+            height: 100vh;
+
+        }
+
+        #container {
+            width: calc(100% - 50px*2);
+            height: calc(100% - 50px*2);
+            padding: 50px;
+            margin: auto;
+        }
+        #header, #footer{
+            width: 100%;
+            height: 33%;
+            /* background-color: #faa;  */
+        }
+
+        #middle {
+            width: 100%;
+            height: 34%;
+            /* background-color: #aaf; */
+        }
+
+        #header-L,#footer-L {
+            width: 40%;
+            height: 100%;
+            background-color: #faa;
+            float: left;
+        }
+
+        #middle-M {
+            width: 40%;
+            height: 100%;
+            float: none;
+            margin: auto;
+            background-color: #0cc;
+        }
+
+        #header-R,
+        #footer-R {
+            width: 40%;
+            height: 100%;
+            background-color: #55f;
+            float: right;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="container">
+        <div id="header">
+            <div id="header-L"></div>
+            <div id="header-R"></div>
+        </div>
+        <div id="middle">
+            <div id="middle-M"></div>
+        </div>
+        <div id="footer">
+            <div id="footer-L"></div>
+            <div id="footer-R"></div>
+        </div>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,16 @@
+/* 1.nav
+  A.logo
+  B.ul left > li x 5
+  C.ul right > li*4
+2.header
+  A.swiper-1920px pic
+3.main
+ A.3 choice
+ B.4 pic
+  a.title
+  b.content
+  c.href
+   c01.aqua text
+   c02.focus present border
+4.other
+5.footer */

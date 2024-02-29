@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <button type="button" class="start-btn">開始計時</button>
+    <button type="button" class="stop-btn">停止計時</button>
+    <div>10</div>
+
+
+    <SCript>
+        const startBtn = document.querySelector('.start-btn');
+        const stopBtn = document.querySelector('.stop-btn');
+        const result = document.querySelector('div');
+
+
+
+        let timer = 10;
+        let count;
+        let flag = true;
+        console.log(flag);
+
+        startBtn.addEventListener('click', function () {
+            countdownTimer();
+            console.log(flag);
+        });
+        stopBtn.addEventListener('click',function () {
+            clearInterval(count);
+            if(flag == true) return ;
+            flag = true;
+            console.log(flag);
+
+        })
+
+
+        function countdownTimer(){
+            if(flag == false) return ;
+            count = setInterval(() => {
+                console.log(timer);
+                result.innerHTML = `${timer}`;
+                if (timer <= 0) {
+                    clearInterval(count);
+                    timer = 0;
+                }
+                timer--;
+            }, 1000);
+            flag = false;
+    
+        };
+
+    </SCript>
+</body>
+
+</html>

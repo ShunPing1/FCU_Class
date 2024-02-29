@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        table,
+        th,
+        tr,
+        td {
+            border: 2px solid #000;
+            border-collapse: collapse;
+        }
+    </style>
+</head>
+
+
+<body>
+    <!-- 
+        擲骰子遊戲練習
+        1.有一個擲骰子的按鈕，每次點擊的時候都會新增一筆資料到表單中
+        2.初始畫面只有次數以及擲骰子結果的th標題
+        3.表單內容左邊回擲骰子的次數，右邊是擲骰子的結果
+     -->
+    <p> ⚀ ⚁ ⚂ ⚃ ⚄ ⚅</p>
+    <input class = "throw-dice" type="number">
+    <button class="dice-btn" type="button">擲骰子</button>
+    <table>
+        <thead>
+            <tr>
+                <th>次數</th>
+                <th>結果</th>
+            </tr>
+        </thead>
+        <tbody class="addContent">
+            <!-- <tr>
+                <td>1</td>
+                <td>⚂</td>
+            </tr> -->
+        </tbody>
+    </table>
+
+
+
+    <script>
+        let diceBtn = document.querySelector('.dice-btn');
+        let addContent = document.querySelector('.addContent');
+        let throwDice = document.querySelector('.throw-dice');
+        
+
+
+        let count = 1;
+        diceBtn.addEventListener('click', function () {
+            let diceNumber = getRandom(6, 1);
+            diceIcon = '';
+
+            if (diceNumber == 1) {
+                diceIcon = '⚀';
+            } else if (diceNumber == 2) {
+                diceIcon = '⚁'
+            } else if (diceNumber == 3) {
+                diceIcon = '⚂'
+            } else if (diceNumber == 4) {
+                diceIcon = '⚃'
+            } else if (diceNumber == 5) {
+                diceIcon = '⚄'
+            } else {
+                diceIcon = '⚅'
+            };
+
+            // addContent.innerHTML += '<tr><td>'+ count +'</td><td>'+ diceIcon +'</td></tr>'
+            addContent.innerHTML +=
+                `<tr>
+                    <td>
+                        第 ${count} 次
+                    </td>
+                    <td>
+                      ${diceIcon}
+                    </td>
+                </tr>`
+            count = count + 1;
+        })
+
+        // fn area
+        function getRandom(max, min) {
+            return Math.floor(Math.random() * max) + min;
+
+        }
+        // console.log(getRandom(6,1));
+    </script>
+
+</body>
+
+</html>

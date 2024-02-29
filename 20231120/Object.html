@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>物件與陣列的區別</title>
+</head>
+<body>
+    <h2>Object && Array difference</h2>
+
+
+    <script>
+        let obj = {
+            name: 'mike',
+            gender: 'male',
+            age: '26',
+            hairColor: 'golden',
+            interest: ['exercise','camping','singing']
+        }
+        
+        // 查看物件屬性對應值 方法一
+        console.log(obj.age);
+        console.log(obj.interest[1]);
+        // 查看物件屬性對應值 方法二
+        console.log(obj['age']);
+        console.log(obj['interest'][2]);
+
+        let arr = ['mike','male','golden',26,['exercise','camping','singing']];
+        console.log(arr[3]);
+        // 陣列中的陣列值
+        console.log(arr[4][1]);
+    </script>
+</body>
+</html>

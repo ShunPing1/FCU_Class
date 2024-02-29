@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            font-size: 24px;
+        }
+
+        .result {
+            display: inline-block;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 
+        BMI計算JS複習
+    A.輸入身高體重的輸入框
+      a01.輸入框指允需輸入數字
+      a02若輸入數字以外的資料型別要出現提示
+      a03.身高體中超過正常範圍要出現提示
+    B.一個送出按鈕
+    C.一個清除按鈕
+    -->
+
+    身高輸入框：<input type="number" class="height">
+    體重輸入框：<input type="number" class="weight">
+    <button type="button" class="send">送出按鈕</button>
+    <button type="button" class="reset">重置按鈕</button>
+    <br>
+    結果顯示:<div class="result">
+
+    </div>
+
+
+
+    <script>
+        // 宣告變數
+        const height = document.querySelector('.height');
+        const weight = document.querySelector('.weight');
+        const sendBtn = document.querySelector('.send');
+        const resetBtn = document.querySelector('.reset');
+        const result = document.querySelector('.result');
+        // console.log(result);
+
+
+        sendBtn.addEventListener('click', () => {
+            // 由input標籤所輸入的值均為字串型別，因此需透過parseInt轉成數字型別
+            let hValue = parseInt(height.value);
+            let wValue = parseInt(weight.value);
+            console.log(typeof wValue);
+            if (isNaN(hValue)) {
+                return alert('身高請輸入數字')
+            } else if (isNaN(wValue)) {
+                return alert('體重請輸入數字')
+            };
+            if (height.value < 30 || height.value > 250) {
+                return alert('身高輸入異常');
+            } else if (weight.value < 3 || weight.value > 650) {
+                return alert('體重輸入異常');
+            };
+            bmiComment(calcBMI(hValue,wValue));
+
+        });
+
+        resetBtn.addEventListener('click', () => {
+            height.value = '';
+            weight.value = '';
+            result.innerHTML = '';
+        })
+
+        // fn 計算BMI
+        function calcBMI(hei, wei) {
+            let calc = (wei / ((hei / 100) * (hei / 100)));
+            return calc.toFixed(1);
+        };
+        // fn 判斷bmi評語
+        function bmiComment(output) {
+            let comment;
+            if (output <= 18.5) {
+                comment = '體重過輕';
+            } else if (output < 24) {
+                comment = '正常範圍';
+            } else if (output < 27) {
+                comment = '過重';
+            } else if (output < 30) {
+                comment = '輕度肥胖';
+            } else if (output < 35) {
+                comment = '中度肥胖';
+            } else {
+                comment = '重度肥胖';
+
+            };
+            result.innerHTML = `您的BMI為${output}屬於${comment}`;
+
+        };
+
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>fetch v2</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #000;
+            font-size: 28px;
+        }
+
+        .all {
+            width: 800px;
+            margin: auto;
+            padding-top: 100px;
+            /* background-color: #ffa; */
+
+        }
+
+        .tabs {
+            display: flex;
+
+        }
+
+        .tab {
+            background-color: #333;
+            color: #eee;
+            padding: 10px 20px;
+            border-radius: 0 10px 0 0;
+            /* border: 2px solid #000; */
+            border-bottom: 0;
+            position: relative;
+            cursor: pointer;
+        }
+
+        .tab-active {
+            background-color: #aaa;
+            color: #333;
+            font-weight: bold;
+        }
+
+        /* tab左上色塊補齊 */
+        .tab:not(:first-child)::before {
+            content: '';
+            width: 10px;
+            height: 20px;
+            background-color: inherit;
+            position: absolute;
+            top: 0;
+            left: -10px;
+            z-index: -1;
+        }
+
+        .title {
+            background-color: #aaa;
+            color: #333;
+            border-radius: 0 15px 0 0;
+        }
+
+        .title>ul {
+            display: flex;
+            list-style: none;
+            padding: 20px 65px 10px 20px;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .title li {
+            font-weight: 600;
+        }
+
+        .content {
+            background-color: #aaa;
+            padding-bottom: 30px;
+            border-radius: 0 0px 15px 15px;
+            font-size: 22px;
+
+
+
+        }
+
+        .content div {
+            padding: 15px 50px 10px 20px;
+            margin-bottom: 10px;
+            border-bottom: 2px solid #333;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .content div img {
+            width: 50px;
+        }
+
+        .content div p {
+            width: 100px;
+            text-align: center;
+        }
+
+        .content div p:nth-of-type(1) {
+            text-align: start;
+
+        }
+
+        .content div p:nth-of-type(3),
+        .content div p:nth-of-type(4) {
+            font-size: 15px;
+            width: 110px;
+
+        }
+
+        .content div p:not(:nth-of-type(5)) {
+            padding-right: 30px;
+
+        }
+
+        .remove {
+            background-color: transparent;
+            color: transparent;
+            border: transparent;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="all">
+        <div class="tabs">
+            <div class="tab">今日白天</div>
+            <div class="tab">今晚明晨</div>
+            <div class="tab">明日白天</div>
+        </div>
+        <div class="title">
+            <ul>
+                <li>地區</li>
+                <li>溫度</li>
+                <li>圖示</li>
+                <li>體感</li>
+                <li>降雨率</li>
+            </ul>
+        </div>
+
+        <div class="content">
+            <!-- <div>
+                <p>基隆市</p>
+                <p>19~23</p>
+                <p><img src="./img/01.svg" alt=""></p>
+                <p>稍有寒意至舒適</p>
+                <p>100%</p>
+            </div>
+            <div>
+                <p>台北市</p>
+                <p>19~23</p>
+                <p><img src="./img/02.svg" alt=""></p>
+                <p>寒冷至舒適</p>
+                <p>0%</p>
+            </div>
+            <div>
+                <p>台北市</p>
+                <p>19~23</p>
+                <p><img src="./img/03.svg" alt=""></p>
+                <p>舒適</p>
+                <p>0%</p>
+            </div>
+            <div>
+                <p>台北市</p>
+                <p>19~23</p>
+                <p>圖示</p>
+                <p>寒冷至舒適</p>
+                <p>20%</p>
+            </div>
+            <div>
+                <p>台北市</p>
+                <p>20~23</p>
+                <p>圖示</p>
+                <p>舒適</p>
+                <p>0%</p>
+            </div> -->
+
+        </div>
+    </div>
+
+
+
+
+    <script>
+        // 1.利用fetch取得天氣資料顯示在網頁上
+        // 2.實作頁籤切換不同區域的天氣卡片
+        // 3.天氣卡片需要有
+        // (1)地區名字
+        // (2)最高溫到最低溫
+        // (3)降雨機率
+        // (4)天氣體感敘述
+        // (5)依據天氣描述顯示圖片
+
+        // 宣告變數
+        const tabs = document.querySelectorAll('.tab');
+        const content = document.querySelector('.content');
+        // console.log(tabs);
+        fetch('https://opendata.cwa.gov.tw/api/v1/rest/datastore/F-C0032-001?Authorization=CWA-2497FEFB-378D-4EE8-B9BE-C99ACEB8E680')
+            .then(res => {
+                // console.log(res);
+                return res.json();
+            }).then(data => {
+                const dataList = data.records.location;
+                // console.log(dataList);
+
+                // 預設點選今日白天介面
+                content.innerHTML = '';
+                tabs[0].classList.add('tab-active');
+                dataList.forEach((element, index) => {
+                    const locationName = dataList[index].locationName;
+                    const weatherEl = dataList[index].weatherElement;
+                    const MinT = weatherEl[2].time[0].parameter.parameterName;
+                    const MaxT = weatherEl[4].time[0].parameter.parameterName;
+                    const CI = weatherEl[3].time[0].parameter.parameterName;
+                    const PoP = weatherEl[1].time[0].parameter.parameterName;
+                    let Wx = weatherEl[0].time[0].parameter.parameterName;
+
+
+                    
+                    let changeImg;
+                    let weatherImg = [
+                        './img/01.svg',
+                        './img/02.svg',
+                        './img/03.svg',
+                        './img/04.svg',
+                        './img/05.svg',
+                        './img/06.svg',
+                    ];
+                    if (Wx == '晴時多雲') {
+                        changeImg = weatherImg[1];
+                    } else if (Wx == '多雲時晴') {
+                        changeImg = weatherImg[2];
+                    } else if (Wx == '多雲') {
+                        changeImg = weatherImg[3];
+                    } else if (Wx == '多雲短暫雨') {
+                        changeImg = weatherImg[4];
+                    }else if (Wx == '多雲時陰'){
+                        changeImg = weatherImg[5];
+                    }
+                    content.innerHTML += `
+                    <div>
+                        <p>${locationName}</p>
+                        <p>${MinT}~${MaxT}°C</p>
+                        <p><img src="${changeImg}" alt="${Wx}"></p>
+                        <p>${CI}</p>
+                        <p>${PoP}%</p>
+                    </div>`;
+                    // console.log(dataList);
+                });
+
+
+                // 事件監聽 切換頁籤
+                tabs.forEach((element, index) => {
+                    element.addEventListener('click', () => {
+                        tabs.forEach((removeTab) => {
+
+                            removeTab.classList.remove('tab-active');
+                        })
+                        element.classList.add('tab-active');
+
+                        // 點擊頁籤更換內容
+                        content.innerHTML = '';
+                        dataList.forEach((value, dlIndex) => {
+                            if (value !== undefined) {
+                                const locationName = dataList[dlIndex].locationName;
+                                const weatherEl = dataList[dlIndex].weatherElement;
+                                const MinT = weatherEl[2].time[index].parameter.parameterName;
+                                const MaxT = weatherEl[4].time[index].parameter.parameterName;
+                                const CI = weatherEl[3].time[index].parameter.parameterName;
+                                const PoP = weatherEl[1].time[index].parameter.parameterName;
+                                let Wx = weatherEl[0].time[index].parameter.parameterName;
+                                let changeImg;
+                                let weatherImg = [
+                                    './img/01.svg',
+                                    './img/02.svg',
+                                    './img/03.svg',
+                                    './img/04.svg',
+                                    './img/05.svg',
+                                    './img/06.svg',
+                                    
+                                ];
+                                if (Wx == '晴時多雲') {
+                                    changeImg = weatherImg[1];
+                                } else if (Wx == '多雲時晴') {
+                                    changeImg = weatherImg[2];
+                                } else if (Wx == '多雲') {
+                                    changeImg = weatherImg[3];
+                                } else if (Wx == '多雲短暫雨') {
+                                    changeImg = weatherImg[4];
+
+                                }else if (Wx == '多雲時陰'){
+                                    changeImg = weatherImg[5];
+                                }//else if (weatherEl[0].time[1].parameter.parameterName == '晴時多雲') {
+                                //     changeImg = weatherImg[5];
+                                //     console.log('111');
+                                // };
+
+
+                                content.innerHTML += `
+                                    <div>
+                                        <p>${locationName}</p>
+                                        <p>${MinT}~${MaxT}°C</p>
+                                        <p><img src="${changeImg}" alt="${Wx}"></p>
+                                        <p>${CI}</p>
+                                        <p>${PoP}%</p>
+
+                                    </div>`;
+                            }
+                        });
+                    });
+                });
+            });
+
+
+    </script>
+</body>
+
+</html>

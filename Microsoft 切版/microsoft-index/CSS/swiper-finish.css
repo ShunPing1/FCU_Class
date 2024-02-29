@@ -1,0 +1,257 @@
+
+body {
+  font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+  font-size: 14px;
+  color: #000;
+  margin: 0;
+  padding: 0;
+}
+
+.swiper {
+  width: 100%;
+  height: 100%;
+}
+
+.swiper-slide {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.swiper-slide img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  /* --Modify area--- */
+  margin-bottom: 10px;
+}
+
+/* ----------Modify area------------ */
+/* chevron area set */
+ .swiper-btn-area{
+    width: 200px;
+    height: 30px;
+    line-height: 30px;
+    padding: 0 5px;
+    font-size: 16px;
+    position: relative;
+    margin: auto;
+
+    
+}
+.swiper-button-prev,
+.swiper-button-next{
+    height: 26px;
+    position: absolute; 
+    top: 75%;
+    left: 50%;
+    transform: translateX(-50%);
+    
+
+}
+.swiper-button-prev{
+  transform: translateX(-65px);
+}
+
+.swiper-button-next{
+  transform: translateX(80px);
+}
+
+.swiper-button-prev:hover {
+  transform: translateX(-70px);
+  transition: 0.5s;
+}
+
+.swiper-button-next:hover {
+  transform: translateX(85px);
+  transition: 0.5s;
+}
+
+.swiper-button-prev:focus,
+.swiper-button-next:focus{
+  outline: 3px dotted #000;
+}
+
+.swiper-button-prev:after,
+.swiper-button-next:after{
+    color: #000;
+    font-size: 16px;
+}
+
+/* bullet區域設定 */
+.swiper-pagination-bullets.swiper-pagination-horizontal{
+  position: absolute;
+  width: 100px;
+  top: -2px;
+  left: 60%;
+  transform: translateX(-50%);
+}
+
+.swiper-pagination >.swiper-pagination-bullet-active,
+.swiper-pagination-bullet{
+  margin: -2px 16px !important;
+}
+
+.swiper-pagination >.swiper-pagination-bullet-active {
+  background-color: #000;
+  
+}
+
+.swiper-pagination-bullet{
+  background-color: #fff;
+  border: 1px solid #000;
+  opacity: 1;
+  cursor: pointer;
+}
+
+ /*play & stop btn set*/
+ .stop,
+ .play{
+  cursor: pointer;
+ }
+ 
+ .play{
+  display: none;
+ }
+
+ /* --advertise set-- */
+ .swiper-slide a,
+ .advertise-container a {
+   text-decoration: none;
+   color: unset;
+ }
+
+ .swiper-slide,
+ .advertise-container {
+  position: relative;
+}
+
+.slide-container,
+.advertise-text {
+  max-width: 568px;
+  font-size: 1rem;
+  text-align: justify;
+  color: #000;
+  padding: 48px;
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  top: 50%;
+  transform: translate(0, -50%);
+  z-index: 1;
+}
+
+.slide-container h2,
+.advertise-text h2 {
+  margin-bottom: 1.5rem;
+  font-size: 1.8125rem;
+  font-weight: 500;
+  text-align: start;
+}
+
+.slide-container .slide-content,
+.advertise-content {
+  margin-bottom: 30px;
+}
+
+.slide-href-btn,
+.advertise-href-btn {
+  width: 95px;
+  padding: 12.5px 15px;
+  font-size: 1rem;
+  color: #fff;
+  text-align: center;
+  font-weight: 600;
+  background-color: #0067b8;
+}
+
+.advertise-href-btn{
+  width: 150px;
+}
+
+.slide-href-btn:hover,
+.advertise-href-btn:hover {
+  background-color: #004a7f;
+}
+
+
+
+.slide-container-1 {
+  left: 60%;
+}
+
+.slide-container-2 {
+  left: 10%;
+  color: #fff;
+}
+.advertise-text{
+  color: #fff;
+}
+
+.slide-container-2 .new {
+  width: 78px;
+  padding: 7.5px 15px;
+  text-align: center;
+  font-weight: 600;
+  margin-bottom: 10px;
+  background-color: #ffb900;
+  color: #000;
+}
+
+/* RWD area */
+
+@media (max-width: 1354px) {
+  .advertise-text{
+    width: 400px;
+  }
+}
+@media (max-width: 1080px) {
+  .swiper-wrapper {
+    padding-bottom: 180px;
+  }
+  .advertise-container{
+    margin-bottom: 150px;
+  }
+  .slide-container,
+  .advertise-text{
+    max-width: unset;
+    width: 90vw;
+    top: 80%;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #fff;
+    color: #000;
+    box-shadow: 0 3px 3px #aaa;
+  }
+  .slide-container-2{
+    color: #000;
+  }
+}
+@media (max-width: 860px) {
+  .swiper-wrapper {
+    padding-bottom: 0px;
+  }
+  .swiper-slide img{
+    margin-bottom: 0px;
+  }
+
+  .advertise-container{
+    margin-bottom: 0px;
+    flex-direction: column;
+  }
+
+  .slide-container-1,
+  .slide-container-2,
+  .advertise-text{
+    max-width: unset;
+    width: 100%;
+    position: unset;
+    box-shadow: 0 0 0 transparent;
+    transform: translateX(0%);
+  
+  }
+
+}
+
+

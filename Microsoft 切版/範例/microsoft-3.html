@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="./css/microsoft-3.css">
+    <link rel="stylesheet" href="./css/my-swiper.css">
+</head>
+
+<body>
+    <nav class="container-normal">
+        <div class="logo">
+            <!-- <img src="./img/menu-icon/logo.png" alt="logo-img"> -->
+        </div>
+        <!-- 後來會隱藏 -->
+        <ul class="menu pc-menu">
+            <a href="">
+                <li>選項1</li>
+            </a>
+            <li tabindex="1">
+                <a href=""><span>Microsoft 365</span></a>
+            </li>
+            <li tabindex="1">
+                <a href=""><span>Teams</span></a>
+            </li>
+            <li tabindex="1">
+                <a href=""><span>Teams</span></a>
+            </li>
+            <li tabindex="1">
+                <a href=""><span>Teams</span></a>
+            </li>
+            <li tabindex="1">
+                <a href=""><span>Teams</span></a>
+            </li>
+        </ul>
+        <ul class="menu func-menu">
+            <!-- <li>漢堡條與menu</li> -->
+            <li class="ham-small container-normal">
+
+                <!-- 開關 -->
+                <input type="checkbox" id="ham-menu-switch" hidden>
+                <label for="ham-menu-switch" class="ham-menu"></label>
+                <!-- 手機menu -->
+                <ul class="mobile-menu">
+                    <!-- 單項  -->
+                    <li>AAA</li>
+                    <li>BBB</li>
+                    <li>CCC</li>
+                    <li>DDD</li>
+                    <!-- 多項 -->
+                    <input type="checkbox" id="chevron-soft-switch" class="chevron-switch" hidden>
+                    <label for="chevron-soft-switch" class="chevron-label">
+                        <li>
+                            <span>軟體</span>
+                            <i class="fa-solid fa-chevron-up"></i>
+                            <i class="fa-solid fa-chevron-down"></i>
+                        </li>
+                        <ul class="sub-dropdown-menu">
+                            <li>XXX</li>
+                            <li>YYY</li>
+                            <li>ZZZ</li>
+                        </ul>
+                    </label>
+                    <!-- 多項 -->
+                    <input type="checkbox" id="chevron-2-switch" class="chevron-switch" hidden>
+                    <label for="chevron-2-switch" class="chevron-label">
+
+                        <li>
+                            <span>軟體</span>
+                            <i class="fa-solid fa-chevron-up"></i>
+                            <i class="fa-solid fa-chevron-down"></i>
+                        </li>
+                        <ul class="sub-dropdown-menu">
+                            <li>XXX</li>
+                            <li>YYY</li>
+                            <li>ZZZ</li>
+                        </ul>
+                    </label>
+                    <input type="checkbox" id="chevron-3-switch" class="chevron-switch" hidden>
+                    <label for="chevron-3-switch" class="chevron-label">
+
+                        <li>
+                            <span>軟體</span>
+                            <i class="fa-solid fa-chevron-up"></i>
+                            <i class="fa-solid fa-chevron-down"></i>
+                        </li>
+                        <ul class="sub-dropdown-menu">
+                            <li>XXX</li>
+                            <li>YYY</li>
+                            <li>ZZZ</li>
+                        </ul>
+                    </label>
+                    <input type="checkbox" id="chevron-4-switch" class="chevron-switch" hidden>
+                    <label for="chevron-4-switch" class="chevron-label">
+
+                        <li>
+                            <span>軟體4</span>
+                            <i class="fa-solid fa-chevron-up"></i>
+                            <i class="fa-solid fa-chevron-down"></i>
+                        </li>
+                        <ul class="sub-dropdown-menu">
+                            <li>XXX4</li>
+                            <li>YYY4</li>
+                            <li>ZZZ4</li>
+                        </ul>
+                    </label>
+                    <!-- 單項  -->
+                    <li>檢視</li>
+                </ul>
+            </li>
+
+
+
+
+
+            <li class="all-microsoft">
+                <a href="">
+                    <span>all-microsoft</span>
+                    <img src="d" alt=".">
+                </a>
+            </li>
+            <li class="my-search">
+                <a href="">
+                    <span class="text-hide">搜尋</span>
+                    <img src="d" alt="搜">
+                </a>
+            </li>
+            <li class="cart">
+                <a href="">
+                    <span class="text-hide">購物車</span>
+                    <img src="d" alt="."></a>
+                </a>
+            </li>
+            <!-- icon或圖片 -->
+            <i class="fa-solid fa-magnifying-glass"></i></a>
+            </li>
+            <li class="login">
+                <a href="">
+                    <span class="text-hide">登入</span>
+                    <img src="d" alt=".">
+                </a>
+            </li>
+        </ul>
+    </nav>
+    <header>
+        <div id="swiper-top" class="swiper mySwiper">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide">
+                    <picture>
+                        <source media="(min-width:1200px)" srcset="./img/swiper-img/1-1920x600.avif">
+                        <source media="(min-width:900px)" srcset="./img/swiper-img/02-1_VP3-1083x600.avif">
+                        <source media="(min-width:500px)" srcset="./img/swiper-img/02-1_VP2-859x540.avif">
+
+                        <!-- <img src="./img/swiper-img/1-1399x600.avif" alt="Flowers" style="width:auto;"> -->
+                        <img src="./img/swiper-img/02-1_VP5-1920x600.avif" alt="">
+                    </picture>
+                    <div class="main-text">
+                        <h2>FFDDFDFDFD</h2>
+                        <div>dklgjadlkghdjkghdskjghsdjkghdsgjskghskdgdsgh</div>
+                        <!-- 必須如此處理 -->
+                        <a href="https://tw.yahoo.com/">
+                            <button class="main-text-btn">深入了解3</button>
+                        </a>
+                        <button class="main-text-btn-2"><a href="https://tw.yahoo.com/">深入了解3</a></button>
+                        
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <!-- <img src="./img/02-1_VP3-1083x600.avif" alt=""> -->
+                    <img src="./img/swiper-img//02-1_VP5-1920x600.avif" alt="">
+                    <div class="main-text">
+                        <h2>第二</h2>
+                        <div>22222222222222</div>
+                    </div>
+                </div>
+            </div>
+            <!-- 向後 -->
+            <div class="swiper-button-next"></div>
+            <!-- 向前 -->
+            <div class="swiper-button-prev"></div>
+            <!-- 分頁 -->
+            <div class="swiper-pagination"></div>
+        </div>
+
+
+
+        <!-- <img src="./img/swiper-img/1-1920x600.avif" alt=""> -->
+
+
+    </header>
+    <main>
+        <section class="container-normal main-chioce">
+            <div class="one-choice">
+                <a href="">
+                    <img src="./img/three-chice/Icon-80x80-Microsoft-365.webp" alt="">
+                    <div>選擇AAAAAAA</div>
+                </a>
+            </div>
+            <div class="one-choice">
+                <a href="">
+                    <img src="./img/three-chice/Icon-80x80-Microsoft-365.webp" alt="">
+                    <div>選擇AAAAAAA</div>
+                </a>
+            </div>
+            <div class="one-choice">
+                <a href="">
+                    <img src="./img/three-chice/Icon-80x80-Microsoft-365.webp" alt="">
+                    <div>選擇AAAAAAA</div>
+                </a>
+            </div>
+        </section>
+        <section class="container-normal four-card">
+            <div class="one-card">
+                <a href="">
+                    <img src="./img/four-img/1-1.avif" alt="">
+                    <h1 class="title">四張四張四張四張</h1>
+                    <div class="content">四張圖片四張圖片四張圖片</div>
+                    <p>適合 1 人使用</p>
+                    <p> 最多可供 6 人使用</p>
+                </a>
+            </div>
+            <div class="one-card">
+                <a href="">
+                    <img src="./img/four-img/1-1.avif" alt="">
+                    <h1 class="title">四張四張四張四張</h1>
+                    <div class="content">四張圖片四張圖片四張圖片</div>
+                    <p>適合 1 人使用</p>
+                    <p> 最多可供 6 人使用</p>
+                </a>
+            </div>
+            <div class="one-card">
+                <a href="">
+                    <img src="./img/four-img/1-1.avif" alt="">
+                    <h1 class="title">四張四張四張四張</h1>
+                    <div class="content">四張圖片四張圖片四張圖片</div>
+                    <p>適合 1 人使用</p>
+                    <p> 最多可供 6 人使用</p>
+                </a>
+            </div>
+            <div class="one-card">
+                <a href="">
+                    <img src="./img/four-img/1-1.avif" alt="">
+                    <h1 class="title">四張四張四張四張</h1>
+                    <div class="content">四張圖片四張圖片四張圖片</div>
+                    <p>適合 1 人使用</p>
+                    <p> 最多可供 6 人使用</p>
+                </a>
+            </div>
+        </section>
+        <section class="container-normal big-banner-down">
+            <!-- <img src="./img/swiper-img/1-1920x600.avif" alt=""> -->
+            <div id="swiper-down" class="swiper mySwiper-2">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+                        <picture>
+                            <source media="(min-width:1200px)" srcset="./img/swiper-img/1-1920x600.avif">
+                            <source media="(min-width:900px)" srcset="./img/swiper-img/02-1_VP3-1083x600.avif">
+                            <source media="(min-width:500px)" srcset="./img/swiper-img/02-1_VP2-859x540.avif">
+    
+                            <!-- <img src="./img/swiper-img/1-1399x600.avif" alt="Flowers" style="width:auto;"> -->
+                            <img src="./img/swiper-img/02-1_VP5-1920x600.avif" alt="">
+                        </picture>
+                        <div class="main-text">
+                            <h2>FFDDFDFDFD</h2>
+                            <div>dklgjadlkghdjkghdskjghsdjkghdsgjskghskdgdsgh</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+        </section>
+        <section class="container-normal four-card">
+            <div class="one-card">
+                <a href="">
+                    <img src="./img/four-img/1-1.avif" alt="">
+                    <h1 class="title">四張四張四張四張</h1>
+                    <div class="content">四張圖片四張圖片四張圖片</div>
+                    <p>適合 1 人使用</p>
+                    <p> 最多可供 6 人使用</p>
+                </a>
+            </div>
+            <div class="one-card">
+                <a href="">
+                    <img src="./img/four-img/1-1.avif" alt="">
+                    <h1 class="title">四張四張四張四張</h1>
+                    <div class="content">四張圖片四張圖片四張圖片</div>
+                    <p>適合 1 人使用</p>
+                    <p> 最多可供 6 人使用</p>
+                </a>
+            </div>
+            <div class="one-card">
+                <a href="">
+                    <img src="./img/four-img/1-1.avif" alt="">
+                    <h1 class="title">四張四張四張四張</h1>
+                    <div class="content">四張圖片四張圖片四張圖片</div>
+                    <p>適合 1 人使用</p>
+                    <p> 最多可供 6 人使用</p>
+                </a>
+            </div>
+            <div class="one-card">
+                <a href="">
+                    <img src="./img/four-img/1-1.avif" alt="">
+                    <h1 class="title">四張四張四張四張</h1>
+                    <div class="content">四張圖片四張圖片四張圖片</div>
+                    <p>適合 1 人使用</p>
+                    <p> 最多可供 6 人使用</p>
+                </a>
+            </div>
+        </section>
+        <section>其他</section>
+        <div>goTop</div>
+    </main>
+    <footer class="container-full">
+        <div class="footer-menu">
+            <!-- (ul>li{ABCDE}*5)*6 -->
+            <!-- (ul>(a>li{ABCDE})*5)*6 -->
+            <ul>
+
+                <h3>ABCDE</h3>
+                <a href="">
+                    <li>ABCDE</li>
+                </a>
+                <a href="">
+                    <li>ABCDE</li>
+                </a>
+                <a href="">
+                    <li>ABCDE</li>
+                </a>
+                <a href="">
+                    <li>ABCDE</li>
+                </a>
+            </ul>
+            <ul>
+                <a href="">
+                    <li>ABCDE</li>
+                </a>
+                <a href="">
+                    <li>ABCDE</li>
+                </a>
+                <a href="">
+                    <li>ABCDE</li>
+                </a>
+                <a href="">
+                    <li>ABCDE</li>
+                </a>
+                <a href="">
+                    <li>ABCDE</li>
+                </a>
+            </ul>
+            <ul>
+                <a href="">
+                    <li>ABCDE</li>
+                </a>
+                <a href="">
+                    <li>ABCDE</li>
+                </a>
+                <a href="">
+                    <li>ABCDE</li>
+                </a>
+                <a href="">
+                    <li>ABCDE</li>
+                </a>
+                <a href="">
+                    <li>ABCDE</li>
+                </a>
+            </ul>
+            <ul>
+                <a href="">
+                    <li>ABCDE</li>
+                </a>
+                <a href="">
+                    <li>ABCDE</li>
+                </a>
+                <a href="">
+                    <li>ABCDE</li>
+                </a>
+                <a href="">
+                    <li>ABCDE</li>
+                </a>
+                <a href="">
+                    <li>ABCDE</li>
+                </a>
+            </ul>
+            <ul>
+                <a href="">
+                    <li>ABCDE</li>
+                </a>
+                <a href="">
+                    <li>ABCDE</li>
+                </a>
+                <a href="">
+                    <li>ABCDE</li>
+                </a>
+                <a href="">
+                    <li>ABCDE</li>
+                </a>
+                <a href="">
+                    <li>ABCDE</li>
+                </a>
+            </ul>
+            <ul>
+                <a href="">
+                    <li>ABCDE</li>
+                </a>
+                <a href="">
+                    <li>ABCDE</li>
+                </a>
+                <a href="">
+                    <li>ABCDE</li>
+                </a>
+                <a href="">
+                    <li>ABCDE</li>
+                </a>
+                <a href="">
+                    <li>ABCDE</li>
+                </a>
+            </ul>
+        </div>
+        <div class="footer-nav">下方導覽列</div>
+    </footer>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script>
+        var swiper = new Swiper(".mySwiper", {
+            loop: true,
+            navigation: {
+                nextEl: ".swiper-button-next",
+                prevEl: ".swiper-button-prev",
+            },
+            pagination: {
+                el: ".swiper-pagination",
+                clickable: true,
+            },
+        });
+    </script>
+</body>
+
+</html>

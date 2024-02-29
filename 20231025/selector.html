@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* 萬用選取器 */
+        *{
+            margin: 0;
+        }
+        /* 標籤選取器 */
+        body{
+            background-color: #eee;
+        }
+        /* 類別選取器 */
+        .container{
+            width: 500px;
+            height: 500px;
+            background-color: #ccc;
+        }
+        .box{
+            width: 100px;
+            height: 100px;
+            background-color: #aaa;
+            float: left;
+            margin: 10px 10px;
+        }
+        /* id選取器 */
+        #box-3{
+            background-color: #faa;
+        }
+
+        /* 後代選取器 */
+        .container:hover .box-1{
+            background-color: #aaf;
+        }
+
+        /* 相鄰選取器 */
+        .box-1:hover ~.box{
+            background-color: #ffa;
+        }
+        
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="box box-1"></div>
+        <div class="box box-2"></div>
+        <div class="box box-3" id="box-3"></div>
+        <div class="box box-4"></div>
+        <div class="box box-5"></div>
+    </div>
+</body>
+</html>

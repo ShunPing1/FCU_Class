@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./css/lightbox.css">
+    <!-- <link rel="stylesheet" href="./css/lightbox.min.css"> -->
+    <style>
+        a img {
+            width: 200px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- 單張圖片 -->
+    <div>單張圖片</div>
+    <a href="../../img/sticker.png" data-lightbox="image-1" data-title="My caption">
+        <img src="../../img/sticker.png" alt="">
+    </a>
+
+
+    <hr>
+
+    <!-- 多張圖片切換 -->
+    <div>slide效果</div>
+    <!-- dataset 名字一致就能達到多張圖切換的效果 -->
+    <a  href="../../img/sticker.png" data-lightbox="slide">
+        <img  src="../../img/sticker.png" alt="">
+    </a>
+    <a  href="../../img/sticker2.png" data-lightbox="slide">
+        <img  src="../../img/sticker2.png" alt="">
+    </a>
+    <a  href="../../img/sticker3.png" data-lightbox="slide">
+        <img  src="../../img/sticker3.png" alt="">
+    </a>
+
+
+
+    <!-- 要記得copy image資料夾到檔案中 -->
+
+    <!-- <script src="../dist/js/lightbox-plus-jquery.min.js"></script> -->
+    <script src="./js/lightbox-plus-jquery.js"></script>
+</body>
+
+</html>

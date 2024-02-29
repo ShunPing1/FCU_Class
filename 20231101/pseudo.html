@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>偽類／偽元素</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .box{
+            width: 200px;
+            height: 200px;
+            margin-bottom: 20px;
+            text-align: center;
+            line-height: 200px;
+            background-color: #faa;
+            border-radius: 50%;
+        }
+        .box-2{
+            border-top: 100px solid #aaf;
+            border-right: 100px solid #fff;
+            border-bottom: 100px solid #aaf;
+            border-left: 100px solid #fff;
+            box-sizing: border-box;
+        }
+
+        /* --------偽類--------- */
+        /* 除了自己本身之外的元素 */
+        .box:not(#circle){
+            border-radius: 0%;
+            background-color: #aaf;
+        }
+
+        /* --------偽元素--------- */
+        .box-4{
+
+            position: relative;
+        }
+        .box-4::before{
+            content: " ";
+            width: 1px;
+            height: 1px;
+            background-color: transparent;
+            border-top: 20px solid #000;
+            border-right: 20px solid transparent;
+            border-bottom: 20px solid transparent;
+            border-left: 20px solid #000;
+            box-sizing: border-box;
+            position: absolute;
+            left: 0;
+        }
+        .box-4::after{
+            content: " ";
+            width: 1px;
+            height: 1px;
+            background-color: transparent;
+            border-top: 20px solid #000;
+            border-right: 20px solid #000;
+            border-bottom: 20px solid transparent;
+            border-left: 20px solid transparent;
+            box-sizing: border-box;
+            position: absolute;
+            right: 0;
+        }
+
+        #box-5.box-5{
+            position: relative;
+            left: 200px;
+            background-color: #88d;
+        }
+        .box-5::before{
+            content: "Before";
+            width: 200px;
+            height: 200px;
+            background-color: #99e;
+            border-radius: 50%;
+            left: -200px;
+            position: absolute;
+        }
+        .box-5::after{
+            content: "after";
+            width: 200px;
+            height: 200px;
+            background-color: #aaf;
+            border-radius: 50%;
+            left: 200px;
+            position: absolute;
+        }
+
+    </style>
+
+</head>
+<body>
+    <div id="circle" class="box box-1"></div>
+    <div class="box box-2"></div>
+    <div class="box box-3"></div>
+    <div class="box box-4">偽元素應用</div>
+    <div class="box box-5" id="box-5">偽元素應用</div>
+    
+</body>
+</html>

@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>parallax scolling Tset</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            font: 15px "Lato", sans-serif;
+        }
+        #imgArea-1, #imgArea-2, #imgArea-3, #imgArea-4{
+            width: 100%;
+            height: 100vh;
+            background-image: url(./img/parallax01.jpg);
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            opacity: 0.8;
+            position: relative;
+        }
+        #centerTxt-1, #centerTxt-2, #centerTxt-3, #centerTxt-4{
+            font-size: 30px;
+            letter-spacing: 5px;
+            color: #fff;
+            padding: 10px 20px;
+            background-color: #000;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+        #txtArea-1{
+            padding: 30px 60px;
+        }
+        #title-1{
+            font-size: 24px;
+            letter-spacing: 5px;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        #content-1, #content-2{
+            color: #aaa;
+            text-align: justify;
+            line-height: 1.5;
+        }
+
+        #imgArea-2{
+            background-image: url(./img/parallax02.jpg);
+        }
+        #centerTxt-2, #centerTxt-3{
+            background: none;
+            color: #fff;
+
+        }
+        #txtArea-2, #txtArea-3{
+            padding: 50px 30px;
+            background-color: #000;
+            opacity: 0.8;
+        }
+        #content-2{
+            color: #ccc;
+        }
+        #imgArea-3{
+            background-image: url(./img/parallax03.jpg);
+        }
+
+        #title-2{
+            font-size: 24px;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        #content-2, #content-3{
+            color: #ccc;
+            text-align: justify;
+            line-height: 1.5;
+        }
+
+    </style>
+</head>
+<body>
+<!-- 一、圖片區
+        1.圖片滿版
+        2.圖片淡化
+        3.視窗滾動
+        4.置中文字區
+            a.文字置中
+            b.padding
+     二、文字區 
+        1.title區塊
+            a.title置中
+        2.內文區塊
+            a.文字對齊justify
+        3.line-height 2被-->
+
+    <div id="all">
+        <div id="imgArea-1">
+            <div id="centerTxt-1">SCROLL DOWN</div>
+        </div>
+        <div id="txtArea-1">
+            <div id="title-1">PARALLAX DEMO</div>
+            <div id="content-1">Parallax scrolling is a web site trend where the background content is moved at a different speed than the foreground content while scrolling. Nascetur per nec posuere turpis, lectus nec libero turpis nunc at, sed posuere mollis ullamcorper libero ante lectus, blandit pellentesque a, magna turpis est sapien duis blandit dignissim. Viverra interdum mi magna mi, morbi sociis. Condimentum dui ipsum consequat morbi, curabitur aliquam pede, nullam vitae eu placerat eget et vehicula. Varius quisque non molestie dolor, nunc nisl dapibus vestibulum at, sodales tincidunt mauris ullamcorper, dapibus pulvinar, in in neque risus odio. Accumsan fringilla vulputate at quibusdam sociis eleifend, aenean maecenas vulputate, non id vehicula lorem mattis, ratione interdum sociis ornare. Suscipit proin magna cras vel, non sit platea sit, maecenas ante augue etiam maecenas, porta porttitor placerat leo.</div>
+        </div>
+        <div id="imgArea-2">
+            <div id="centerTxt-2">LESS HEIGHT</div>
+        </div>
+        <div id="txtArea-2">
+            <div id="content-2"> Scroll up and down to really get the feeling of how Parallax Scrolling works.</div>
+        </div>
+        <div id="imgArea-3">
+            <div id="centerTxt-3">SCROLL UP</div>
+        </div>
+        <div id="txtArea-3">
+            <div id="content-3">Scroll up and down to really get the feeling of how Parallax Scrolling works.</div>
+        </div>
+        <div id="imgArea-4">
+            <div id="centerTxt-4">Cool!</div>
+        </div>
+
+    </div>
+</body>
+</html>

@@ -1,0 +1,714 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', SegoeUI, "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+/* web vision */
+.normal-container {
+    width: 90%;
+    max-width: 1596px;
+    margin: auto;
+    display: flex;
+    /* background-color: #faa; */
+
+}
+@media (max-width: 1083px) {
+    .normal-container {
+        width: 95%;
+    }
+}
+.full-container {
+    width: 100%;
+    display: flex;
+
+}
+/* nav */
+
+nav {
+    height: 54px;
+    padding: 5px;
+    position: relative;
+}
+
+.logo {
+    line-height: 54px;
+    padding: 0 5px;
+    cursor: pointer;
+    
+}
+.logo>img {
+    width: 108px;
+    height: 23px;
+}
+
+
+
+.menu {
+    font-size: 13px;
+    list-style: none;
+    display: flex;
+}
+
+.menu a {
+    text-decoration: none;
+    color: #000;
+}
+
+.menu.menu-1 {
+    /* .menu-1靠左 */
+    margin-right: auto;
+}
+
+/* 用於手機板頁面將nav內容分開 */
+.menu2-L,
+.menu2-R{
+    display: flex;
+}
+
+
+
+.menu-li {
+    padding:  16px 10px 10px;
+    /* margin: 10px; */
+}
+
+
+.menu-list.more{
+    display: none;
+}
+
+.menu-li .text {
+    display: inline-block;
+}
+
+/* ham-btn area */
+.menu-li.ham-area{
+    display: none;
+    padding: 5px 0px 0px 0px;
+    margin-left: 5px;
+}
+.ham-btn{
+   width: 45px;
+   height: 40px;
+   background-image: url(../img/ham/ham-btn.png); 
+   background-repeat: no-repeat;
+   background-position: center;
+}
+.ham-container{
+    width: 99%;
+    position: absolute;
+    top: 54px;
+    left: 2px;
+    z-index: 2;
+    display: none;
+}
+.ham-container ul{
+    width: 100%;
+    list-style: none;
+}
+.ham-container ul li,
+.ham-container label p{
+    display: block;
+    padding: 14px 24px 15px 15px;
+    border-bottom: 2px solid #f2f2f2;
+    cursor: pointer;
+}
+.ham-container >ul >li:last-of-type{
+    border-bottom: 1px solid #000;
+}
+
+.ham-checkbox-label .fa-solid{
+    float: right;
+}
+.ham-checkbox-label .fa-chevron-up{
+    display: none;
+}
+.ham-checkbox-label  .ham-checkbox-ul{
+    display: none;
+    padding-left: 20px;
+}
+/* ham-btn-checked */
+#ham-icon:checked +.ham-area >.ham-btn{
+    background-image: url(../img/ham/close-btn.png);
+}
+#ham-icon:checked ~.ham-container{
+    background-color: #fff;
+    display: flex;
+}
+/* ham-container內容checked */
+.ham-checkbox:checked +.ham-checkbox-label >.ham-checkbox-ul{
+    display: block;
+}
+.ham-checkbox:checked +.ham-checkbox-label .fa-chevron-down{
+    display: none;
+}
+.ham-checkbox:checked +.ham-checkbox-label .fa-chevron-up{
+    display: block;
+}
+
+
+
+
+
+
+
+/* more-list */
+.menu-list.more{
+    height: 54px;
+    line-height: 49px;
+    padding: 0 10px;
+    position: relative;
+}
+.more-list{
+    display: none;
+    width: 168px;
+    background-color: #f2f2f2;
+    position: absolute;
+    top: 48px;
+    left: 0%;
+    z-index: 2;
+}
+.more-list .more-list-Xbox,
+.more-list .more-list-support{
+    padding-left: 18px;
+}
+#more-btn:checked +.menu-list.more >.more-list{
+    display: block;
+}
+
+/* all-Microsoft content */
+.all-Microsoft{
+    padding: 16px 10px 10px;
+    height: 60px;
+}
+
+.all-Microsoft-container{
+    width: 80%;
+    background-color: #f2f2f2;
+    position: absolute;
+    top: 54px;
+    left: 20%;
+    z-index: 2;
+    display: none;
+}
+.all-Microsoft-up-content{
+    display: flex;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+}
+.all-Microsoft-up-content ul{
+    min-width: 195px;
+    flex: 1;
+    list-style: none;
+}
+.all-Microsoft-up-content h2{
+    font-size: 13px;
+    padding: 18px 0px 18px 24px;
+}
+
+.all-Microsoft-up-content a{
+    width: 100%;
+    height: 100%;
+    padding: 12px 0px 12px 24px;
+    display: block;
+}
+
+
+.all-Microsoft-down-map{
+    width: 100%;
+    height: 38px;
+    text-align: center;
+    line-height: 38px;
+    background-color: #e6e6e6;
+    border-bottom: 2px solid #000;
+}
+.all-Microsoft-down-map a{
+    /* background-color: #faa; */
+    padding: 8px 50px;
+}
+/* #all-Microsoft checkbox */
+/* 使用checkbox達到focus效果 */
+#all-Microsoft-container:checked +.all-Microsoft >.text,
+#more-btn:checked +.menu-list.more >.text{
+    border-bottom: 2px solid #000;
+}
+#all-Microsoft-container:checked + .all-Microsoft,
+#more-btn:checked +.menu-list.more{
+    background-color: #f2f2f2;
+    outline: 1px dashed #000;
+}
+#all-Microsoft-container:checked ~ .all-Microsoft-container{
+    display: block;
+}
+
+
+
+/* nav-hover */
+.menu-li:hover>.text,
+.all-Microsoft:hover >.text,
+.more-list-Xbox:hover >.text,
+.more-list-support:hover >.text{
+    border-bottom: 2px solid #000;
+}
+.more-list-Xbox:hover,
+.more-list-support:hover{
+    background-color: #e2e2e2;
+}
+
+.menu-li:focus>.text,
+.more-list-Xbox:focus >.text,
+.more-list-support:focus >.text{
+    border-bottom: 2px solid #000;
+}
+
+.logo:focus,
+.menu-li:focus,
+.more-list-Xbox:focus,
+.more-list-support:focus,
+.ham-container li:focus,
+.ham-checkbox-label p:focus{
+    outline: 1px dashed #000;
+}
+
+
+.more-list-Xbox:focus,
+.more-list-support:focus{
+    background-color: #e2e2e2;
+}
+
+/* menu-rwd */
+@media (max-width: 1399px) {
+
+    .menu-list.more{
+        display: block;
+    }
+    .menu-li.Xbox,
+    .menu-li.support{
+        display: none;
+    }
+    .menu.menu-2 .text{
+        display: none;
+    }
+    .menu-2 .all-Microsoft .text{
+        display: inline-block;
+    }
+}
+@media (max-width: 859px) {
+    .menu-li.ham-area{
+        display: block;
+        cursor: pointer;
+    }
+    .menu.menu-1,
+    .menu-2 .all-Microsoft{
+        display: none;
+    }
+    nav.normal-container{
+        width: 100%;
+    }
+    nav{
+        position: relative;
+        top: 0;
+        left: 0;
+    }
+    .menu.menu-2{
+        width: 100%;
+        /* background-color: #ccc; */
+        justify-content: space-between;
+        align-items: center;
+    }
+    .logo{
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+
+    
+}
+
+
+
+
+
+/* main */
+.all-choice {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    padding-top: 50px;
+
+}
+
+.choice {
+    text-align: center;
+    margin: 20px 30px;
+
+}
+
+
+.choice-href {
+    display: block;
+    color: #0067b8;
+    font-size: 13px;
+    font-weight: 600;
+    margin-top: 5px;
+}
+.choice-text{
+    padding: 2px
+}
+/* choice-rwd */
+@media (max-width: 748px) {
+    .choice-1,
+    .choice-2{
+        width: calc(50% - (30px * 2));
+    }
+}
+@media (max-width: 539px) {
+    .choice-1{
+        width: 100%;
+    }
+    .choice-2,
+    .choice-3{
+        width: calc(50% - (30px * 2));
+    }
+}
+@media (max-width: 476px) {
+    .choice-1
+    .choice-2,
+    .choice-3{
+        width: 100%;
+    }
+}
+
+
+/* blue dotted :focus */
+.choice-text:focus,
+.all-content .content .link:focus{
+    outline: 3px dotted #0067b8;
+}
+
+
+.all-content {
+    padding-top: 50px;
+    margin-bottom: 3rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: start;
+    flex-wrap: wrap;
+
+}
+
+.all-content>.content {
+    /* background-color: #fff; */
+    flex: 1;
+    line-height: 1.5;
+    padding: 0 12px;
+}
+
+@media (max-width: 1083px) {
+    .all-content>.content {
+        flex: none;
+        width: 50%;
+    }
+}
+@media (max-width: 540px) {
+    .all-content>.content {
+        flex: none;
+        width: 100%;
+    }
+}
+
+.pic>img {
+    width: 100%;
+}
+
+.all-content>.content h3 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 16px;
+}
+
+.all-content>.content>p,
+.link {
+    width: 100%;
+    font-size: 1rem;
+    text-align: justify;
+}
+
+.all-content a {
+    text-decoration: none;
+    color: #000;
+}
+
+.content .link {
+    width: auto;
+    display: inline-block;
+    font-weight: 600;
+    color: #0067b8;
+    padding: 0px 40px 2px 2px;
+    margin: 16px 0px;
+}
+.content .link span{
+    margin: 0;
+    position: relative;
+}
+.content .link span::after{
+    content: " ";
+    width: 30px;
+    height: 30px;
+    position: absolute;
+    top: -45%;
+    left: 100%;
+    background-image: url(../img/arrow/arrow.png);
+    background-position: center;
+    background-size: contain;
+    transition: 0.5s;
+}
+.content .link span:hover{
+    border-bottom: 2px solid #0067b8;
+}
+.content .link:hover >span::after{
+    content: " ";
+    left: 105%;
+}
+.link.link-1{
+    margin: 8px 0px;
+}
+
+/* advertise */
+.advertise-img >img{
+    max-width: 1596px;
+    width: 89vw;
+    display: block;
+}
+@media (max-width: 1083px) {
+    .advertise-img >img{
+        width: 93vw;
+    }
+}
+
+/* business */
+.all-content>h2 {
+    width: 100%;
+    margin-left: 12px;
+}
+
+/* other */
+.other {
+    flex-wrap: wrap;
+    padding: 50px 12px;
+    font-size: 13px;
+}
+
+.follow {
+    width: 100%;
+    margin: 0 0 50px 5px;
+
+}
+
+
+.follow a {
+    margin: 0 10px;
+    text-decoration: none;
+    font-size: 20px;
+    color: #000;
+}
+main a{
+    color: #000;
+}
+
+.gotop{
+    padding: 10px 15px;
+    font-size: 1rem;
+    background-color: #ccc;
+    margin: 0 10px 50px 0;
+    float: right;
+    position: sticky;
+    bottom: 15px;
+    right: 15px;
+    z-index: 2;
+    transition: 0.5s;
+}
+
+.gotop:hover{
+    background-color: #fff;
+    box-shadow: 0 2px 2px #aaa;
+}
+
+/* footer */
+footer {
+
+    background-color: #eee;
+    /* 讓footer-nav換行 */
+    flex-wrap: wrap;
+}
+
+.footer-content {
+    width: 90%;
+    max-width: 1596px;
+    margin: auto;
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+
+}
+.footer-ul {
+    width: calc(90% / 6);
+    list-style: none;
+}
+/* footer icon */
+
+@media (max-width: 1083px) {
+    .footer-ul {
+        width: calc(90% / 3);
+    }
+    
+}
+@media (max-width: 540px) {
+    .footer-ul {
+        width: 100%;
+    }
+    .footer-content{
+        width: 100%;
+        padding: 0 24px;
+    }
+    
+}
+
+.footer-ul h2 {
+    font-size: 1rem;
+    font-size: 15px;
+    color: #616161;
+    padding: 36px 0px 4px;
+}
+
+.footer-ul a {
+    text-decoration: none;
+    font-size: 11px;
+    padding: 4px;
+    color: #616161;
+}
+
+.footer-ul li {
+    width: auto;
+    padding: 8px 0px;
+}
+.footer-href{
+    padding: 5px;
+}
+
+
+/* footer & all-Microsoft-container hover */
+.footer-href:hover .footer-span,
+.all-Microsoft-down-map a:hover span,
+.all-Microsoft-up-content a:hover span{
+    border-bottom: 1px solid #000;
+
+}
+
+.footer-href:focus,
+.all-Microsoft-down-map a:focus,
+.all-Microsoft-up-content a:focus {
+    outline: 1px dashed #000;
+}
+
+.footer-href:focus .footer-span,
+.all-Microsoft-down-map a:focus span,
+.all-Microsoft-up-content a:focus span {
+    border-bottom: 1px solid #000;
+
+}
+
+
+
+.footer-nav {
+    width: 90%;
+    font-size: 11px;
+    margin: auto;
+    padding: 30px 0 16px;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.footer-nav-all {
+    display: flex;
+    flex-wrap: wrap;
+    list-style: none;
+}
+
+.footer-nav-all>li {
+    padding: 0 24px 4px 0;
+    color: #616161;
+    margin-right: 5px;
+}
+
+.footer-nav-all a{
+    text-decoration: none;
+    color: #616161;
+}
+.footer-nav-L .footer-span{
+    margin-left: 25px;
+}
+.footer-nav-L .privacy span{
+    margin-left: 40px;
+}
+.footer-nav-L .footer-href{
+
+    background-image: url(../img/footer/earth.png);
+    background-repeat: no-repeat;
+    background-position: left;
+
+}
+.footer-nav-L .privacy a{
+
+    background-image: url(../img/footer/privacy.png);
+    background-repeat: no-repeat;
+    background-position: left;
+}
+
+
+
+.footer-nav-L li{
+    margin: 4px 0;
+}
+
+@media (max-width: 1083px) {
+    .footer-nav{
+        width: 100%;
+        margin: 0;
+        padding: 30px 24px 16px;
+    }
+    .footer-nav-L,
+    .footer-nav-L li{
+        width: 100%;
+    }
+    .footer-nav-all.footer-nav-R{
+        width: 100%;
+        justify-content: flex-end;
+    }
+    .footer-nav-R li{
+        margin: 0;
+    }
+}
+@media (max-width: 770px) {
+    .footer-nav-all.footer-nav-R{
+        width: 100%;
+        justify-content: flex-start;
+    }
+    .footer-nav-R li{
+        margin: 0;
+        padding: 6px 4px 0px 6px;
+    }
+}
+
+.gotop-hide{
+    color: transparent;
+    background-color: transparent;
+    visibility: hidden;
+}

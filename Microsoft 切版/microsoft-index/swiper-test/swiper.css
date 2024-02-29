@@ -1,0 +1,171 @@
+.swiper {
+  width: 100%;
+  height: 100%;
+}
+
+.swiper-slide {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.swiper-slide img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.swiper {
+  --swiper-navigation-size: 16px;
+  --swiper-navigation-top-offset: 50%;
+  --swiper-navigation-sides-offset: 20px;
+  --swiper-navigation-color: #262626;
+}
+
+.swiper.swiper-control {
+  transform: translate(20px,10px);
+  width:200px;
+  overflow: visible;
+  margin-bottom: 8px;
+}
+
+
+.swiper .swiper-pagination-bullet {
+  width: 8px;
+  height: 8px;
+  background-color: #fff;
+  border: 1px solid #262626;
+  opacity: 1;
+  cursor: pointer;
+}
+
+.swiper .swiper-pagination-bullet-active {
+  background-color: #262626;
+}
+.swiper .swiper-pagination-bullets.swiper-pagination-horizontal {
+z-index: -1;
+  left: 50%;
+  transform: translate(-50%,5px);
+}
+.swiper .swiper-pagination-horizontal.swiper-pagination-bullets .swiper-pagination-bullet{
+  margin: 0 16px;
+}
+
+
+
+
+
+.swiper-content-1,
+.swiper-content-2 {
+  position: absolute;
+  text-align: left;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.swiper-content-1 {
+  color: #ffffff;
+  left: 100px;
+  width: 40%;
+}
+
+.swiper-content-2 {
+  color: #262626;
+  right: 80px;
+  width: 35%;
+}
+
+.swiper-content .title {
+  position: relative;
+  font-size: 37px;
+  font-weight: bold;
+  margin-bottom: 16px;
+}
+
+.swiper-content-1 .title::before {
+  position: absolute;
+  top: -70%;
+  left: 0;
+  content: "新上市";
+  font-size: 16px;
+  font-weight: bold;
+  color: #262626;
+  padding: 8px 10px;
+  background-color: #ffb900;
+}
+
+.swiper-content .content {
+  font-size: 16px;
+  margin-bottom: 30px;
+}
+
+.swiper-content button {
+  padding: 2px 5px;
+  font-weight: 700;
+  background-color: #0067b8;
+  box-shadow: 0 0 0 4px #0067b8;
+  border: 3px dotted transparent;
+}
+.swiper-content button a {
+  color: #ffffff;
+}
+.swiper-content button:hover {
+  background-color: #005799;
+  box-shadow: 0 0 0 4px #005799;
+  border: 3px dotted #ffffff;
+}
+
+.swiper-content button:focus {
+  border: 3px dotted #ffffff;
+}
+
+
+
+.stop,
+.play{
+  font-size: 20px;
+  cursor: pointer;
+  position: relative;
+  top: 0px;
+  left: -20px;
+}
+
+.play {
+  display: none;
+}
+@media (max-width: 1080px) {
+  .swiper {
+    overflow: visible;
+  }
+  .swiper-wrapper {
+    padding-bottom: 180px;
+  }
+  .headerSwiper .swiper-content {
+    top: 90%;
+    left: 50%;
+    width: 90%;
+    right: unset;
+    padding: 48px 15px;
+    transform: translateX(-50%);
+    background-color: #ffffff;
+    box-shadow: 0 0 5px #cccccc;
+  }
+  .swiper-content-1 {
+    color: #262626;
+  }
+  .swiper-content-1 .title::before {
+    top: -100%;
+    font-size: 16px;
+    padding: 5px 10px;
+  }
+  .swiper-content .title {
+    font-size: 29px;
+    font-weight: bold;
+    margin: 8px 0;
+  }
+}
+@media (max-width: 859px) {
+  .headerSwiper .swiper-content {
+    width: 95%;
+  }
+}

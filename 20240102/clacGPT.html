@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>按键式计算器</title>
+	<style>
+		table, td {
+			border: 1px solid black;
+			border-collapse: collapse;
+			padding: 10px;
+		}
+	</style>
+</head>
+<body>
+	<table>
+		<tr>
+			<td colspan="4"><input type="text" id="result" disabled></td>
+		</tr>
+		<tr>
+			<td><button onclick="append('7')">7</button></td>
+			<td><button onclick="append('8')">8</button></td>
+			<td><button onclick="append('9')">9</button></td>
+			<td><button onclick="append('/')">÷</button></td>
+		</tr>
+		<tr>
+			<td><button onclick="append('4')">4</button></td>
+			<td><button onclick="append('5')">5</button></td>
+			<td><button onclick="append('6')">6</button></td>
+			<td><button onclick="append('*')">×</button></td>
+		</tr>
+		<tr>
+			<td><button onclick="append('1')">1</button></td>
+			<td><button onclick="append('2')">2</button></td>
+			<td><button onclick="append('3')">3</button></td>
+			<td><button onclick="append('-')">-</button></td>
+		</tr>
+		<tr>
+			<td><button onclick="append('0')">0</button></td>
+			<td><button onclick="append('.')">.</button></td>
+			<td><button onclick="calculate()">=</button></td>
+			<td><button onclick="append('+')">+</button></td>
+		</tr>
+		<tr>
+			<td colspan="4"><button onclick="clearAll()">清空</button></td>
+		</tr>
+	</table>
+
+	<script>
+		let expression = '';
+		const result = document.getElementById('result');
+
+		const append = (value) => {
+			expression += value;
+			result.value = expression;
+		};
+
+		const calculate = () => {
+			result.value = eval(expression);
+			expression = result.value;
+		};
+
+		const clearAll = () => {
+			expression = '';
+			result.value = '';
+		};
+	</script>
+</body>
+</html>

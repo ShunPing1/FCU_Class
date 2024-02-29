@@ -1,0 +1,82 @@
+// variable Area
+$header-bgcolor: #fa0;
+$headerTop-bgcolor: #ffa;
+$headerBottom-bgcolor: #f5a;
+
+
+// extend Area 繼承相同屬性的元素，在產出的CSS中會將繼承的元素整理再一起
+%headerAll {
+    background-color: $headerTop-bgcolor;
+    max-width: 1200px;
+    margin: auto;
+    display: flex;
+}
+%hesderTopAll{
+    width: 50%;
+    height: 100%;
+}
+%headerBottomBetween{
+    width: 30%;
+    height: 100%;
+    background-color: #0ff;
+}
+%h-b-m-All{
+    width: 100%;
+    height: 50%;
+    background-color: #ffa;
+    
+}
+
+
+
+// program Area
+body {
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background-color: $header-bgcolor;
+
+    >#headerTop {
+        @extend %headerAll;
+        height: 100px;
+        >#h-Top-L{
+            @extend %hesderTopAll;
+            background-color: #faa;
+   
+        }
+        >#h-Top-R{
+            @extend %hesderTopAll;
+            background-color: #aaf;
+        
+        }
+    }
+
+    >#headerBottom {
+        @extend %headerAll;
+        height: 200px;
+        >#LOGO{
+            @extend %headerBottomBetween;
+
+        }
+        >#h-bottom-M{
+            width: 40%;
+            height: 100%;
+            >#h-b-m-top{
+                @extend %h-b-m-All;
+
+            }
+            >#h-b-m-bottom{
+                @extend %h-b-m-All;
+                background-color: #0ca;
+
+            }
+        }
+        >#h-bottom-R{
+            @extend %headerBottomBetween;
+
+        }
+        
+    }
+}

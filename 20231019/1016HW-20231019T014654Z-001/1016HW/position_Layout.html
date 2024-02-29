@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>position_layout.html</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .header {
+            margin-top: 40px;
+            background: linear-gradient(to bottom, #aaa, #eee, #fff);
+        }
+
+        .nav {
+            width: 100%;
+            height: 40px;
+            background-color: #000;
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 9;
+        }
+
+        .wrap {
+            width: 100%;
+            height: 100%;
+            background-color: #fff;
+            position: relative;
+        }
+
+        .logo {
+            width: 20px;
+            height: 20px;
+            background-image: url(./img/svgexport-1.svg);
+            background-repeat: no-repeat;
+            background-size: contain;
+            position: absolute;
+            top: calc(50% - 10px);
+            left: 10px;
+            cursor: pointer;
+
+
+        }
+
+        .serch {
+            width: 150px;
+            height: 20px;
+            background-color: #eee;
+            background-image: url(./img/svgexport-3.svg);
+            background-size: 15px;
+            background-position: 5px;
+            background-repeat: no-repeat;
+
+            position: absolute;
+            top: calc(50% - 10px);
+            left: 35px;
+            border-radius: 25px;
+        }
+
+        .icon {
+            width: 60px;
+            height: 30px;
+            position: absolute;
+            top: calc(50% - 15px);
+            left: calc(50% - 30px);
+            /* background-set */
+            background-size: 20px 20px;
+            background-repeat: no-repeat;
+            background-position: center;
+            cursor: pointer;
+
+        }
+
+        .icon:hover {
+            background-color: #ccc;
+            border-radius: 10px;
+        }
+
+        .icon.homepage {
+            left: calc((50% - 30px) - 130px);
+            background-image: url(./img/svgexport-4.svg);
+
+        }
+
+        .icon.video {
+            left: calc((50% - 30px) - 65px);
+            background-image: url(./img/svgexport-5.svg);
+        }
+
+        .icon.market {
+            background-image: url(./img/svgexport-6.svg);
+            z-index: 2;
+        }
+
+        .icon.group {
+            left: calc((50% - 25px) + 60px);
+            background-image: url(./img/svgexport-7.svg);
+        }
+
+        .icon.game {
+            left: calc((50% - 25px) + 125px);
+            background-image: url(./img/svgexport-8.svg);
+        }
+
+        .icon-L {
+            width: 20px;
+            height: 20px;
+            /* background-color: #000; */
+            background-size: 15px 15px;
+            background-repeat: no-repeat;
+            background-position: center;
+            background-color: #ccc;
+            position: absolute;
+            top: calc(50% - 10px);
+            right: 10px;
+            border-radius: 50%;
+            cursor: pointer;
+        }
+
+        .icon-L:hover {
+            background-color: #aaa;
+        }
+
+        .icon-L.more {
+            right: 115px;
+            background-image: url(./img/svgexport-14.svg);
+        }
+
+        .icon-L.message {
+            right: 80px;
+            background-image: url(./img/svgexport-12.svg);
+
+        }
+
+        .icon-L.bell {
+            right: 45px;
+            background-image: url(./img/svgexport-11.svg);
+
+        }
+
+        .icon-L.acount {
+            right: 10px;
+            background-image: url(./img/avatar.jpg);
+            background-size: cover;
+        }
+
+
+
+
+
+
+        .banner {
+            width: 80%;
+            height: 300px;
+            background-image: url(./img/banner.png);
+            background-color: #aaa;
+            background-size: cover;
+            background-position: center;
+            border-radius: 0 0 10px 10px;
+            position: relative;
+            left: 10%;
+        }
+
+        .editPageImg {
+            width: 110px;
+            height: 20px;
+            font-size: 12px;
+            text-align: center;
+            line-height: 20px;
+            color: #fff;
+            background-color: #000;
+            position: absolute;
+            bottom: 20px;
+            right: 20px;
+            border-radius: 5px;
+            opacity: 0.6;
+            cursor: pointer;
+        }
+
+
+        .container {
+
+            width: 80%;
+            height: 100px;
+            position: relative;
+            left: 10%;
+
+            z-index: 4;
+
+        }
+
+        .avatar {
+            width: 120px;
+            height: 120px;
+            border: 5px solid #fff;
+            cursor: pointer;
+            background-image: url(./img/avatar.jpg);
+            background-size: cover;
+            background-position: top;
+            background-repeat: no-repeat;
+            border-radius: 50%;
+            position: absolute;
+            top: -30px;
+            left: 20px;
+        }
+
+        .avatar-camera {
+            width: 20px;
+            height: 20px;
+            font-size: 12px;
+            color: #fff;
+            text-align: center;
+            line-height: 20px;
+            background-color: #555;
+            cursor: pointer;
+            border: 2px solid #fff;
+            border-radius: 50%;
+            position: absolute;
+            top: 60px;
+            left: 123px;
+
+
+        }
+
+        .name {
+            position: absolute;
+            top: 20px;
+            left: 170px;
+            font-size: 30px;
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        }
+
+        .friend {
+            font-size: 10px;
+            font-family: 微軟正黑體;
+            position: absolute;
+            top: 50px;
+            left: 170px;
+        }
+
+        .news {
+            width: 130px;
+            height: 20px;
+            font-size: 12px;
+            text-align: center;
+            line-height: 20px;
+            background-color: rgb(38, 142, 228);
+            color: #fff;
+            border-radius: 3px;
+            cursor: pointer;
+            position: absolute;
+            bottom: 0;
+            right: 105px;
+
+        }
+
+        .news::first-letter {
+            font-size: 13px;
+            margin-right: 5px;
+        }
+
+        .editFile {
+            width: 100px;
+            height: 20px;
+            text-align: center;
+            line-height: 20px;
+            font-size: 12px;
+            background-color: #333;
+            color: #fff;
+            border-radius: 3px;
+            cursor: pointer;
+            position: absolute;
+            bottom: 0;
+            right: 0;
+
+        }
+
+        .boder {
+            width: 80%;
+            height: 100px;
+            border-top: 0.5px solid #aaa;
+            position: relative;
+            top: 10px;
+            left: 10%;
+        }
+
+        @media (max-width: 768px) {
+            .header{
+                background: none;
+            }
+            .serch {
+                width: 20px;
+                height: 20px;
+                background-position: center;
+                border-radius: 50%;
+                cursor: pointer;
+            }
+
+            .icon {
+                display: none;
+            }
+
+            .banner {
+                height: 200px;
+            }
+
+            .editPageImg {
+                width: 20px;
+                border-radius: 50%;
+
+
+            }
+
+            .editPageImg span {
+                display: none;
+
+            }
+
+            .container {
+                height: 200px;
+
+            }
+            .avatar{
+            left: calc(50% - 60px);
+            }
+
+            .avatar-camera{
+                left: 220px;
+                top: 65px;
+                left: calc(50% + 40px);
+            }
+
+            .name{
+                left: calc(50% - 30px);
+                top: calc(50% - 5px);
+
+            }
+            .friend{
+                left: calc(50% - 20px);
+                top: calc(50% + 30px);
+            }
+
+            .news{
+                top: 160px;
+                left: calc(50% - 120px);
+            }
+            .editFile{
+                top: 160px;
+                left: calc(50% + 20px);
+            }
+            .boder{
+                top: 0px;
+            }
+
+        }
+    </style>
+</head>
+
+<body>
+    <div class="header">
+
+        <div class="nav">
+            <div class="wrap">
+                <div class="logo"></div>
+                <div class="serch"></div>
+                <div class="icon homepage"></div>
+                <div class="icon video"></div>
+                <div class="icon market"></div>
+                <div class="icon group"></div>
+                <div class="icon game"></div>
+                <div class="icon-L message"></div>
+                <div class="icon-L more"></div>
+                <div class="icon-L bell"></div>
+                <div class="icon-L acount"></div>
+            </div>
+        </div>
+        <div class="banner">
+            <div class="editPageImg"><i class="fa-solid fa-camera"></i><span>編輯封面照片</span></div>
+
+        </div>
+        <div class="container">
+            <div class="avatar"></div>
+            <div class="avatar-camera"><i class="fa-solid fa-camera"></i></div>
+            <div class="name">Name</div>
+            <div class="friend">200位朋友</div>
+            <div class="news">+新增到限時動態</div>
+            <div class="editFile"><i class="fa-solid fa-pen"></i>&nbsp;編輯個人檔案</div>
+        </div>
+        <div class="boder"></div>
+
+    </div>
+
+    <script src="https://kit.fontawesome.com/2af4327e6c.js" crossorigin="anonymous"></script>
+</body>
+
+</html>

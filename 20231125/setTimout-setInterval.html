@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>計時功能測試</title>
+</head>
+<body>
+    
+
+
+
+    <script>
+        let x = 30;
+        let count = setInterval(() => {
+            x--;
+            console.log(x);
+
+            if (x == 20) {
+                clearInterval(count);
+                console.log('計時器被清除了');
+            }
+        }, 1000);
+        
+ 
+    </script>
+</body>
+</html>

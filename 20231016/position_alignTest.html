@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>position_align</title>
+    <style>
+        .wrap{
+            width: 500px;
+            height: 500px;
+            outline: 2px solid #000;
+            float: left;
+            position: relative;
+            margin-left: 10px;
+            margin-bottom: 10px;
+        }
+        .borderhorzi{
+            width: 500px;
+            height: 250px;
+            border-bottom: 2px solid #000;
+            float: left;
+        }
+        .bordervertical{
+            width: 250px;
+            height: 500px;
+            border-right: 2px solid #000;
+            
+        }
+        .box{
+            width: 50px;
+            height: 50px;
+            background-color: #f00;
+            outline: 1px solid #000;
+            z-index: 1;
+            text-align: center;
+            line-height: 50px;
+            position: absolute;
+        }
+        .box-1{
+            left: calc(50% - 25px);
+            top: calc(50% - 25px) ;
+        }
+        .box-2{
+            left: calc(50% - 25px);
+            top: 0;
+        }
+        .box-3{
+            right:50%;
+            bottom: 0;
+        }
+        .box-4{
+            right: calc(0% - 25px);
+            top: calc(50% - 25px) ;
+        }
+        .box-5{
+            right: 0;
+            bottom: 0 ;
+        }
+        .box-6{
+            left: 0;
+            top: calc(50% - 25px) ;
+        }
+        .box-7{
+            right: 0;
+            top: calc(50% - 25px) ;
+        }
+        .box-8{
+            left: 0;
+            bottom: 0 ;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="wrap">
+        <div class="borderhorzi"></div>
+        <div class="bordervertical"></div>
+        <div class="box box-1">1</div>
+    </div>
+    <div class="wrap">
+        <div class="borderhorzi"></div>
+        <div class="bordervertical"></div>
+        <div class="box box-2">2</div>
+    </div>
+    <div class="wrap">
+        <div class="borderhorzi"></div>
+        <div class="bordervertical"></div>
+        <div class="box box-3">3</div>
+    </div>
+    <div class="wrap">
+        <div class="borderhorzi"></div>
+        <div class="bordervertical"></div>
+        <div class="box box-4">4</div>
+    </div>
+    <div class="wrap">
+                <div class="borderhorzi"></div>
+        <div class="bordervertical"></div>
+        <div class="box box-5">5</div>
+    </div>
+    <div class="wrap">
+                <div class="borderhorzi"></div>
+        <div class="bordervertical"></div>
+        <div class="box box-6">6</div>
+    </div>
+    <div class="wrap">
+                <div class="borderhorzi"></div>
+        <div class="bordervertical"></div>
+        <div class="box box-7">7</div>
+    </div>
+    <div class="wrap">
+                <div class="borderhorzi"></div>
+        <div class="bordervertical"></div>
+        <div class="box box-8">8</div>
+    </div>
+</body>
+</html>

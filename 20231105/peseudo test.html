@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box{
+            width: 200px;
+            height: 200px;
+            background-color: #faa;
+            margin-bottom: 10px;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+        }
+        .item{
+            width: 50px;
+            height: 50px;
+            background-color: #aad;
+        }
+        .item:not(#boxitem-1-1) {
+            border-radius: 50%;
+        }
+    </style>
+</head>
+<body>
+    <div class="box box-1">
+        <div class="item item-1" id="boxitem-1-1"></div>
+        <div class="item item-2"></div>
+        <div class="item item-3"></div>
+    </div>
+    <div class="box box-2">
+        <div class="item item-1"></div>
+        <div class="item item-2"></div>
+        <div class="item item-3"></div>
+    </div>
+    <div class="box box-3">
+        <div class="item item-1"></div>
+        <div class="item item-2"></div>
+        <div class="item item-3"></div>
+    </div>
+    <div class="box box-4">
+        <div class="item item-1"></div>
+        <div class="item item-2"></div>
+        <div class="item item-3"></div>
+    </div>
+    <div class="box box-5" id="box-5">
+        <div class="item item-1"></div>
+        <div class="item item-2"></div>
+        <div class="item item-3"></div>
+    </div>
+</body>
+</html>

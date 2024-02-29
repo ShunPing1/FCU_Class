@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2>迴圈進階應用</h2>
+
+
+
+
+    <script>
+        console.log('for loop');
+        // continue 當i等於3時會略過並“繼續”往下執行
+        for (let i = 0; i < 6; i++) {
+            if (i === 3) continue;
+            console.log(i);
+        }
+        console.log('--------------------');
+
+        // break 當i等於3時會“中斷”執行
+        for (let i = 0; i < 6; i++) {
+            if (i === 3) break;
+            console.log(i);
+        }
+        console.log('while loop');
+        let i = 0;
+        while (i < 6) {
+            
+            console.log(i);
+            if(i === 3){
+                i++;
+                continue;  
+            }
+            console.log(i);   
+            i++;
+        }
+        console.log('----------------');
+        // while (i < 6) {
+            
+        //     if(i === 3) break;
+        // console.log(i);
+        // i++;
+        // }
+        
+    </script>
+</body>
+</html>

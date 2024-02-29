@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>猜骰子範例</title>
+  <style>
+    html {
+      scroll-behavior: smooth;
+    }
+    .image {
+      width: 100px;
+      height: 100px;
+      border: 1px dashed #000;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      cursor: pointer;
+    }
+
+    .chooseDice {
+      display: flex;
+      flex-direction: column;
+      margin-bottom: 20px;
+    }
+
+    table {
+      width: 100%;
+    }
+
+    table,
+    th,
+    td {
+      border: 1px solid #000;
+      border-collapse: collapse;
+    }
+
+    td {
+      text-align: center;
+    }
+
+  </style>
+</head>
+
+<body>
+  <!-- 猜三顆骰子 -->
+  <!-- form -->
+  <!-- input select textarea -->
+  <form id="myForm">
+    ⚀ ⚁ ⚂ ⚃ ⚄ ⚅
+    <!-- <input type="text" name="username"> -->
+    <!-- <button type="submit">送出</button> -->
+    <div class="chooseDice">
+      <label>
+        第一顆骰子
+        <select name="">
+          <option value="1">⚀</option>
+          <option value="2">⚁</option>
+          <option value="3">⚂</option>
+          <option value="4">⚃</option>
+          <option value="5">⚄</option>
+          <option value="6">⚅</option>
+        </select>
+      </label>
+      <label>
+        第二顆骰子
+        <select name="">
+          <option value="1">⚀</option>
+          <option value="2">⚁</option>
+          <option value="3">⚂</option>
+          <option value="4">⚃</option>
+          <option value="5">⚄</option>
+          <option value="6">⚅</option>
+        </select>
+      </label>
+      <label>
+        第三顆骰子
+        <select name="">
+          <option value="1">⚀</option>
+          <option value="2">⚁</option>
+          <option value="3">⚂</option>
+          <option value="4">⚃</option>
+          <option value="5">⚄</option>
+          <option value="6">⚅</option>
+        </select>
+      </label>
+      <div>
+        注重順序:
+        <label>
+          要<input type="radio" name="seq" value="1">
+        </label>
+        <label>
+          不要<input type="radio" name="seq" value="2" checked>
+        </label>
+      </div>
+      <!-- <input type="checkbox"> -->
+      <button class="simBtn" type="button">開始模擬</button>
+    </div>
+    <!-- <label for="img">
+      <div class="image">
+        +
+      </div>
+    </label>
+    <input id="img" type="file" name="img"> -->
+  </form>
+  <a href="#bottom">看結果</a>
+  <!-- 後台會取得 username: mike -->
+
+  <table>
+    <thead>
+      <tr>
+        <th>次數</th>
+        <th>結果</th>
+      </tr>
+    </thead>
+    <tbody>
+    </tbody>
+  </table>
+  <a href="#myForm" id="bottom">回頂部</a>
+  <script>
+    // 誰
+    const selects = document.querySelectorAll('select');
+    // console.log(selects);
+    const simBtn = document.querySelector('.simBtn');
+    const tbody = document.querySelector('tbody');
+
+    // const radio = document.querySelector('input[name="seq"]');
+    
+    // 甚麼時候
+    simBtn.addEventListener(`click`, function () {
+      // 做甚麼
+      // 先取得select的數值 1 2 3
+      // 迴圈 不斷的執行 直到 骰出來的數字為 1 2 3
+      // 迴圈過程中要記錄每一次的結果
+
+      // 答案，用於儲存
+      let ans = '';
+      // 每次點擊重新生成都會自己生成表格，因此設定初始化表格是空的
+      tbody.innerHTML = '';
+      
+
+      // 使用for迴圈取得 selects陣列長度中的所有值，並且用ans儲存。
+      for (let i = 0; i < selects.length; i++) {
+        ans += selects[i].value;
+      }
+      console.log(typeof ans);
+      // 執行次數
+      let count = 1;
+      // 模擬的答案
+      let simAns = '';
+        // 有要注重順序
+        do {
+          simAns = '';
+          for (let i = 0; i < ans.length; i++) {
+            simAns += getRandomInt(6, 1);
+          }
+          tbody.innerHTML += `
+            <tr>
+              <td>${count}</td>
+              <td>${simAns}</td>
+            </tr>
+          `;
+          count++;
+        } while (ans !== simAns);
+     
+        
+          tbody.innerHTML += `
+            <tr>
+              <td>${count}</td>
+              <td>${simAns}</td>
+            </tr>
+          `;
+          count++;
+    });
+
+    // 取得min~max之間的隨機亂數(整數)
+    // max => 最大值
+    // min => 最小值 (起始數值)
+    function getRandomInt(max, min) {
+      return Math.floor(Math.random() * max) + min;
+    }
+
+    // function replaceOutput (result = '') {
+    //   let arr = result.split('');
+    //   let string = '';
+    //   arr.forEach(element => {
+    //     if (element == '1') {
+    //       string += '⚀';
+    //     } else if (element == '2') {
+    //       string += '⚁';
+    //     } else if (element == '3') {
+    //       string += '⚂';
+    //     } else if (element == '4') {
+    //       string += '⚃';
+    //     } else if (element == '5') {
+    //       string += '⚄';
+    //     } else {
+    //       string += '⚅';
+    //     }
+    //   });
+    //   return string;
+    // }
+  </script>
+</body>
+
+</html>

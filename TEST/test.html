@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <title>Document</title>
+    <style>
+        body {
+
+            height: 3000px;
+        }
+
+        .container {
+            height: 1000px;
+        }
+
+        #curveCanvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+
+
+        .aos {
+            width: 200px;
+            height: 200px;
+            background-color: #faa;
+        }
+
+        .ani-container {
+            width: 100vw;
+            height: 50px;
+            border: 2px solid #555;
+        }
+
+
+        .border-item{
+            width: 500px;
+            height: 100px;
+            background-color: #faa;
+            border-radius: 5px;
+            position: relative;
+            margin: 50px auto;
+        }
+        .border-container .border-item:first-child {
+            background-color: #aaf;
+        }
+        .border-item::after{
+            content: '';
+            width: 500px;
+            height: 110px;
+            
+            background: linear-gradient(to left, red, rgba(197,213,250,0));
+            border-radius: 5px;
+            position: absolute;
+            top: 50%;
+            left: 1%;
+            transform: translateY(-50%);
+            z-index: -1;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <canvas id="curveCanvas"></canvas>
+        <div class="test">
+        </div>
+
+    </div>
+    <!-- AOS TEST -->
+
+    <!-- <div data-aos="fade-up" data-aos-duration="1000" class="aos">
+        1111222
+    </div> -->
+    <div data-aos="fade-right" class="aos"></div>
+
+    <div class="ani-container">
+        <div class="ani-item"></div>
+    </div>
+
+
+        <div class="border-container">
+            <div class="border-item"></div>
+            <div class="border-item"></div>
+            <div class="border-item"></div>
+        </div>
+
+
+
+
+
+
+
+
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init();
+    </script>
+    <script>
+        /*   window.addEventListener('scroll', function () {
+           var scrollPosition = window.pageYOffset;
+           var curveCanvas = document.getElementById('curveCanvas');
+           var ctx = curveCanvas.getContext('2d');
+
+           // 清空画布
+           ctx.clearRect(0, 0, curveCanvas.width, curveCanvas.height);
+
+           // 绘制曲线
+           ctx.beginPath();
+           ctx.moveTo(curveCanvas.width / 2, 0); // 曲线起点
+           ctx.quadraticCurveTo(curveCanvas.width / 2, scrollPosition, curveCanvas.width / 2, curveCanvas.height); // 控制点和终点
+           ctx.strokeStyle = 'red'; // 曲线颜色
+           ctx.lineWidth = 2; // 曲线宽度
+           ctx.stroke();
+       });*/
+
+
+        // 傳參考測試
+        function changObj(obj) {
+            const newObj = {
+                a: 1,
+            };
+            obj.a = newObj.a;
+
+        }
+        let obj1 = {
+            a: 2,
+        };
+        changObj(obj1)
+        console.log(obj1);
+
+    </script>
+</body>
+
+</html>

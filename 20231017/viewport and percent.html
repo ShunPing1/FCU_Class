@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>viewport and percent difference</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        body{
+            /* view port width視窗可是範圍寬，調整後若是有設定高度容易產生爆版(高於螢幕顯示的高度會出現捲軸) */
+            width: 100vw;
+            /* 利用百分比設置會自動扣除捲軸的視窗占比(17px) */
+            width: 100%;
+            height: 2000px;
+            background-color: #aaf;
+        }
+    </style>
+</head>
+<body>
+
+</body>
+</html>

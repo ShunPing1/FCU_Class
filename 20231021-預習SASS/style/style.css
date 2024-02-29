@@ -1,0 +1,53 @@
+header > #headerBottom, header > #headerTop {
+  background-color: #ffa;
+  max-width: 1200px;
+  margin: auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+header > #headerTop > #h-Top-R, header > #headerTop > #h-Top-L {
+  width: 50%;
+  height: 100%;
+}
+
+header > #headerBottom > #h-bottom-R, header > #headerBottom > #LOGO {
+  width: 30%;
+  height: 100%;
+  background-color: #0ff;
+}
+
+header > #headerBottom > #h-bottom-M > #h-b-m-bottom, header > #headerBottom > #h-bottom-M > #h-b-m-top {
+  width: 100%;
+  height: 50%;
+  background-color: #ffa;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+}
+
+header {
+  background-color: #fa0;
+}
+header > #headerTop {
+  height: 100px;
+}
+header > #headerTop > #h-Top-L {
+  background-color: #faa;
+}
+header > #headerTop > #h-Top-R {
+  background-color: #aaf;
+}
+header > #headerBottom {
+  height: 200px;
+}
+header > #headerBottom > #h-bottom-M {
+  width: 40%;
+  height: 100%;
+}
+header > #headerBottom > #h-bottom-M > #h-b-m-bottom {
+  background-color: #0ca;
+}/*# sourceMappingURL=style.css.map */

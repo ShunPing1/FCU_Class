@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box{
+            width: 50px;
+            height: 50px;
+            background-color: #faa;
+            margin-bottom: 10px;
+        }
+        .chang{
+            background-color: #aaf;
+        }
+    </style>
+</head>
+<body>
+    <div class="box" data-number="1"></div>
+    <div class="box" data-number="2"></div>
+    <div class="box" data-number="3"></div>
+    <div class="box" data-number="4"></div>
+    <div class="box" data-number="5"></div>
+
+
+
+    <script>
+        const boxes = document.querySelectorAll('.box');
+        console.log(boxes);
+        boxes.forEach((item) => {
+            console.log(item.dataset);
+            
+            if (parseInt(item.dataset.number) !== 3) {
+                item.classList.add('chang');
+                console.log(item.classList.contains('chang'));
+            }
+        });
+    </script>
+</body>
+</html>

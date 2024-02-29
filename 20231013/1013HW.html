@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>padding,margin,percentage</title>
+    <style>
+        #all{
+            width: calc(80% - 10px*2);
+            height: 600px;
+            background-color: #ffa;
+            margin: auto;
+            padding: 10px;
+            font-size: 40px;
+            text-align: center;
+            line-height: 120px;
+            
+        }
+        
+        #header{
+            width:  100%;
+            height: calc(20% - 10px);
+            background-color: #fe0;
+            margin-bottom: 10px;
+        }
+        #main{
+            width: 100%;
+            height: 60%;
+            margin-bottom: 10px;
+        }
+        #mainL{
+            width: calc(34% - 10px);
+            height: 100%;
+            background-color: #0ff;
+            line-height: 360px;
+            float: left;
+            margin-right: 10px;
+        }
+        #mainR{
+            width: 66%;
+            height: 100%;
+            /* background-color: #ddd; */
+            font-size: 30px;
+            float: left;
+            
+           
+        }
+        #mainR-top{
+            width: 100%;
+            height: calc(34% - 10px);
+            background-color: #aaaaff;
+            margin-bottom: 10px;
+        }
+        #mainR-middle{
+            width: 100%;
+            height: 32%;
+            background-color: #f3a;
+            margin-bottom: 10px;
+        }
+        #mainR-down{
+            width: 100%;
+            height: calc(34% - 10px);
+            background-color: #af0;
+        }
+        #footer{
+            width: 100%;
+            height: calc(20% - 10px);
+            background-color: #0aa;
+        }
+
+    </style>
+</head>
+<body>
+    <div id="all">
+        <div id="header">header</div>
+        <div id="main">
+            <div id="mainL">mainL</div>
+            <div id="mainR">
+                <div id="mainR-top">mainR-top</div>
+                <div id="mainR-middle">mainR-middle</div>
+                <div id="mainR-down">mainR-down</div>
+            </div>
+        </div>
+        <div id="footer">footer</div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>change pic</title>
+    <style>
+        img{
+            width: 500px;
+        }
+    </style>
+</head>
+<body>
+    <img src="./img/01.jpg" alt="">
+
+
+
+
+    <script>
+        let img = document.querySelector('img');
+        let imgOrder = 1;
+        console.log(img);
+        img.addEventListener('click', function () {
+            if (imgOrder === 1) {
+                img.src = './img/02.jpg';
+                imgOrder = 2;
+                console.log(imgOrder);
+            }else if (imgOrder === 2) {
+                img.src = './img/03.jpg';
+                imgOrder = 3;
+                console.log(imgOrder);
+            }else if (imgOrder === 3){
+                img.src = './img/01.jpg';
+                imgOrder = 1;
+                console.log(imgOrder);
+            }
+        })
+
+
+
+
+
+
+        // 不適用img.src
+        // img.addEventListener('click', function () {
+        //     console.log(img.src);
+
+        //     if (img.src == './img/01.jpg') {
+        //         img.src = './img/02.jpg';
+        //         console.log(2);
+        //     }else{
+        //         img.src = './img/01.jpg';
+        //     }
+        // })
+
+        
+    </script>
+</body>
+</html>

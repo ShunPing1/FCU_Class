@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>padding vertical center view port</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        body{
+            width: 100vw;
+            height: calc(100vh - ((100vh - 200px) / 2 ));
+            padding-top: calc((100vh - 200px) / 2 );
+            
+
+        }
+        #item{
+            width: 200px;
+            height: 200px;
+            background-color: #0ff;
+            margin: auto;
+        }
+    </style>
+</head>
+<body>
+    <!-- 使用padding-top完成視窗可是範圍垂直置中 -->
+    <div id="item"></div>
+</body>
+</html>

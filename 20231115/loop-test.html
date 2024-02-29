@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div></div>
+
+
+    <script>
+        let div = document.querySelector('div');
+
+        // for loop
+        let i;
+        for (i = 1; i < 10; i++) {
+            console.log(i);
+            for(let j = 1; j< 10; j++){
+                console.log(i + "*" + j + "=" + i*j);
+            }
+            
+        }
+        // while loop
+        let k = 0;
+        while (k < 10) {
+            k++;
+            console.log('k=',k);
+
+        }
+
+        // do while loop  do while一定會執行一次迴圈
+        let l = 10;
+        do {
+            l++;
+            console.log();
+            
+        } while (l < 10);
+
+
+
+    </script>
+</body>
+</html>

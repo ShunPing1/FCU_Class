@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>margin collapse test</title>
+    <style>
+        #container{
+            width: 300px;
+            height: 300px;
+            background-color: #0ff;
+        }
+        #content{
+            width: 100px;
+            height: 100px;
+            background-color: #0cc;
+            margin-top: 50px;
+        }
+        #box-1{
+            width: 200px;
+            height: 200px;
+            background-color: #faa;
+            margin-bottom: 50px;
+        }
+        #box-2{
+            width: 200px;
+            height: 200px;
+            background-color: #aaf;
+            margin-top: 60px;
+        }
+    </style>
+</head>
+<body>
+    <!-- margin崩潰指的是margin在沒有其他錯誤的情況下達不到預期成果的現象就稱為margin崩潰 -->
+    產生margin collapse(崩潰)的狀況第一型：使用margin-top
+    <!-- 當子層設定margin-top但推不動body時，會由父層承受margin-top的效果 -->
+    <div id="container">
+        <div id="content"></div>
+    </div>
+    產生margin collapse(崩潰)的狀況第二型：同時使用margin-bottom/top
+    <!-- 上下兩個區塊分別設定margin-bottom:50px/top:60px時無法達到將加起來的margin:110px空間
+    會產生margin崩潰的情況，並以數值設定大的屬性顯示 -->
+    <div id="box-1"></div>
+    <div id="box-2"></div>
+</body>
+</html>

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>tab awitch</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-size: 24px;
+        }
+
+        .tab,
+        .content{
+            border: 1px solid #000;
+        }
+        .tabs{
+            display: flex;
+        }
+        .tab{
+            cursor: pointer;
+        }
+        .active{
+            background-color: #0af;
+        }
+    </style>
+</head>
+
+
+<body>
+    <div class="container">
+        <div class="tabs">
+            <div class="tab">Tab-1</div>
+            <div class="tab">Tab-2</div>
+            <div class="tab">Tab-3</div>
+        </div>
+        <div class="content">
+
+        </div>
+    </div>
+
+
+    <script>
+        const tabs = document.querySelectorAll('.tab');
+        const content = document.querySelector('.content');
+        console.log(content);
+
+        let contentTab = [
+            'tab-1 content',
+            'tab-2 content',
+            'tab-3 content'
+        ];
+        content.innerHTML = contentTab[0];
+        // 尋找tabs nodeList的所有資料
+        tabs.forEach((tab,index) => {
+            tab.addEventListener('click', function () {
+                tabs.forEach((tabRemove) => {
+                    tabRemove.classList.remove('active');
+                });
+                tab.classList.add('active');
+                content.innerHTML = contentTab[index];
+                console.log(index);
+
+                
+            })
+        });
+
+    </script>
+</body>
+
+</html>

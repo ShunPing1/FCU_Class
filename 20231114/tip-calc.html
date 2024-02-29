@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>tips calc test</title>
+</head>
+
+<body>
+    <!-- 
+        製作小費計算機
+        1.今日消費金額的輸入格
+        2.小費佔比多少％的輸入格
+        3.送出與重置的按鈕
+        4.回覆計算後的小費金額
+        5.回覆加上小費後的總金額
+
+        JS三要素 誰 / 什麼時候 / 要做什麼
+     -->
+    <h2>小費計算機</h2>
+    消費金額：<input id="cost" type="number" min="0">
+    <br>
+    <br>
+    小費佔比：<input id="tips-percent" type="number" placeholder="請輸入0%~100%" min="0">
+    <br>
+    <br>
+    <button id="result">送出結果</button>
+    <button id="reset">重置</button>
+    <br>
+    <br>
+    小費金額：<span id="tips-amount"></span>
+    <br>
+    消費總金額：<span id="total"></span>
+
+
+
+    <script>
+        // 宣告變數
+        let cost = document.querySelector('#cost');
+        let tipsPercent = document.querySelector('#tips-percent');
+        let result = document.querySelector('#result');
+        let reset = document.querySelector('#reset');
+        let tipsAmount = document.querySelector('#tips-amount');
+        let total = document.querySelector('#total');
+
+
+
+        result.addEventListener('click', function () {
+            // 宣告計算後變數
+            let tipsPercentCalc = tipsPercent.value / 100;
+            let tipsAmountCalc = ((cost.value * 1) * (tipsPercentCalc * 1));
+            let totalCalc = (parseInt(cost.value*1 + tipsAmountCalc));
+            console.log(totalCalc);
+
+            tipsAmount.innerHTML = tipsAmountCalc;
+            total.innerHTML = totalCalc;
+
+        });
+
+        reset.addEventListener('click', function () {
+            
+            cost.value = '';
+            tipsPercent.value = '';
+            tipsAmount.innerHTML = '';
+            total.innerHTML = '';
+
+        });
+
+
+
+    </script>
+</body>
+
+</html>

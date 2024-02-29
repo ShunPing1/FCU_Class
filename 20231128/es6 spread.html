@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ES6 spread使用方式</title>
+</head>
+<body>
+
+
+
+
+
+    <script>
+        // 合併陣列
+        const arrA = [1,2,3];
+        const arrB = [4,5,6];
+        //方法一: conca
+        const arrC = arrA.concat(arrB);
+        console.log('arrC:',arrC);
+        //方法二: spread(... => spread)
+        const arrD = [
+            ...arrA,...arrB
+        ];
+        console.log('arrD:',arrD);
+
+        // 合併物件
+        const objA = {
+            name: 'yang',
+            age: 25,
+        }
+        const objB = {
+            gender: 'male',
+            interst: 'exercise',
+        }
+        const objC ={
+            ...objA,...objB
+        };
+
+        console.log(objC);
+
+
+
+
+    </script>
+</body>
+</html>

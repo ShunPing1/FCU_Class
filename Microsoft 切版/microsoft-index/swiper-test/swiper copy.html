@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="canonical" href="https://www.microsoft.com/zh-tw">
+    <link rel="icon" type="image/x-icon" href="./IMG/nav/icon.svg">
+    <link rel="stylesheet" href="./new-microsoft.css">
+    <link rel="stylesheet" href="./swiper.css">
+    <!-- fontawesome -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
+    <!-- Link Swiper's CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <title>Document</title>
+    
+</head>
+<body>
+    <header class="width-full">
+        <div class="swiper headerSwiper">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide swiper-info-1">
+                    <picture>
+                        <source media="(min-width: 1400px)" srcset="./IMG/swiper/swiper_01_1920x600.webp">
+                        <source media="(min-width: 1084px)" srcset="./IMG/swiper/swiper_01_1399x600.webp">
+                        <source media="(min-width: 860px)" srcset="./IMG/swiper/swiper_01_1083x600.avif">
+                        <source media="(min-width: 540px)" srcset="./IMG/swiper/swiper_01_859x540.avif">
+                        <img src="./IMG/swiper/swiper_01_859x540.avif" alt="">
+                    </picture>
+                    <div class="swiper-content swiper-content-1">
+                        <div class="title">Surface Laptop Studio 2</div>
+                        <div class="content">這台多功能的筆記型電腦配備頂尖的設計和驚人的效能，為您帶來創意和娛樂。</div>
+                        <button><a href="#">深入了解</a></button>
+                    </div>
+                </div>
+                <div class="swiper-slide  swiper-info-2">
+                    <picture>
+                        <source media="(min-width: 1400px)" srcset="./IMG/swiper/swiper_02_1920x600.avif">
+                        <source media="(min-width: 1084px)" srcset="./IMG/swiper/swiper_02_1399x600.avif">
+                        <source media="(min-width: 860px)" srcset="./IMG/swiper/swiper_02_1083x600.avif">
+                        <source media="(min-width: 540px)" srcset="./IMG/swiper/swiper_02_859x540.avif">
+                        <img src="./IMG/swiper/swiper_02_859x540.avif" alt="">
+                    </picture>
+                    <div class="swiper-content swiper-content-2">
+                        <div class="title">Surface Pro 9</div>
+                        <div class="content">平板電腦的彈性和筆記型電腦的效能 — 全都在一台攜帶超方便的裝置</div>
+                        <button><a href="#">深入了解</a></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="swiper swiper-control ">
+            <span class="stop"><i class='bx bx-pause-circle'></i></span>
+            <span class="play"><i class='bx bx-play-circle'></i></span>
+            <div class="swiper-button-next"></div>
+            <div class="swiper-button-prev"></div>
+            <div class="swiper-pagination header-pagination"></div>
+        </div>
+    </header>
+
+
+
+    <!-- Swiper JS -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script>
+        var swiper = new Swiper(".headerSwiper", {
+            loop: true,
+            autoplay: {
+                delay: 1800,
+                disableOnInteraction: false,
+            },
+            pagination: {
+                el: ".swiper-pagination",
+                clickable: true,
+                clickableClass: ".header-pagination",
+                renderBullet: (index, className) => `<span class="${className}"></span>`,
+            },
+            navigation: {
+                nextEl: ".swiper-button-next",
+                prevEl: ".swiper-button-prev",
+            },
+        });
+        let stop = document.querySelector('.stop');
+        let play = document.querySelector('.play');
+
+        stop.addEventListener('click', () => {
+            swiper.autoplay.stop();
+            play.style.display = 'inline-block';
+            stop.style.display = 'none';
+        });
+        play.addEventListener('click', () => {
+            swiper.autoplay.start();
+            play.style.display = 'none';
+            stop.style.display = 'inline-block';
+        });
+    </script>
+</body>
+</html>

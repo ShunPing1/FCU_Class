@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>20231101</title>
+    <style>
+        body{
+            margin: 0;
+            padding-top: 0px;
+        }
+        .temple-main{
+            width: 500px;
+            height: 450px;
+            border-width: 100px;
+            border-style: solid;
+            border-top-color: transparent;
+            border-left-color: transparent;
+            border-bottom-color: #950;
+            border-right-color: transparent;
+            position: relative;
+            left: 50%;
+            transform: translate(-50% ,0%);
+        }
+        .temple-main::after {
+            content: " ";
+            width: 400px;
+            border-width: 100px;
+            border-style: solid;
+            border-top-color: transparent;
+            border-left-color: transparent;
+            border-bottom-color: #f00;
+            border-right-color: transparent;
+            position: absolute;
+            top: -100px;
+            left: -50px;
+            transform: translate(0% ,0%);
+        }
+        .temple-pallar{
+            width: 60px;
+            height: 250px;
+            background-color: #f00;
+            border-width: 50px;
+            border-style: solid;
+            border-top-color: #ff0;
+            border-left-color: #fff;
+            border-bottom-color: #ff0;
+            border-right-color: #fff;
+            position: absolute;
+            top: 100px;
+            left: 20px;
+        }
+        .temple-pallar::before{
+            content: " ";
+            width: 60px;
+            height: 250px;
+            background-color: #f00;
+            border-width: 50px;
+            border-style: solid;
+            border-top-color: #ff0;
+            border-left-color: #fff;
+            border-bottom-color: #ff0;
+            border-right-color: #fff;
+            position: absolute;
+            top: -50px;
+            left: -50px;
+            transform: translate(180%, 0);
+        }
+
+
+        .test{
+            width: 100px;
+            height: 350px;
+            background-color: #faa;
+            position: absolute;
+            left: 350px;
+            top: 100px;
+        }
+
+
+
+        
+    </style>
+</head>
+<body>
+    <div class="temple-main">
+        <div class="temple-pallar"></div>
+        <!-- <div class="test"></div> -->
+    </div>
+</body>
+</html>

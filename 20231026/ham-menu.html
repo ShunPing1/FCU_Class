@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ham-menu</title>
+    <style>
+        .ham-menu {
+            width: 100px;
+            height: 100px;
+            background-color: #ccc;
+            display: block;
+            position: relative;
+        }
+        .border{
+            width: 80%;
+            height: 10px;
+            background-color: #000;
+            position: absolute;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            transition: 1s;
+        }
+        .border-1{
+            top: 25%;
+        }
+        .border-2{
+            top: 50%;
+        }
+        .border-3{
+            top: 75%;
+        }
+
+
+        #ham-menu-check:checked + .ham-menu > .border-1{
+            top: 50%;
+            transform:  translate(-50%, -50%)  rotate(45deg);
+        }
+        #ham-menu-check:checked + .ham-menu > .border-2{
+            display: none;
+        }
+        #ham-menu-check:checked + .ham-menu > .border-3{
+            top: 50%;
+            transform:  translate(-50%, -50%)  rotate(-45deg);
+        }
+    </style>
+</head>
+<body>
+    <!-- CSS的執行是由上至下，只能選取後方的屬性，因此checkbox要在label標籤上方 -->
+    <input type="checkbox" id="ham-menu-check" hidden>
+    <label class="ham-menu" for="ham-menu-check">
+        <div class="border border-1"></div>
+        <div class="border border-2"></div>
+        <div class="border border-3"></div>
+    </label>
+</body>
+</html>

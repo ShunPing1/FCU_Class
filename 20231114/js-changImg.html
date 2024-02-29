@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Js change img test</title>
+    <style>
+        h2{
+            margin-left: 90px;
+            margin-bottom: 30px;
+            color: #000;
+        }
+        img{
+            width: 300px;
+        }
+    </style>
+</head>
+<body>
+    <h2>JS換圖練習</h2>
+    <img src="./img/01.png" alt="">
+
+
+
+    <script>
+        // let img = document.querySelector('img');
+        // let click = 2;
+
+        // img.addEventListener('click', function () {
+            
+        //     if (click == 1) {
+        //         img.src = './img/01.png';
+        //         click = 2;
+        //     }else if(click == 2){
+        //         img.src = './img/02.png';
+        //         click = 3;
+        //     }else{
+        //         img.src = './img/03.png';
+        //         click = 1;
+        //     }
+            
+        // })
+
+        let img = document.querySelector('img');
+        let imgPath = ['./img/01.png', './img/02.png' ,'./img/03.png'];
+        let clickTimes = 0;
+
+            img.addEventListener('click', function () {
+                clickTimes++;
+                if (clickTimes >= imgPath.length) {
+                    clickTimes = 0;
+                }
+                img.src = imgPath[clickTimes];
+                console.log(clickTimes);
+
+            })
+    </script>
+</body>
+</html>

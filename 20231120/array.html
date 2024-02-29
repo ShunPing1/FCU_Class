@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2>陣列練習</h2>
+    <input type="text" class="input" placeholder="請輸入:">
+    <button type="button" class="enter-left">
+        從右邊加入資料
+    </button>
+    <button type="button" class="delete-left">
+        從右邊移除資料
+    </button>
+    <button type="button" class="enter-right">
+        從左邊加入資料
+    </button>
+    <button type="button" class="delete-right">
+        從左邊移除資料
+    </button>
+    <input type="text" class="result" readonly placeholder="結果:">
+
+
+    <script>
+        const input = document.querySelector('.input');
+        const result = document.querySelector('.result');
+        const enterLeft = document.querySelector('.enter-left');
+        const deleteLeft = document.querySelector('.delete-left');
+        const enterRight = document.querySelector('.enter-right');
+        const deleteRight = document.querySelector('.delete-right');
+        // console.log(enterRight);
+
+        let arr = [];
+        enterLeft.addEventListener('click', () => {
+            arr.push(input.value);
+            result.value = arr;
+            input.value = '';
+        });
+        enterRight.addEventListener('click', () => {
+            arr.unshift(input.value);
+            result.value = arr;
+            input.value = '';
+        });
+        deleteLeft.addEventListener('click', () => {
+            arr.pop();
+            result.value = arr;
+            input.value = '';
+        });
+        deleteRight.addEventListener('click', () => {
+            arr.shift(input.value);
+            result.value = arr;
+            input.value = '';
+        });
+
+    </script>
+
+</body>
+</html>

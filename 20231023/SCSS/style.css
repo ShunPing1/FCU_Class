@@ -1,0 +1,10 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.imgArea {
+  width: 100%;
+  height: 100vh;
+  background-position-x: #faa;
+}/*# sourceMappingURL=style.css.map */

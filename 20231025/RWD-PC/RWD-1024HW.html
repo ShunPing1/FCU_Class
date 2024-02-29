@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RWD-1024HW</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .wrap {
+            width: 100%;
+            height: 100vh;
+        }
+
+        .nav-Area {
+            width: 366px;
+            height: calc(100% - 80px);
+            padding-top: 80px;
+            background-color: #aaa;
+            float: left;
+        }
+
+        /* .container {
+            width: calc(100% - 366px);
+            height: calc(100% - (100% - 570px)/2);
+            background-color: #eee;
+            padding-top: calc((100% - 570px)/2);
+            float: left;
+        } */
+        /* nav-Area > logo */
+        .logo {
+            width: 150px;
+            height: 150px;
+            font-size: 24px;
+            text-align: center;
+            line-height: 150px;
+            color: #fff;
+            background-color: #000;
+            border-radius: 10px;
+            margin: auto;
+        }
+        .logo:hover{
+            animation: run 5s infinite alternate;
+        }
+        /* nav-Area > nav-btn */
+        .nav-btnAll{
+            width: 150px;
+            margin: auto;
+            padding-top: 60px;
+        }
+        .nav-btn{
+            font-size: 30px;
+            color: #000;
+            text-align: center;
+            display: block;
+            text-decoration: none;
+            margin-bottom: 10px;
+        }
+        .nav-btn:hover{
+            background-color: #eee;
+            padding: 10px 20px;
+            border-radius: 10px;
+        }
+
+        /* nav-btn-1 */
+        .nav-btn-1:hover .google-blue{
+            color:#00f;
+        }
+        .nav-btn-1:hover .google-red{
+            color:#f00;
+        }
+        .nav-btn-1:hover .google-orange{
+            color:#fa0;
+        }
+        .nav-btn-1:hover .google-green{
+            color:#0c0;
+        }
+        /* nav-btn-2 */
+        .nav-btn-2:hover{
+            background-color: #a5f;
+            color: #fff;
+        }
+        /* nav-btn-3 */
+        .nav-btn-3:hover{
+            background-color: #00f;
+            color: #fff;
+        }
+        /* nav-btn > active */
+        .nav-btn:active{
+            background-color: #000;
+            padding: 10px 20px;
+            border-radius: 10px;
+        }
+        .nav-btn-2:active{
+            color: #a5f;
+        }
+        .nav-btn-3:active{
+            color: #00f;
+        }
+        
+
+        /* container-Area > content  */
+        .content{
+            width: 970px;
+            height: 570px;
+            perspective: 800px;
+            margin: auto;
+
+        }
+        /* container-Area > item  */
+        .item{
+            width: calc((100% - 15px) / 3);
+            height: 100%;
+            background-color: #faa;
+            margin-right: 5px;
+            float: left;
+        }
+        /* container-Area > item > id set  */
+        #item-L{
+            background-image: url(./img/img01.jpg );
+        }
+        #item-M{
+            background-image: url(./img/img02.jpg );
+        }
+        #item-R{
+            background-image: url(./img/img03.jpg );
+        }
+        /* container-Area > item > id-hover */
+        #item-L:hover{
+            transform: rotateY(45deg);
+            box-shadow: 10px 10px 20px 0px #000;
+        }
+        #item-M:hover{
+            transform: scale(1.1);
+            box-shadow: 0 0 15px 5px #000;
+        }
+        #item-R:hover{
+            transform: rotateY(-45deg);
+            box-shadow: -10px 10px 20px 0px #000;
+        }
+        /* animation */
+        @keyframes run {
+            0% {
+                border-radius: 10px;transform: rotate(0deg);
+            }
+
+            100% {
+                border-radius: 50%;transform: rotate(360deg);background-color: #fff;color: #000;
+               
+            }
+        }
+
+    </style>
+</head>
+
+<body>
+    <!-- 
+        1920 * 100vh
+        1.nav Area
+            A.LOGO
+            B.href Btn
+        2.container Area
+            A.content
+                a01.hori && vertical center
+                a02.fram px
+     -->
+
+    <div class="wrap">
+        <div class="nav-Area">
+            <div class="logo">LOGO</div>
+            <div class="nav-btnAll">
+                <a target="_blank" class="nav-btn nav-btn-1" href="https://www.google.com.tw/?client=safari" > 
+                    <span class="google-blue">G</span><span class="google-red">o</span><span class="google-orange">o</span><span class="google-blue">g</span><span class="google-green">l</span><span class="google-red">e</span>
+                </a>
+                <a target="_blank" class="nav-btn nav-btn-2" href="https://tw.yahoo.com" >Yahoo</a>
+                <a target="_blank" class="nav-btn nav-btn-3" href="https://www.bing.com" >Bing</a>
+            </div>
+
+        </div>
+        <div class="container">
+            <div class="content">
+                <div class="item" id="item-L"></div>
+                <div class="item" id="item-M"></div>
+                <div class="item" id="item-R"></div>
+            </div>
+        </div>
+    </div>
+
+
+
+</body>
+
+</html>

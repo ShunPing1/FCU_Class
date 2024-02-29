@@ -1,0 +1,20 @@
+// variable Area
+$imgAreaWidth: 100%;
+$imgAreaHeight:100vh;
+
+
+
+
+
+
+//program Area
+*{
+    margin: 0;
+    padding: 0;
+}
+.imgArea{
+    width: $imgAreaWidth;
+    height: $imgAreaHeight;
+    background-position-x: #faa;
+}
+

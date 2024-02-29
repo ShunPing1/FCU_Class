@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+      .wrap {
+        float: left;
+        /* outline: 5px solid #000; */
+        background-color: #ccc;
+        /* margin-right: 5px; */
+      }
+      .m-blockTest {
+        width: 200px;
+        margin-block-start: 10px;
+        margin-block-end: 30px;
+        margin-inline-start: 20px;
+        margin-inline-end: 30px;
+        /* color: #f00; */
+        background-color: #faa;
+      }
+      .float {
+        width: 200px;
+        height: 300px;
+        background-color: #ffa;
+        float: left;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="wrap">
+      <div>margin-block</div>
+      <div class="m-blockTest">margin-block</div>
+      <div>margin-block</div>
+    </div>
+
+    <div class="float">float box</div>
+  </body>
+</html>

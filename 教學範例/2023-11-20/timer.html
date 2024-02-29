@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div>
+        setTimeout
+        <button class="btn1" type="button">停止計時</button>
+    </div>
+    <div>
+        setInterval
+        <button class="btn3" type="button">開始計時</button>
+        <button class="btn2" type="button">停止計時</button>
+        <div class="timer">60</div>
+    </div>
+    <!-- 計時器 時間到的時候會執行function 只會執行一次 -->
+    <script>
+        // 第一個放fn, 第二個參數放數字(單位: 毫秒)
+        let timer = setTimeout(function() {
+            console.log('時間到');
+        }, 10000);
+
+        // timer會拿到回傳的計時器編號
+        // console.log(timer);
+
+        const btn1 = document.querySelector('.btn1');
+        const btn2 = document.querySelector('.btn2');
+        const btn3 = document.querySelector('.btn3');
+        const timerEl = document.querySelector('.timer');
+
+        btn1.addEventListener('click', function () {
+            // 清除計時器 要寫上清除哪一個計時器編號
+            clearTimeout(timer);
+        });
+
+
+        btn3.addEventListener('click', startTimer);
+
+        let totalTime = 59;
+        // 計時器 時間到的時候就會執行function 不斷的執行 直到被清除
+        // 第一個放fn, 第二個參數放數字(單位: 毫秒)
+        // setInterval
+        let timerA;
+        let flag = true;
+        function startTimer() {
+            if (!flag) return; 
+
+            timerA = setInterval(function() {
+                timerEl.textContent = totalTime;
+                console.log(timerA);
+                if (totalTime <= 0) {
+                    clearInterval(timerA);
+                }
+                totalTime--;
+            }, 1000);
+            flag = false;
+        }
+        // clearInterval
+        btn2.addEventListener('click', function () {
+            if (flag) return;
+            // 清除計時器 要寫上清除哪一個計時器編號
+            clearInterval(timerA);
+            flag = true;
+        });
+
+
+    </script>
+
+</body>
+</html>

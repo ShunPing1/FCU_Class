@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .container {
+            width: 500px;
+            height: 500px;
+            background-color: #ccc;
+            border-radius: 10px;
+        }
+        header{
+            padding-top: 50px;
+            width: 300px;
+            margin: auto;
+            /* background-color: #faa; */
+        }
+        main{
+            width: 300px;
+            height: 300px;
+            /* background-color: #aaf; */
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+            margin: auto;
+            padding-top: 10px;
+        }
+        .calc-btn {
+            width: 145px;
+            height: 145px;
+            border: 0px;
+            border-radius: 0 25px 0 25px;
+            font-size: 30px;
+            margin-top: 10px;
+        }
+        .calc-btn:hover{
+            background-color: #fff;
+        }
+        footer{
+            width: 300px;
+            margin: auto;
+            padding-top: 30px;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 
+        實做計算機
+        1.有Ａ與Ｂ的數字輸入框
+        2.加減乘除四個按鈕
+        3.回傳答案的區域
+        4.計算機要能夠判斷是否為數字
+        5.
+
+     -->
+    <div class="container">
+        <header>
+            <input class="numA" type="number" placeholder="請輸入Ａ數：">
+            <input class="numB" type="number" placeholder="請輸入Ｂ數：">
+        </header>
+
+        <main>
+            <button class="calc-btn add-btn" type="button">+</button>
+            <button class="calc-btn minus-btn" type="button">-</button>
+            <button class="calc-btn mult-btn" type="button">×</button>
+            <button class="calc-btn division-btn" type="button">÷</button>
+        </main>
+        <footer>
+           結果：<span class="result"></span>
+            <!-- <button class="reset-btn" type="button">重置</button> -->
+        </footer>
+
+    </div>
+
+
+
+
+    <script>
+        // 宣告
+        let numA = document.querySelector('.numA');
+        let numB = document.querySelector('.numB');
+        let addBtn = document.querySelector('.add-btn');
+        let minusBtn = document.querySelector('.minus-btn');
+        let multBtn = document.querySelector('.mult-btn');
+        let divisionBtn = document.querySelector('.division-btn');
+        let result = document.querySelector('.result');
+        let resetBtn = document.querySelector('.reset-btn');
+        // fn area
+        function add(num1, num2) {
+            result.innerHTML = num1 + num2;
+        }
+        function minus(num1, num2) {
+            result.innerHTML = num1 - num2;
+        }
+        function mult(num1, num2) {
+            let multCalc = (num1 * num2);
+            result.innerHTML = multCalc;
+        }
+        function division(num1, num2) {
+            let divisionCalc = (num1 / num2).toFixed(2);
+            result.innerHTML = divisionCalc;
+        }
+
+
+        function nanResult(num1, num2) {
+            if (num1 == NaN || num2 == NaN) {
+                return alert('NaN');
+            }
+            return 123;
+        }
+        console.log(nanResult('1', 1));
+
+        // console.log('加法' , add(2,3));
+        // console.log('減法' + minus(2,3));
+        // console.log('乘法' + mult(2,3));
+        // console.log('除法' + division(2,3));
+
+        // 事件監聽
+        addBtn.addEventListener('click', function () {
+            let numAValue = parseInt(numA.value);
+            let numBValue = parseInt(numB.value);
+            if (isNaN(numAValue) || isNaN(numBValue)) {
+                console.log('請輸入數字');
+                return alert('請輸入數字');
+            }
+
+
+            add(numAValue, numBValue);
+        })
+        minusBtn.addEventListener('click', function () {
+            let numAValue = parseInt(numA.value);
+            let numBValue = parseInt(numB.value);
+            if (isNaN(numAValue) || isNaN(numBValue)) {
+                console.log('請輸入數字');
+                return alert('請輸入數字');
+            }
+            minus(numAValue, numBValue);
+        })
+        multBtn.addEventListener('click', function () {
+            let numAValue = parseInt(numA.value);
+            let numBValue = parseInt(numB.value);
+            if (isNaN(numAValue) || isNaN(numBValue)) {
+                console.log('請輸入數字');
+                return alert('請輸入數字');
+            }
+            mult(numAValue, numBValue);
+        })
+        divisionBtn.addEventListener('click', function () {
+            let numAValue = parseInt(numA.value);
+            let numBValue = parseInt(numB.value);
+            if (isNaN(numAValue) || isNaN(numBValue)) {
+                console.log('請輸入數字');
+                return alert('請輸入數字');
+            }
+            division(numAValue, numBValue);
+        })
+
+
+
+
+
+
+
+    </script>
+</body>
+
+</html>

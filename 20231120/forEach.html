@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h2>forEach應用</h2>
+    <div class="output"></div>
+    <button>送出</button>
+    <input type="text" class="input">
+
+
+    <script>
+        const output = document.querySelector('.output');
+        const btn = document.querySelector('button');
+        const input = document.querySelector('.input');
+        // console.log(output);
+        let arr = [];
+
+        btn.addEventListener('click', () => {
+            arr.push(input.value);
+            // for迴圈回傳陣列所有值
+            // for (let i = 0; i < arr.length; i++) {
+            //     output.textContent += arr[i];
+            //     input.value = '';
+            // };
+            // console.log(arr);
+
+            // 利用forEach回傳陣列所有值
+            arr.forEach((el,index) => {
+                output.innerHTML += `<div>index:${index} arr-value:${el}</div>`
+                input.value = '';
+            });
+
+
+
+
+
+        });
+
+
+    </script>
+
+</body>
+
+</html>

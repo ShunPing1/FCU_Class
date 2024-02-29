@@ -1,0 +1,50 @@
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <!-- AOS特效的Css -->
+        <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+        <style>
+            /* 文字字體參考: https://ithelp.ithome.com.tw/articles/10238571 */
+            body {
+                font-family: "Helvetica", "Arial", "LiHei Pro", "黑體-繁", "微軟正黑體", sans-serif;
+                height: 3000px;
+            }
+            .fakehight{
+                width: 300px;
+                height: 1000px;
+                background-color: #faa;
+            }
+            /* 區塊樣式 */
+            div {
+                height: 200px;
+                width: 150px;
+                border: 2px solid #000000;
+                background: #dedede;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                margin: 5px;
+            }
+        </style>
+    </head>
+    <body>
+
+        <div class="fakehight"></div>
+        <section>
+            <!-- 有動畫的區塊 data-aos="fade-up" -->
+            <div data-aos="fade-up">
+                <span>由下到上</span>
+            </div>
+        </section>
+
+        <!-- AOS特效的JavaScript -->
+        <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+        <script>
+            // 執行AOS的程式
+            AOS.init();
+        </script>
+
+    </body>
+</html>

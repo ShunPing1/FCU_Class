@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>倒數計時器</title>
+</head>
+<body>
+  <h1>倒數計時器</h1>
+  <p id="countdown"></p>
+  <button onclick="pause()">暫停</button>
+  <button onclick="resume()">繼續</button>
+  <script>
+    var countdown = 60; // 設置初始倒數時間
+    var timer; // 定義計時器
+
+    function startCountdown() {
+      timer = setInterval(function() {
+        countdown--;
+        document.getElementById("countdown").innerHTML = countdown;
+        if (countdown <= 0) {
+          clearInterval(timer);
+          document.getElementById("countdown").innerHTML = "時間到！";
+        }
+      }, 1000);
+    }
+
+    function pause() {
+      clearInterval(timer);
+    }
+
+    function resume() {
+      startCountdown();
+    }
+
+    startCountdown(); // 啟動計時器
+  </script>
+</body>
+</html>

@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .throw-dice {
+            margin-bottom: 10px;
+        }
+
+        table,
+        tr,
+        th,
+        td {
+            border: 1px solid #000;
+            border-collapse: collapse;
+        }
+
+        th,
+        td {
+            width: 100px;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 
+        隨機擲骰功能
+        1.擲骰子按鈕
+        2.有一個顯示擲骰子結果的表單，初始化只顯示"次數"以及"結果"的表單開頭
+        3.內容由點擊擲骰子按鈕後生成
+        4.次數結果由1開始
+        5.骰子為亂數生成
+     -->
+    <p> ⚀ ⚁ ⚂ ⚃ ⚄ ⚅</p>
+    擲 <input class="throw-dice" type="number"> 顆
+    <button class="dice-btn" type="button">擲骰子</button>
+    <table>
+        <thead>
+            <tr>
+                <th>回合</th>
+                <th>結果</th>
+            </tr>
+        </thead>
+        <tbody class="resultArea">
+            <!-- 預覽結果 -->
+            <!-- <tr>
+                <td>1</td>
+                <td>⚀</td>
+            </tr> -->
+        </tbody>
+    </table>
+
+
+
+
+
+    <script>
+        // 宣告變數
+        let diceBtn = document.querySelector('.dice-btn');
+        let throwDice = document.querySelector('.throw-dice');
+        let resultArea = document.querySelector('.resultArea');
+        // console.log(resultArea);
+
+        // fn area
+        function diceRandomNumber(max, min) {
+            return Math.floor(Math.random() * max) + min;
+        };
+
+        let count = 1;
+        function diceBtnClick() {
+            let diceNumber = '';
+            for (let i = 0; i < throwDice.value; i++) {
+                let diceResult = diceRandomNumber(6, 1);
+                if (diceResult == 1) {
+                    diceNumber += '⚀';
+                } else if (diceResult == 2) {
+                    diceNumber += '⚁';
+                } else if (diceResult == 3) {
+                    diceNumber += '⚂';
+                } else if (diceResult == 4) {
+                    diceNumber += '⚃';
+                } else if (diceResult == 5) {
+                    diceNumber += '⚄';
+                } else {
+                    diceNumber += '⚅';
+                }
+                Array.of(diceResult);
+                console.log(Array.of(diceResult));
+            };
+            // let diceNumberArr = [diceResult];
+            // console.log(diceNumberArr);
+            resultArea.innerHTML +=
+                    `<tr>
+                        <td>第${count}回合</td>
+                        <td>${diceNumber}</td>
+                    </tr>`;
+            count++;
+
+        };
+
+        diceBtn.addEventListener('click', diceBtnClick)
+
+
+    </script>
+</body>
+
+</html>

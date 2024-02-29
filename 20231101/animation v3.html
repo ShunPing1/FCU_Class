@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100vh;
+            box-sizing: border-box;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .background {
+            width: 500px;
+            height: 500px;
+            border-radius: 50%;
+            background-color: #aaa;
+            position: relative;
+
+        }
+
+        .baseline{
+            width: 500px;
+            height: calc(500px - ((500px - 2px) / 2));
+            padding-top: calc((500px - 2px) / 2);
+            position: absolute;
+        }
+        .line{
+            width: 100%;
+            height: 2px;
+            line-height: 500px;
+            background-color: #000;
+        }
+        .line-2{
+            transform: rotate(45deg);
+        }
+        .line-3{
+            transform: rotate(90deg);
+        }
+        .line-4{
+            transform: rotate(-45deg);
+        }
+        .line-5{
+            background-color: #f00;
+            transform: rotate(67.5deg);
+        }
+        .line-6{
+            background-color: #f00;
+            transform: rotate(-67.5deg);
+        }
+        .line-7{
+            background-color: #f00;
+            transform: rotate(22.5deg);
+        }
+        .line-8{
+            background-color: #f00;
+            transform: rotate(-22.5deg);
+        }
+ 
+
+        .item {
+            width: 100px;
+            height: 100px;
+            background-color: #000;
+            opacity: 0.2;
+            position: absolute;
+            border-radius: 50%;
+            animation-name: around;
+            animation-duration: 10s;
+            animation-iteration-count: infinite;
+            top: 0;
+            left: 50%;
+            transform: translate(-50%, 0);
+
+
+            /* --poosition test-- */
+
+
+        }
+
+        @keyframes around {
+            /* 0% {
+                top: 0;
+                left: 50%;
+                transform: translate(-50%, 0);
+            } */
+            6.25%{
+                top: 3%;
+                left: 65%;
+            }
+            /* 12.5%{
+                top: 25%;
+                left: 75%;
+                transform: translate(-35%, -68%);
+            } */
+            18.75%{
+                top: 25%;
+                left: 87%;
+            }
+
+            /* 25% {
+                top: 50%;
+                left: 100%;
+                transform: translate(-100%, -50%);
+            } */
+            31.25%{
+                top: 56%;
+                left: 87%;
+            }
+            /* 37.5%{
+                top: 75%;
+                left: 75%;
+                transform: translate(-35%, -35%);
+            } */
+            43.75%{
+                top: 77%;
+                left: 65%;
+            }
+
+            /* 50% {
+                top: 100%;
+                left: 50%;
+                transform: translate(-50%, -100%);
+            } */
+            56.25%{
+                top: 77%;
+                left: 35%;
+            }
+            /* 62.5%{
+                top: 60%;
+                left: 20%;
+                transform: translate(-42%, 40%);
+            } */
+            68.75%{
+                top: 56%;
+                left: 13%;
+            }
+
+            /* 75% {
+                top: 50%;
+                left: 0%;
+                transform: translate(0%, -50%);
+            } */
+            81.25%{
+                top: 25%;
+                left: 13%;
+            }
+            /* 87.5%{
+                top: 3%;
+                left: 20%;
+                transform: translate(-40%, 40%);
+            } */
+            93.75%{
+                top: 3%;
+                left: 35%;
+            }
+
+            /* 100% {
+                top: 0;
+                left: 50%;
+                transform: translate(-50%, 0);
+            } */
+        }
+    </style>
+</head>
+
+<body>
+    <div class="background">
+        <div class="item"></div>
+
+        <!-- base line -->
+        <div class="baseline base-line-1">
+            <div class="line line-1"></div>
+        </div>
+        <div class="baseline base-line-2">
+            <div class="line line-2"></div>
+        </div>
+        <div class="baseline base-line-3">
+            <div class="line line-3"></div>
+        </div>
+        <div class="baseline base-line-4">
+            <div class="line line-4"></div>
+        </div>
+        <div class="baseline base-line-5">
+            <div class="line line-5"></div>
+        </div>
+        <div class="baseline base-line-6">
+            <div class="line line-6"></div>
+        </div>
+        <div class="baseline base-line-7">
+            <div class="line line-7"></div>
+        </div>
+        <div class="baseline base-line-8">
+            <div class="line line-8"></div>
+        </div>
+    </div>
+    
+
+</body>
+
+</html>

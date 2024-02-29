@@ -1,0 +1,588 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>色弱遊戲</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', SegoeUI, "Helvetica Neue", Helvetica, Arial, sans-serif;
+
+        }
+
+        .wrap-start,
+        .wrap-game,
+        .wrap-time-stop,
+        .wrap-result {
+            width: 100%;
+            height: 100vh;
+            background-color: #ccc;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+
+        }
+
+        /* 起始介面 */
+        .wrap-start {
+            color: #aaa;
+            background-color: #000;
+        }
+
+        .text-area {
+            width: 600px;
+            height: 600px;
+            /* background-color: #aaa; */
+            display: flex;
+            flex-wrap: wrap;
+            flex-direction: column;
+            justify-content: space-around;
+            align-items: center;
+        }
+
+        .title {
+            font-size: 60px;
+            font-weight: bold;
+        }
+
+        .content {
+            font-size: 20px;
+            text-align: center;
+        }
+
+        .play-btn,
+        .back-btn {
+            width: 250px;
+            height: 100px;
+            border-radius: 50px;
+            font-size: 50px;
+            font-weight: bold;
+            background-color: #aaf;
+            cursor: pointer;
+            animation: aniBtn 1.5s infinite linear;
+        }
+
+        @keyframes aniBtn {
+
+            0%,
+            100% {
+                font-size: 50px;
+            }
+
+            50% {
+                font-size: 40px;
+            }
+        }
+
+        /* 遊戲介面 */
+        .wrap-game {
+            display: none;
+        }
+
+        .item {
+            padding: 10px;
+            font-size: 30px;
+            background-color: #f2f2f2;
+            border-radius: 30px;
+            position: absolute;
+            top: 10px;
+            transform: translateX(-50%);
+        }
+
+        .getScore {
+            left: 80px;
+        }
+
+        .level-area {
+            right: 0;
+        }
+
+        .container {
+            width: 600px;
+            height: 600px;
+            background-color: #fff;
+            border-radius: 15px;
+            cursor: pointer;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+            gap: 15px;
+            padding: 15px;
+        }
+
+        .box {
+            width: calc((500px - (15px * 2 + 15px))/2);
+            height: calc((500px - (15px * 2 + 15px))/2);
+            background-color: rgba(200, 200, 200, 1);
+            border-radius: 15px;
+        }
+
+        .ans {
+            opacity: 0.2;
+        }
+
+        .ani {
+            animation: promptEffect 0.8s 3 linear;
+        }
+
+        @keyframes promptEffect {
+
+            0%,
+            100% {
+                box-shadow: 0 0 50px 20px #ff0;
+            }
+
+            50% {
+                box-shadow: 0 0 0px 0px #ff0;
+            }
+        }
+
+
+        .count-down {
+            background-color: transparent;
+            border: 3px solid #aaa;
+            padding: 10px 15px;
+            border-radius: 50px;
+            display: flex;
+            gap: 10px;
+            position: absolute;
+            bottom: 50px;
+            left: 20px;
+        }
+
+        .stop-btn {
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            color: #fff;
+            background-color: #f55;
+            cursor: pointer;
+
+        }
+
+        .countdown-timer {
+            font-size: 30px;
+        }
+
+
+        .reset-btn,
+        .prompt-btn {
+
+            height: 60px;
+            font-size: 18px;
+            border-radius: 30px;
+            cursor: pointer;
+            position: absolute;
+
+            right: 35px;
+        }
+
+        .prompt-btn {
+            width: 150px;
+            bottom: 130px;
+        }
+
+        .reset-btn {
+            width: 120px;
+            bottom: 50px;
+        }
+
+        /* 暫停介面 */
+        .wrap-time-stop {
+            display: none;
+            color: #aaa;
+            background-color: #000;
+            opacity: 0.8;
+            flex-direction: column;
+        }
+
+        .wrap-time-stop>p {
+            font-size: 60px;
+        }
+
+        .stop-timer {
+            font-size: 120px;
+        }
+
+        .continue-btn {
+            width: 280px;
+            height: 100px;
+            border-radius: 50px;
+            font-size: 50px;
+            font-weight: bold;
+            color: #fff;
+            background-color: #2f2;
+            cursor: pointer;
+            animation: aniBtn 1.5s infinite linear;
+        }
+
+        /* 統計結果 */
+        .wrap-result {
+            display: none;
+            color: #333;
+            font-weight: bold;
+            background-color: #aaa;
+            flex-direction: column;
+        }
+
+        .wrap-result p {
+            font-size: 60px;
+
+        }
+
+        .result-area {
+            display: flex;
+            gap: 10px;
+        }
+
+        .score-result,
+        .level-result {
+            font-size: 50px;
+            margin: 30px 0px;
+        }
+
+        .comments {
+            font-size: 70px;
+            margin-bottom: 20px;
+        }
+
+        .back-btn {
+            color: #333;
+            background-color: #5cc;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 起始介面 -->
+    <div class="wrap-start">
+        <div class="text-area">
+            <div class="title">色弱遊戲</div>
+            <div class="content">
+                The Color !
+                <br>
+                找出所有色塊裡顏色不同的那一個
+                <br>
+                Click on the tile that has a different color
+            </div>
+            <button class="play-btn" type="button">Play</button>
+        </div>
+    </div>
+    <!-- 遊戲介面 -->
+    <div class="wrap-game">
+        <div class="item getScore">得分：100</div>
+        <div class="item level-area">第1關</div>
+        <div class="container">
+            <div class="box ans"></div>
+            <div class="box"></div>
+            <div class="box"></div>
+            <div class="box"></div>
+        </div>
+        <div class="count-down">
+            <button class="stop-btn" type="button">Stop</button>
+            <div class="countdown-timer">59</div>
+        </div>
+        <button class="prompt-btn" type="button">提示剩餘3次</button>
+        <button class="reset-btn" type="button">重新開始</button>
+    </div>
+    <!-- 暫停畫面 -->
+    <div class="wrap-time-stop">
+        <p>Time Stop!!</p>
+        <div class="stop-timer">35</div>
+        <button class="continue-btn" type="button">Continue</button>
+    </div>
+    <!-- 統計結果 -->
+    <div class="wrap-result">
+        <p>Time up!!</p>
+        <div class="result-area">
+            <div class="score-result">分數: 30;</div>
+            <div class="level-result">關卡: 9</div>
+        </div>
+
+        <div class="comments">等級為：貓</div>
+        <button class="back-btn" type="button">Return</button>
+    </div>
+
+    <script>
+        // 需求 (11/20 檢討)
+        // 1. 要有得分 顯示在畫面上
+        // 2. 要能依據得分 增加等級
+        // 3. 答案的透明度要依據等級越來越不透明
+        // 4. 進入遊戲的時候 顏色不能定死
+        // 5. 承上 選到正解 要能換色換答案
+        // 6. 選錯 要有懲罰
+
+        // 宣告變數-起始介面
+        const interFaceStart = document.querySelector('.wrap-start');
+        const interFaceGame = document.querySelector('.wrap-game');
+        const playBtn = document.querySelector('.play-btn');
+        console.log(playBtn);
+
+        // 宣告變數-遊戲內容
+        const container = document.querySelector('.container');
+        const ans = document.querySelector('.ans');
+        const getScore = document.querySelector('.getScore');
+        const levelArea = document.querySelector('.level-area');
+        const resetBtn = document.querySelector('.reset-btn');
+        const promptBtn = document.querySelector('.prompt-btn');
+        console.log(ans);
+        // 宣告變數-倒計時功能
+        const stopBtn = document.querySelector('.stop-btn');
+        const continueBtn = document.querySelector('.continue-btn');
+        const countDownTimer = document.querySelector('.countdown-timer');
+        const stopTimer = document.querySelector('.stop-timer');
+        const interFaceTimeStop = document.querySelector('.wrap-time-stop');
+        // 宣告變數-統計結果
+        const interFaceResult = document.querySelector('.wrap-result');
+        const scoreResult = document.querySelector('.score-result');
+        const levelResult = document.querySelector('.level-result');
+        const comments = document.querySelector('.comments');
+        const backBtn = document.querySelector('.back-btn')
+        console.log(backBtn);
+
+        //事件監聽 轉換介面
+        playBtn.addEventListener('click', function () {
+            interFaceStart.style.display = 'none';
+            interFaceGame.style.display = 'flex';
+            reStart();
+        });
+
+        // 事件監聽 點擊.container >.box 宣告初始值
+        let level = 1;
+        let score = 0;
+        getScore.innerHTML = `得分：${score}`;
+        levelArea.innerHTML = `第${level}關`;
+        // 事件監聽 點擊.container >.box
+        container.addEventListener('click', function () {
+            // console.log(event.target);  
+
+            if (!event.target.classList.contains('box')) {
+                return;
+            }
+
+            // 點到答案時，接著隨機生成方塊
+            if (event.target.classList.contains('ans')) {
+                addBoxes();
+                score++;
+                getScore.innerHTML = `得分：${score}`;
+                levelArea.innerHTML = `第${level}關`;
+
+                // 晉級判斷
+                if (score <= 3) {
+                    level++;
+
+                } else if (score > 3 && score % 3 === 0) {
+                    level++;
+                }
+                // console.log('score:', score);
+                // console.log('level', level);    
+
+            } else {
+                // 降級判斷
+                console.log('normal', level);
+                if (score > 0) {
+                    alert('扣一分')
+                    score = score - 1;
+                };
+                if (score > 3 && score % 3 === 0) {
+                    alert('答錯降一關～');
+                    level--;
+                } else if (score >= 1 && score <= 3) {
+                    alert('答錯降一關～!!');
+                    level = score;
+                    console.log('1~3', level);
+                } else if (score <= 0) {
+                    alert('加油好嗎');
+                    score = 0;
+                    level = 1;
+                };
+                getScore.innerHTML = `得分：${score}`;
+                levelArea.innerHTML = `第${level}關`;
+                addBoxes();
+
+            };
+
+
+        });
+        // 事件監聽 Time Stop
+        stopBtn.addEventListener('click', function () {
+            clearInterval(timer);
+            interFaceGame.style.display = 'none';
+            interFaceTimeStop.style.display = 'flex';
+            stopTimer.innerHTML = countDown;
+
+        });
+        // 事件監聽 Time Start
+        continueBtn.addEventListener('click', function () {
+            startCountdown(timer);
+            interFaceGame.style.display = 'flex';
+            interFaceTimeStop.style.display = 'none';
+        });
+
+        // 事件監聽 提示功能
+        let promptTimes = 3;
+        promptBtn.addEventListener('click', function () {
+            const ans = document.querySelector('.ans');
+
+            ans.classList.add('ani')
+            
+            setTimeout(() => {
+                ans.classList.remove('ani')
+            }, 2000);
+            promptTimes--;
+            promptBtn.innerHTML = `提示剩餘${promptTimes}次`;
+            console.log(promptTimes);
+            if (promptTimes < 0) {
+                promptTimes = 0;
+                promptBtn.innerHTML = `提示剩餘0次`; 
+                ans.classList.remove('ani')
+                alert('提示已用盡!!');
+            }
+
+
+
+        });
+
+        // 事件監聽 重置關卡
+        resetBtn.addEventListener('click', reStart)
+
+        // 事件監聽 返回起始頁
+        backBtn.addEventListener('click', function () {
+            interFaceResult.style.display = 'none';
+            interFaceStart.style.display = 'flex';
+        });
+
+        // 遊戲介面 - 初始畫面
+        addBoxes();
+        //fn 生成方塊
+        function addBoxes() {
+            let boxLvAmount = boxAmount(level);
+            // console.log(boxLvAmount);
+            let randomAnsBox = randomNumber(boxLvAmount, 0);
+            // console.log(randomAnsBox);
+
+            // 在生成方塊之前，先清空所有方塊
+            container.innerHTML = '';
+
+
+            // 取得rgb顏色
+            let rColor = randomNumber(200, 50);
+            let gColor = randomNumber(200, 50);
+            let bColor = randomNumber(200, 50);
+
+
+            for (let i = 0; i < boxLvAmount; i++) {
+                if (i == randomAnsBox) {
+                    container.innerHTML += `
+                    <div class="box ans" 
+                    style="width:${boxVolume(level)}px;
+                    height:${boxVolume(level)}px;
+                    background-color:rgb(${rColor},${gColor},${bColor});
+                    opacity: ${addOpacity(level, 0.2)};">
+                    </div>`;
+
+                } else {
+                    container.innerHTML += `<div class="box" 
+                    style="width:${boxVolume(level)}px;
+                    height:${boxVolume(level)}px;
+                    background-color:rgb(${rColor},${gColor},${bColor});">
+                    </div>`;
+                }
+            };
+            console.log('opacity', addOpacity(level, 0.2));
+
+        };
+
+
+
+
+        //fn 亂數
+        function randomNumber(max, min) {
+            return Math.floor((Math.random() * (max - min)) + min);
+        };
+        // console.log('亂數：',randomNumber(255,50));
+        //fn 不同等級的box數量
+        function boxAmount(lv) {
+            return (lv + 1) * (lv + 1);
+        };
+        //fn box自動生成寬高計算
+        function boxVolume(lv) {
+            return ((600 - 30) - 15 * lv) / (lv + 1);
+        };
+        //fn 透明度設置
+        function addOpacity(lv, opa) {
+            // 由第2關開始減少透明度
+            for (let i = 1; i < lv; i++) {
+                if (i >= 2) {
+                    opa = opa + 0.08;
+                };
+            }
+            if (opa >= 0.85) {
+                opa = 0.85;
+            };
+            return opa;
+        };
+        // console.log(addOpacity(level,0.2));
+
+        //fn 倒數計時
+        startCountdown();
+        let countDown = 59;
+        // let timer;
+        function startCountdown() {
+            timer = setInterval(function () {
+                countDown--;
+                countDownTimer.innerHTML = countDown;
+                if (countDown <= 0) {
+                    clearInterval(timer);
+                    countDownTimer.innerHTML = "0";
+                    interFaceGame.style.display = 'none';
+                    interFaceResult.style.display = 'flex';
+                    scoreResult.innerHTML = `分數：${score}；`;
+                    levelResult.innerHTML = `等級：${level}`;
+                    comments.innerHTML = ``;
+                    if (level <= 3) {
+                        comments.innerHTML = `階級為：蝙蝠`;
+                    } else if (level <= 6) {
+                        comments.innerHTML = `階級為：大象`;
+                    } else if (level <= 9) {
+                        comments.innerHTML = `階級為：貓`;
+                    } else if (level <= 12) {
+                        comments.innerHTML = `階級為：狗`;
+                    } else if (level <= 14) {
+                        comments.innerHTML = `階級為：猩猩`;
+                    } else if (level == 15) {
+                        comments.innerHTML = `階級為：老鷹`;
+                    } else {
+                        comments.innerHTML = `階級為：神`;
+                    }
+                }
+            }, 1000);
+        }
+
+        //fn 重置關卡
+        function reStart() {
+            score = 0;
+            level = 1;
+            getScore.innerHTML = `得分：${score}`;
+            levelArea.innerHTML = `第${level}關`;
+            addBoxes();
+            clearInterval(timer);
+            countDown = 60;
+            startCountdown();
+            promptTimes = 3;
+            promptBtn.innerHTML = `提示剩餘${promptTimes}次`;
+        };
+
+    </script>
+</body>
+
+</html>

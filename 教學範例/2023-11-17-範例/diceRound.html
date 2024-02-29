@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    table {
+      width: 100%;
+    }
+    table, th, td {
+      border: 1px solid #000;
+      border-collapse: collapse;
+    }
+    td {
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  ⚀ ⚁ ⚂ ⚃ ⚄ ⚅
+  <div>
+    擲<input id="roll-count" type="number" value="1">顆
+  </div>
+  <button id="roll" type="button">擲骰子</button>
+  <button id="reset" type="button">清空版面</button>
+  <table>
+    <thead>
+      <tr>
+        <th>回合</th>
+        <th>結果</th>
+      </tr>
+    </thead>
+    <tbody>
+    </tbody>
+  </table>
+  <script>
+    // 擲骰子按鈕
+    const btn = document.querySelector('#roll');
+    // 清空按鈕
+    const clearBtn = document.querySelector('#reset');
+    // 表格
+    const tbody = document.querySelector('tbody');
+    const rollCount = document.querySelector('#roll-count');
+
+    let count = 1;
+
+    // 按鈕點擊事件
+    btn.addEventListener('click', function() {
+      let diceSym = '';
+      // 假設rollCount.value 為 2
+      // i => 0 , 1
+      for(let i = 0; i < rollCount.value; i++) {
+        // 取得隨機亂數
+        const diceNumber = getRandomInt(6, 1);
+        if (diceNumber == 1) {
+          diceSym += '⚀';
+        } else if (diceNumber == 2) {
+          diceSym += '⚁';
+        } else if (diceNumber == 3) {
+          diceSym += '⚂';
+        } else if (diceNumber == 4) {
+          diceSym += '⚃';
+        } else if (diceNumber == 5) {
+          diceSym += '⚄';
+        } else {
+          diceSym += '⚅';
+        }
+      }
+      // tbody.innerHTML += '<tr><td>第'+count+'回合</td><td>'+diceSym+'</td></tr>';
+
+      // 樣板字串 `` 重音符(在esc下方)
+      // 1. 可以換行
+      // 2. 可以插入變數
+      tbody.innerHTML += `
+        <tr>
+          <td>第${count}回合</td>
+          <td>${diceSym}</td>
+        </tr>
+      `;
+
+      count = count + 1;
+    });
+
+    // 清空版面按鈕點擊事件
+    clearBtn.addEventListener('click', function() {
+      // table資料用空字串覆蓋
+      tbody.innerHTML = '';
+    });
+
+    // 取得min~max之間的隨機亂數(整數)
+    // max => 最大值
+    // min => 最小值 (起始數值)
+    function getRandomInt(max, min) {
+      return Math.floor(Math.random() * max) + min;
+      // 0 ~ 0.99999999 => 0 ~ 5.9999999
+      // 0.5123             0  1 2 3 4 5 , 1~6
+    }
+
+
+    // var
+    // let num = 12;
+    // num = 15;
+
+
+    // const pi = 3.14;
+    // pi = 4;
+  </script>
+</body>
+</html>

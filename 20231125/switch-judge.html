@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>switch 判斷式</title>
+    <style>
+        .box {
+            height: 100px;
+            margin-bottom: 10px;
+        }
+
+        .big {
+            width: 250px;
+            background-color: #faa;
+        }
+
+        .middle {
+            width: 200px;
+            background-color: #aaf;
+        }
+
+        .little {
+            width: 150px;
+            background-color: #ffa;
+        }
+    </style>
+</head>
+
+<body>
+    <h2>switch判斷</h2>
+
+    <div class="box">
+        寬度大於200px背景色為粉色
+    </div>
+    <div class="box">
+        寬度等於200px背景色為粉紫色
+    </div>
+    <div class="box">
+        寬度小於200px背景色為粉黃色
+    </div>
+
+    <script>
+        const boxes = document.querySelectorAll('.box');
+        console.log(boxes);
+        boxes.forEach((element, index) => {
+
+
+
+            switch (true) {
+                case (index == 0):
+                    element.classList.add('big');
+                break;
+
+                case (index == 1):
+                    element.classList.add('middle');
+                break;
+
+                case (index == 2):
+                    element.classList.add('little');
+                break;
+
+            };
+
+        })
+    </script>
+</body>
+
+</html>

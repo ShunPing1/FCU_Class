@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        table {
+            width: 100%;
+        }
+        
+        table,
+        td {
+            border: 1px solid #333;
+        }
+        
+        thead {
+            background-color: #333;
+            color: #fff;
+        }
+        
+        button {
+            width: 100%;
+        }
+        
+        label {
+            display: block;
+        }
+    </style>
+</head>
+
+<body>
+
+    <form action="">
+
+        <label for="first">第一顆骰子
+        <select name="" id="first">
+            <!-- 預選內容 -->
+    
+            <option value="1">⚀</option>
+            <option value="2">⚁</option>   
+            <option value="3">⚂</option>
+            <option value="4">⚃</option>
+            <option value="5">⚄</option>
+            <option value="6">⚅</option>
+        </select>
+    </label>
+        <label for="secend">第二顆骰子
+        <select name="" id="secend">
+            <!-- 預選內容 -->
+            <option value="1">⚀</option>
+            <option value="2">⚁</option>   
+            <option value="3" >⚂</option>
+            <option value="4">⚃</option>
+            <option value="5">⚄</option>
+            <option value="6">⚅</option>
+        </select>
+    </label>
+        <label for="third">第三顆骰子
+        <select name="" id="third">
+            <!-- 預選內容 -->
+            <option value="1">⚀</option>
+            <option value="2">⚁</option>   
+            <option value="3" >⚂</option>
+            <option value="4">⚃</option>
+            <option value="5">⚄</option>
+            <option value="6">⚅</option>
+        </select>
+    </label>
+        <div>
+            注重順序 :
+            <label for="">
+           要 <input type="radio" name="seq" value="1" id="" checked>
+       
+       
+           不要 <input type="radio" name="seq" value="2" id="">
+        </label>
+        </div>
+        <button type="button" class="simBtn">開始模擬</button>
+
+    </form>
+    <table>
+        <thead>
+            <tr>
+                <th>次數</th>
+                <th>結果</th>
+            </tr>
+        </thead>
+        <tbody>
+
+        </tbody>
+    </table>
+    <!-- 後臺會取得 username: elena 欄位名=>值 -->
+    <script>
+        function getRandomInt(max, min) {
+            return Math.floor(Math.random() * max) + min;
+        }
+        // 誰
+        const selects = document.querySelectorAll('select')
+        const simBtn = document.querySelector('.simBtn')
+        const tbody = document.querySelector('tbody');
+        let count = 1;
+        simBtn.addEventListener('click', function() {
+            // console.log(selects[2].value);
+            while (true) {
+                let diceSym = '';
+                let times = 0
+                for (let i = 0; i < 3; i++) {
+                    // 取得隨機亂數
+
+                    const diceNumber = getRandomInt(6, 1);
+                    if (diceNumber == 1) {
+                        diceSym += '⚀';
+                    } else if (diceNumber == 2) {
+                        diceSym += '⚁';
+                    } else if (diceNumber == 3) {
+                        diceSym += '⚂';
+                    } else if (diceNumber == 4) {
+                        diceSym += '⚃';
+                    } else if (diceNumber == 5) {
+                        diceSym += '⚄';
+                    } else {
+                        diceSym += '⚅';
+                    }
+
+                    if (diceNumber == selects[i].value) {
+                        times += 1
+
+                    }
+
+
+                    console.log(`diceNumber${diceNumber}`);
+                    console.log(`times: ${times}`);
+
+                }
+
+                tbody.innerHTML += `
+        <tr>
+          <td>第${count}回合</td>
+          <td>${diceSym}</td>
+        </tr>
+      `;
+
+                count = count + 1;
+
+                // 三個相同離開while迴圈，否則重新執行for迴圈
+                if (times === 3) {
+                    break
+                }
+            }
+
+        })
+    </script>
+</body>
+
+</html>

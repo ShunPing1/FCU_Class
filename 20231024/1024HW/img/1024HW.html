@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>test</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .wrap {
+            width: 1920px;
+        }
+
+        .nav-Area {
+            width: 360px;
+            height: calc(100vh - 80px);
+            padding-top: 80px;
+            background-color: #aaa;
+            float: left;
+        }
+
+        .container {
+            width: 1560px;
+            height: 100vh;
+            background-color: #eee;
+            float: left;
+        }
+
+        .logo {
+            width: 150px;
+            height: 150px;
+            font-size: 24px;
+            text-align: center;
+            line-height: 150px;
+            color: #fff;
+            background-color: #000;
+            margin: auto;
+        }
+        .nav-btnArea{
+            width: 150px;
+            margin: auto;
+        }
+        .nav-btn{
+            font-size: 24px;
+            text-align: center;
+            margin-top: 30px;
+        }
+        .content{
+            width: 960px;
+            height: 570px;
+            
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 
+        1920 * 100vh
+        1.nav Area
+            A.LOGO
+            B.href Btn
+        2.container Area
+            A.content
+                a01.hori && vertical center
+                a02.fram px
+     -->
+
+    <div class="wrap">
+        <div class="nav-Area">
+            <div class="logo">LOGO</div>
+            <div class="nav-btnArea">
+                <div class="nav-btn nav-btn-1">AAAAA</div>
+                <div class="nav-btn nav-btn-2">AAAAA</div>
+                <div class="nav-btn nav-btn-3">AAAAA</div>
+            </div>
+
+        </div>
+        <div class="container">
+            <div class="content"></div>
+        </div>
+    </div>
+</body>
+
+</html>

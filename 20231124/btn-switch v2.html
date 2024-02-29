@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>btn-switch v2</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        .container {
+            width: 500px;
+            height: 500px;
+            background-color: #faa;
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        .meals {
+            width: 100%;
+            height: 80px;
+            background-color: #000;
+            display: flex;
+            justify-content: end;
+            align-items: center;
+            gap: 10px;
+            /* font-size: 24px; */
+        }
+
+        .meal,
+        .name {
+            padding: 15px 20px;
+            background-color: #333;
+            color: #eee;
+            border-radius: 25px;
+            cursor: pointer;
+
+        }
+
+        .names,
+        .content {
+            height: calc(100% - 80px);
+        }
+
+        .names {
+            width: 30%;
+            padding-top: 20px;
+            display: flex;
+            justify-content: start;
+            align-items: center;
+            flex-direction: column;
+
+        }
+
+        .name {
+            margin-bottom: 20px;
+            text-align: center;
+
+        }
+
+        .content {
+            width: 70%;
+            font-size: 60px;
+            text-align: center;
+            background-color: #eee;
+            border-radius: 10px;
+            padding-top: 20px;
+        }
+
+        .change-color {
+            background-color: #eee;
+            color: #333;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 
+        實作三名學生的一天三餐內容
+        1.按鈕總數：左側三名學生+上方三餐總共六個按鈕
+        2.當點選某一名學生按鈕時(例如:小明)上方按鈕要依據按鈕名稱給出對應的內容(例如:點選午餐會出現漢堡的結果)
+     -->
+    <div class="container">
+        <div class="meals">
+            <div class="meal change-color">breakfast</div>
+            <div class="meal">lunch</div>
+            <div class="meal">dinner</div>
+        </div>
+        <div class="names">
+            <div class="name change-color">Jake</div>
+            <div class="name">Mandy</div>
+            <div class="name">Chris</div>
+        </div>
+        <div class="content">
+            <div class="food">bagel</div>
+            <div class="food">noodle</div>
+            <div class="food">burger</div>
+        </div>
+
+
+
+
+        <script>
+            // 功能需求
+            // 點擊人名時要依據不同的三餐按鈕給出對應內容(使用陣列)
+            // names  breakfast   lunch     dinner
+            // Jake   snadwich    burger    pizza
+            // Mandy  bagel       noodles   pasta
+            // Chris  corn-curch  steak     hot-pot
+            // 典籍按鈕時，按鈕會變色  
+            // 點擊按鈕的時候需要紀錄點擊結果
+            // 另一側按鈕依據紀錄的點擊結果給出對應內容
+
+            // 宣告變數
+            const meals = document.querySelectorAll('.meal');
+            const names = document.querySelectorAll('.name');
+            const content = document.querySelector('.content');
+            // 宣告綁定點擊按鈕的變數
+            let mealsBtnCount;
+            let nameBtnCount;
+            // console.log(meals);
+
+            let foodArr = [
+                ['snadwich', 'burger', 'pizza'],
+                ['bagel', 'noodles', 'pasta'],
+                ['corn-curch', 'steak', 'hot-pot'],
+            ];
+            // 使用forEach將meals內的元素印出
+            meals.forEach((meal, mealIndex) => {
+                // console.log(meal);
+                // 事件監聽 "各個"元素點擊時出現效果
+                meal.addEventListener('click', () => {
+                    // 每次點擊都先將"每個"移除換色CSS
+                    meals.forEach((removeMeal) => {
+                        removeMeal.classList.remove('change-color');
+                    });
+                    // 再將"各個"元素新增換色CSS
+                    meal.classList.add('change-color');
+
+
+                    // 利用判斷是將按鈕綁定變數
+                    if (mealIndex == 0) {
+                        mealsBtnCount = 0;
+                        console.log('點到了breakfast', mealsBtnCount);
+                    } else if (mealIndex == 1) {
+                        mealsBtnCount = 1;
+                        console.log('點到了lunch',mealsBtnCount);
+                    } else if (mealIndex == 2) {
+                        mealsBtnCount = 2;
+                        console.log('點到了dinner',mealsBtnCount);
+                    };
+
+                    // 點擊時清空內容
+                    content.innerHTML = '';
+                    foodArr.forEach((food, foodmealIndex) => {
+                        // console.log(food[mealIndex]);
+                        content.innerHTML += `
+                        <div>${food[mealIndex]}</div>
+                        `;
+                    });
+                });
+
+                // 事件監聽 綁定names btn
+                names.forEach((name, index) => {
+                    name.addEventListener('click', () => {
+                        // 利用forEach將names的nodeList"每個"元素清除換色CSS
+                        names.forEach((removeName) => {
+                            removeName.classList.remove('change-color');
+                        });
+                        // 再將各個元素新增換色CSS
+                        name.classList.add('change-color');
+
+
+                    });
+
+                });
+
+                
+
+            });
+
+
+
+
+
+
+        </script>
+    </div>
+
+
+
+
+</body>
+
+</html>

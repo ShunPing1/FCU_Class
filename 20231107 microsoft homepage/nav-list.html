@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        nav{
+            width: 100%;
+            height: 200px;
+            background-color: #ccc;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+        }
+        .ham-menu{
+            width: 50px;
+            height: 50px;
+            background-color: #fff;
+            text-align: center;
+            line-height: 50px;
+            font-weight: bold;
+        }
+        .ham-list{
+            width: 200px;
+            background-color: #faa;
+            position: absolute;
+            top: 200px;
+            left: 0;
+            display: none;
+            
+        }
+        #ham-id:checked +.ham-menu >.ham-list{
+            display: block;
+        }
+
+        #ham-id:checked +.ham-menu{
+            background-color: #faa;
+        }
+
+    </style>
+</head>
+<body>
+    <nav>
+        <input type="checkbox" name="" id="ham-id" >
+        <label class="ham-menu" for="ham-id" tabindex="1">三</la>
+        <div class="ham-list">
+            <ul>
+                <li class="ham-li">
+                    <a href="#">
+                    <span>Link</span>
+                </a>
+            </li>
+                <li class="ham-li">
+                    <a href="#">
+                    <span>Link</span>
+                </a>
+            </li>
+                <li class="ham-li">
+                    <a href="#">
+                    <span>Link</span>
+                </a>
+            </li>
+                <li class="ham-li">
+                    <a href="#">
+                    <span>Link</span>
+                </a>
+            </li>
+                <li class="ham-li">
+                    <a href="#">
+                    <span>Link</span>
+                </a>
+            </li>
+            </ul>
+        </div>
+    </nav>
+</body>
+</html>

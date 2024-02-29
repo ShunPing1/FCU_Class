@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            box-sizing: border-box;
+        }
+        
+        .container{
+            width: 500px;
+            /* background-color: #faa; */
+            margin: auto;
+            text-align: center;
+            padding-top: 50px;
+        }
+        .reset{
+            margin-bottom: 20px;
+        }
+        .result{
+            margin: auto;
+        }
+        table,
+        tr,
+        th,
+        td{
+            border: 2px solid #000;
+            border-collapse: collapse;
+        }
+        table{
+            width: 400px;
+            margin: 30px auto 0;
+            font-size: 15px;
+        }
+        thead th{
+            background-color: #ffaf5f;
+        }
+        
+        tbody tr >td:first-child,
+        tbody tr >td:last-child {
+            width: 110px;
+        }
+        
+        tbody tr >td:first-child{
+            background-color: #bfffff;
+        }
+        tbody tr:last-child >td{
+            line-height: 2;
+        }
+        /* JS classlist */
+        .result{
+            width: 300px;
+            height: 100px;
+            background-color: transparent;
+            color: transparent;
+            transition: 1s;
+
+        }
+        .result-active{
+            width: 300px;
+            height: 100px;
+            line-height: 2.5;
+            background-color: #000;
+            color: #fff;
+            text-shadow: -1px -1px 5px #aaf,
+                          1px 1px 5px #aaf;
+            border-radius: 15px;
+            box-shadow: 0 10px 10px 0px #bbb ;
+            position: relative;
+            transition: 1s;
+        }
+
+    </style>
+</head>
+<body>
+    <!-- 
+        bmi calc
+        1.身高輸入框、開始計算按鈕
+        2.體重輸入框、清除重置按鈕
+        3.bmi輸出框
+        4.身體質量表
+        5.新增classlist增加css功能
+         5-1.淡入淡出顯示特效
+    -->
+<div class="container">
+    身高：<input type="number" class="height" min="0"> cm
+    <button type="button" class="startCalcBtn">開始計算</button>
+    <br>
+    <br>
+    體重：<input type="number" class="weight" min="0"> kg
+    <button type="button" class="reset">清除重算</button>
+    <br>
+    
+    <br>
+    
+    <div class="result">
+        你的BMI為
+        <div class="result-content"></div>
+    </div>
+    <!-- table -->
+    <table>
+        <thead>
+            <tr>
+                <th></th>
+                <th>身體質量指數(BMI)(kg/m2)</th>
+                <th>腰圍(cm)</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>體重過輕</td>
+                <td>BMI ＜ 18.5</td>
+                <td>-</td>
+            </tr>
+            <tr>
+                <td>正常範圍</td>
+                <td>18.5≦BMI＜24</td>
+                <td>-</td>
+            </tr>
+            <tr>
+                <td>異常範圍</td>
+                <td>　過重：24≦BMI＜27 <br>
+                    輕度肥胖：27≦BMI＜30 <br>
+                    中度肥胖：30≦BMI＜35 <br>
+                    重度肥胖：BMI≧35
+                </td>
+                <td>男性：≧90公分女性：≧80公分</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+
+
+
+
+    <script>
+        // 宣告變數
+        let height = document.querySelector('.height');
+        let weight = document.querySelector('.weight');
+        let startCalcBtn = document.querySelector('.startCalcBtn');
+        let reset = document.querySelector('.reset');
+        let result = document.querySelector('.result');
+        let resultContent = document.querySelector('.result-content');
+
+        function bmiCalc(num1, num2) {
+            let bmiCalcProcess = Number (num2 / ((num1 / 100) * (num1 / 100)));
+            
+            return bmiCalcProcess.toFixed(1);
+        }
+                    
+  
+
+        startCalcBtn.addEventListener('click', function () {
+            let heightValue = parseInt(height.value);
+            let weightValue = parseInt(weight.value);
+            if (isNaN(heightValue) || isNaN(weightValue)) {
+                return alert('請輸入數字');
+            }else if(heightValue <= 30 || heightValue > 251){
+                return alert('身高輸入異常');
+            }else if(weightValue <= 0 || weightValue > 650){
+                return alert('體重輸入異常');
+            };
+            let bmiCalcResult = bmiCalc(heightValue, weightValue);
+            let output = '';
+            if (bmiCalcResult <= 18.5) {
+                output = '體重過輕';
+            }else if(bmiCalcResult <24) {
+                output = '正常範圍';
+            }else if(bmiCalcResult <27) {
+                output = '過重';
+            }else if(bmiCalcResult <30) {
+                output = '輕度肥胖';
+            }else if(bmiCalcResult <35) {
+                output = '中度肥胖';
+            }else{
+                output = '重度肥胖';
+            }
+            console.log(bmiCalc(heightValue, weightValue));
+            result.innerHTML = '<div>您的BMI為：</div>' + bmiCalcResult + '屬於' +output;
+            result.classList.add('result-active');   
+            // console.log(result);
+        });
+        
+        reset.addEventListener('click' , function () {
+            height.value = '';
+            weight.value = '';
+            result.classList.remove('result-active');
+
+        });
+    </script>
+</body>
+</html>

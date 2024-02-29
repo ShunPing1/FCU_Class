@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>imgLayout & backgroundAttribute </title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #container{
+            position: relative;
+            margin-bottom: 20px;
+        }
+        #img{
+            width: 400px;
+            display: block;
+            margin: auto;
+        }
+        #imgTxt{
+            width: 100px;
+            height: 100px;
+            font-size: 20px;
+            position: absolute;
+            top: calc(50% - 10px) ;
+            left: calc(50% - 50px);
+        }
+        .backgroundImg{
+            width: 200px;
+            height: 100px;
+            margin: auto;
+            margin-bottom: 5px;
+            text-align: center;
+            border: 2px solid #000;
+            background-image: url(./img/background.jpg);
+            background-repeat: no-repeat;
+            /* contain效果能呈現完整圖片，但無法維持div的寬度 */
+            background-size: contain;
+        
+        }
+        .cover{
+            /* cover效果能維持圖片寬度，但無法呈現完整圖片 */
+            background-size: cover;
+
+        }
+        .contain{
+            /* contain效果能呈現完整圖片，但無法覆蓋div寬度 */
+            background-size: contain;
+
+        }
+
+        .attachment{
+            background-attachment: scroll;
+        }
+        
+    </style>
+</head>
+<body>
+    <div id="container">
+        <img id="img" src="./img/background.jpg" alt="">
+        <div id="imgTxt">這是圖片</div>
+    </div>
+
+    <div class="backgroundImg cover">背景圖片cover效果</div>
+    <div class="backgroundImg contain">背景圖片contain效果</div>
+    <div class="backgroundImg attachment"></div>
+
+
+</body>
+</html>

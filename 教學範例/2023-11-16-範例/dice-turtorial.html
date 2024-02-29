@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    table {
+      width: 100%;
+    }
+    table, th, td {
+      border: 1px solid #000;
+      border-collapse: collapse;
+    }
+    td {
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  ⚀ ⚁ ⚂ ⚃ ⚄ ⚅
+  <button type="button">擲骰子</button>
+  <table>
+    <thead>
+      <tr>
+        <th>次數</th>
+        <th>結果</th>
+      </tr>
+    </thead>
+    <tbody>
+      <!-- <tr>
+        <td>1</td>
+        <td>⚅</td>
+      </tr>
+      <tr>
+        <td>2</td>
+        <td>⚂</td>
+      </tr> -->
+    </tbody>
+  </table>
+  <script>
+    const btn = document.querySelector('button');
+    const tbody = document.querySelector('tbody');
+
+    let count = 1;
+
+    btn.addEventListener('click', function() {
+      // 取得
+      const diceNumber = getRandomInt(6, 1);
+      let diceSym = '';
+      if (diceNumber == 1) {
+        diceSym = '⚀';
+      } else if (diceNumber == 2) {
+        diceSym = '⚁';
+      } else if (diceNumber == 3) {
+        diceSym = '⚂';
+      } else if (diceNumber == 4) {
+        diceSym = '⚃';
+      } else if (diceNumber == 5) {
+        diceSym = '⚄';
+      } else {
+        diceSym = '⚅';
+      }
+      tbody.innerHTML +='<tr><td>'+count+'</td><td>'+diceSym+'</td></tr>';
+
+      count = count + 1;
+      // tbody.innerHTML = tbody.innerHTML + '<tr><td>1</td><td>⚂</td></tr>';
+      // i += 2
+      // i = i + 2
+    });
+
+
+    // 取得min~max之間的隨機亂數(整數)
+    // max => 最大值
+    // min => 最小值 (起始數值)
+    function getRandomInt(max, min) {
+      return Math.floor(Math.random() * max) + min;
+      // 0 ~ 0.99999999 => 0 ~ 5.9999999
+      // 0.5123             0  1 2 3 4 5 , 1~6
+    }
+
+
+    // var
+    let num = 12;
+    num = 15;
+
+
+    const pi = 3.14;
+    pi = 4;
+  </script>
+</body>
+</html>

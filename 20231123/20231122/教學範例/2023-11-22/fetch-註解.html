@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 常見的標籤送資料 -->
+    <!-- 畫面會跳轉 -->
+    <!-- <form action="網址" method="post">
+        <input type="text" name="price" value="300">
+        <button type="submit">送出</button>
+    </form> -->
+
+    <script>
+        // 1.當你沒有要使用form標籤送資料時，用fetch
+        // 2.絲滑的送出資料(畫面不會跳轉)
+
+        // fetch(網址(字串),  {
+        //  method: 'get',   // 'post'...(其他form標籤不能用的) 
+        // })
+
+        // ----自我理解---- //
+        //上述資料中括號中是屬於請求送出資料的方法(使用get、post或是其他form標籤無法達成的請求方法)
+
+
+        // 宣告一個乾淨的表單資料
+        let formData = new FormData();
+        // append 新增資料到表單中 (屬性值, 數值)
+        // formData.append(name, value);
+        formData.append('price', 300);
+        // formData.get('price') 取得屬性值的數值
+        console.log(formData.get('price'));
+        // fetch(網址(字串),  {
+        //     method: 'post',                       //請求資料的方法(類似掛號、急件、一般信件等)
+        //     body: formData,                       //需要請求的主體(類似信封)
+        // }).then((response) => {                   //等待網頁伺服器回傳資料後執行
+        //     return response.json();               //回應的資料以json的檔案格式回傳出檔案的值
+        // }).then((data) => {                       //完成上一步動作後執行
+        //     console.log(data);                    //拿到新資料後 重新放回畫面上
+        //     // 拿到新資料後 重新放回畫面上
+        // })
+
+        // fetch('https://opendata.cwa.gov.tw/api/v1/rest/datastore/F-C0032-001?Authorization=CWB-85BC1DC7-F417-4BD4-9CB7-03C730862EDC')
+
+
+        // 後端使用api
+
+        //  (1)
+        //  網址: .../member/ => method: 'get'
+        //  參數: id (使用者id)(必填)
+        //  回傳: 你會拿到使用者的相關資料
+        //  (2)
+        //  網址: .../member/update => method: 'post'
+        //  參數: id (使用者id), 使用者的各種資料(姓名必填)
+        //  回傳: 1(成功更新了資料) / 0(更新失敗) 
+
+
+
+    </script>
+</body>
+</html>

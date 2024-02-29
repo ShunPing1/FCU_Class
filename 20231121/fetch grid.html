@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>fetch api</title>
+    <style>
+        * {
+            margin: 0;
+            box-sizing: border-box;
+        }
+        body{
+            background-color: #000;
+            font-size: 24px;
+        }
+
+        .all {
+            width: 800px;
+            margin: auto;
+            padding-top: 50px;
+        }
+
+        .tabs {
+            display: flex;
+
+        }
+
+        .tab {
+            background-color: #888;
+            color: #eee;
+            padding: 10px 20px;
+            border-radius: 0 10px 0 0;
+            /* border: 2px solid #000; */
+            border-bottom: 0;
+            position: relative;
+            cursor: pointer;
+        }
+
+        .tab-active {
+            background-color: #eee;
+            color: #333;
+            font-weight: bold;
+        }
+
+        /* tab左上色塊補齊 */
+        .tab:not(:first-child)::before {
+            content: '';
+            width: 10px;
+            height: 20px;
+            background-color: inherit;
+            position: absolute;
+            top: 0;
+            left: -10px;
+            z-index: -1;
+        }
+
+        .content {
+            background-color: #eee;
+            height: 480px;
+            padding: 20px;
+            border-radius: 0 15px 15px 15px;
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+            grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr;
+            grid-template-areas: 
+            "PT1 PT2 PT3 PT4 PT5"
+            "P-1 B1 B1 B1 B1"
+            "P-2 B1 B1 B1 B1"
+            "P-3 B1 B1 B1 B1"
+            "P-4 B1 B1 B1 B1"
+            "P-5 B1 B1 B1 B1"
+            ;
+            gap: 5px;
+        }
+        .place-title{
+            background-color: #ccc;
+            line-height: calc((450px) / 6);
+            text-align: center;
+        }
+        .p-title-1{
+            grid-area: PT1;
+        }
+        .p-title-2{
+            grid-area: PT2;
+        }
+        .p-title-3{
+            grid-area: PT3;
+        }
+        .p-title-4{
+            grid-area: PT4;
+        }
+        .p-title-5{
+            grid-area: PT5;
+        }
+        .place{
+            background-color: #ccc;
+            line-height: calc((450px - 50px) / 6);
+            text-align: center;
+        }
+        .place-1{
+            grid-area: P-1;
+        }
+        .place-2{
+            grid-area: P-2;
+        }
+        .place-3{
+            grid-area: P-3;
+        }
+        .place-4{
+            grid-area: P-4;
+        }
+        .place-5{
+            grid-area: P-5;
+        }
+        
+        
+
+        .remove {
+            background-color: transparent;
+            color: transparent;
+            border: transparent;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="all">
+        <div class="tabs">
+            <div class="tab">北部</div>
+            <div class="tab">中部</div>
+            <div class="tab">南部</div>
+            <div class="tab">東部</div>
+            <div class="tab">離島</div>
+        </div>
+        <div class="content">
+            <div class="place-title p-title-1">地區</div>
+            <div class="place-title p-title-2">溫度</div>
+            <div class="place-title p-title-3">圖示</div>
+            <div class="place-title p-title-4">體感</div>
+            <div class="place-title p-title-5">降雨</div>
+            <div class="place place-1">基隆市</div>
+            <div class="place place-2">台北市</div>
+            <div class="place place-3">新北市</div>
+            <div class="place place-4">桃園市</div>
+            <div class="place place-5">新竹市</div>
+        </div>
+    </div>
+
+
+
+
+    <script>
+        // 1.利用fetch取得天氣資料顯示在網頁上
+        // 2.實作頁籤切換不同區域的天氣卡片
+        // 3.天氣卡片需要有
+        // (1)地區名字
+        // (2)最高溫到最低溫
+        // (3)降雨機率
+        // (4)天氣體感敘述
+        // (5)依據天氣描述顯示圖片
+        console.log('-----------------------------------');
+        fetch('https://opendata.cwa.gov.tw/api/v1/rest/datastore/F-C0032-001?Authorization=CWA-2497FEFB-378D-4EE8-B9BE-C99ACEB8E680')
+            .then(res => {
+                // console.log(res);
+                return res.json();
+            }).then(data => {
+                // console.log(data.records.location);
+                const dataList = data.records.location;
+                console.log(dataList);
+                // place.innerHTML = `${dataList[0].locationName}`;
+                // dataList.forEach((element, index) => {
+                //     place.innerHTML += `${dataList[index].locationName}`;
+
+                // });
+
+            });
+
+        // 宣告變數
+        const tabs = document.querySelectorAll('.tab');
+        const content = document.querySelector('.content');
+        console.log(tabs);
+
+
+        // 測試陣列
+        let locArr = [
+            ['基隆', '台北', '新北', '桃園', '新竹'],
+            ['苗栗', '台中', '彰化', '南投', '雲林'],
+            ['嘉義', '台南', '高雄', '屏東'],
+            ['宜蘭', '花蓮', '台東'],
+            ['澎湖', '金門', '連江'],
+        ];
+        // 預設點選北部資料
+        content.innerHTML = '';
+        tabs[0].classList.add('tab-active');
+        locArr[0].forEach((value) => {
+            content.innerHTML +=`
+            <div class="place place-1">${value}</div>
+            <div class="place place-2">${value}</div>
+            <div class="place place-3">${value}</div>
+            <div class="place place-4">${value}</div>
+            <div class="place place-5">${value}</div>  
+            `;
+        })
+
+        // 透過foeEach得到所有nodeList的結果
+        tabs.forEach((element, index) => {
+            element.addEventListener('click', () => {
+                tabs.forEach((removeTab) => {
+
+                    removeTab.classList.remove('tab-active');
+                })
+                element.classList.add('tab-active');
+
+                // 點擊頁籤更換內容
+                content.innerHTML = '';
+                locArr[index].forEach((value) => {
+                    if (value !== undefined) {
+                        content.innerHTML += `
+                        <div class="place place-1">${value}</div>
+                        <div class="place place-2">${value}</div>
+                        <div class="place place-3">${value}</div>
+                        <div class="place place-4">${value}</div>
+                        <div class="place place-5">${value}</div>
+                        `;
+                    }
+                });
+            });
+        });
+
+    </script>
+</body>
+
+</html>

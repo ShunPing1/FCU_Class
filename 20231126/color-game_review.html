@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        .container{
+            width: 600px;
+            height: 600px;
+            background-color: #eee;
+            border-radius: 10px;
+            padding: 10px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            position: relative;
+            top: 50vh;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+        .box{
+            width: calc((600px - (10px + 20px)) / 2);
+            height: calc((600px - (10px + 20px)) / 2);
+            border-radius: 10px;
+            background-color: #faa;
+            cursor: pointer;
+        }
+        .ans{
+            opacity: 0.2;
+        }
+    </style>
+</head>
+<body>
+    <!-- 
+        色弱遊戲-複習
+        A.點到正確答案後會重新生成方塊
+        B.方塊位置需隨機生成
+        C.要有晉級功能(第一關 2x2 第二關 3x3 ....)
+     -->
+     <div class="container">
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+     </div>
+
+
+     <script>
+        // 宣告變數
+        const container = document.querySelector('.container')
+        const boxes = document.querySelectorAll('.box');
+        console.log(container);
+
+        let level = 1;
+        
+        // 預設生成畫面
+        addBox();
+        
+        // 什麼時候
+        container.addEventListener('click', () => {
+            // event.target能夠顯示監聽對象以及他的子曾所有元素
+            console.log(event.target);
+            if (event.target.classList.contains('container')) {
+                return;
+            }else if(event.target.classList.contains('ans')){
+                addBox();
+                level++;
+                console.log(level);
+            }
+        })
+        // console.log(boxAmount(level)); 
+        // console.log(randomNum(boxAmount(level), 0));
+
+
+        // fn 生成方塊
+        function addBox(){
+            let randomResult = randomNum(boxAmount(level), 0);
+            let boxSizeResult = boxSizeCalc(level);
+            container.innerHTML = '';
+
+            // 使用for迴圈生成方塊，假如生成的亂數為3，則會將i==3的結果添加.ans的CSS，其他三個方塊則添加else結果。
+            for (let i = 0; i < boxAmount(level); i++) {
+                
+                if (i == randomResult) {
+                    container.innerHTML += `
+                    <div class="box ans" 
+                    style = "width:${boxSizeResult}px;height:${boxSizeResult}px;">
+                    </div>`;
+                }else{
+                    container.innerHTML += `
+                    <div class="box" 
+                    style = "width:${boxSizeResult}px;height:${boxSizeResult}px;">
+                    </div>`;
+                };
+                console.log(randomResult);
+
+                
+            };
+
+        };
+        // fn 生成亂數
+        function randomNum(max, min) {
+            
+            return Math.floor((Math.random() * max) + min);
+        };
+        // console.log(randomNum(4,1));
+
+        // 晉級方塊數量計算
+        function boxAmount(lv) {
+          return (lv + 1 ) * (lv + 1 );
+        };
+        // console.log(boxAmount(3));
+
+        // 晉級方塊體積計算
+        function boxSizeCalc(lv) {
+            return (((600 - 20) - (10 * lv)) / (lv + 1));
+        };
+
+
+
+
+
+
+     </script>
+</body>
+</html>

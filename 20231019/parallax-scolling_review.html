@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #picArea-1, 
+        #picArea-2, 
+        #picArea-3,
+        #picArea-4{
+            width: 100vw;
+            height: 100vh;
+            background-image: url(./img/img_parallax01.jpg);
+            background-size: cover;
+            background-attachment: fixed;
+            opacity: 0.8;
+            position: relative;
+        }
+        #centerArea-1,
+        #centerArea-2,
+        #centerArea-3,
+        #centerArea-4{
+            padding: 10px;
+            background-color: #000;
+            color: #fff;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 30px;
+
+        }
+        #txtArea-1,
+        #txtArea-2,
+        #txtArea-3{
+            /* margin-block-start: 50px;
+            margin-block-end: 50px;
+            margin-inline-start: 20px;
+            margin-inline-end: 20px; */
+            /* width: 100vw; */
+            padding: 20px 40px;
+            text-align: justify;
+            
+        }
+        #title{
+            font-size: 24px;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        #picArea-2{
+            background-image: url(./img/img_parallax02.jpg);
+        }
+        #centerArea-2, #centerArea-3{
+            background: none;
+        }
+        #txtArea-2, #txtArea-3{
+            padding: 40px 40px;
+            background-color: #000;
+            color: #fff;
+        }
+        #picArea-3{
+            background-image: url(./img/img_parallax03.jpg);
+        }
+    </style>
+</head>
+<body>
+    <!-- A.pic area
+          A01.pic full vision
+          A02.set oparcity
+          A03.ceter area
+            a.set position too center
+         B.txt area
+          B01.set title
+            a.title set text-align-center
+          B02.adjust margin-block/inline spacing
+          B03.set text-align-justify -->
+        <div id="picArea-1">
+            <div id="centerArea-1">picture first</div>
+        </div>
+        <div id="txtArea-1">
+            <div id="title">title one</div>
+            <div id="section-1">Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio, voluptates quibusdam corporis ut, sit tempora quod suscipit excepturi laboriosam natus facilis cupiditate at illo, quia qui molestiae? Aliquam, in facilis!
+            Magnam ducimus nihil harum quisquam molestiae iure incidunt laborum cupiditate quas explicabo nemo consequatur dicta velit porro commodi quod, fugiat amet nulla. Accusamus tempora quia asperiores, ab sunt eveniet fugiat!
+            Voluptatem id incidunt fugiat vero unde esse fugit laborum tempore aliquid mollitia odit commodi, inventore neque voluptates sit ipsam autem quasi ut facere repellat. Tempora eum magni at nulla rem?
+            Veniam aut, minima alias modi tenetur earum labore provident cumque explicabo debitis nam ullam optio! Iure a error temporibus nisi id repudiandae! Nisi minima rerum omnis eum corrupti placeat illum!
+            Delectus iste perferendis temporibus reprehenderit quam accusamus odit dignissimos fuga commodi beatae eum, voluptatum sit illo vel, laudantium tenetur corrupti impedit iusto. Molestias quo iste ipsum veritatis nisi hic ullam!</div>
+        </div>
+        <div id="picArea-2">
+            <div id="centerArea-2">picture second</div>
+        </div>
+        <div id="txtArea-2">
+            <div id="section-2">Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio, ipsa sequi excepturi.</div>
+        </div>
+        <div id="picArea-3">
+            <div id="centerArea-3">picture third</div>
+        </div>
+        <div id="txtArea-3">
+            <div id="section-3">Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio, ipsa sequi excepturi.</div>
+        </div>
+        <div id="picArea-4">
+            <div id="centerArea-4">picture last!</div>
+        </div>
+
+
+
+
+
+</body>
+</html>

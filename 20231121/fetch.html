@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>fetch api</title>
+    <style>
+        * {
+            margin: 0;
+            box-sizing: border-box;
+        }
+        body{
+            background-color: #000;
+            font-size: 24px;
+        }
+
+        .all {
+            width: 800px;
+            margin: auto;
+            padding-top: 50px;
+        }
+
+        .tabs {
+            display: flex;
+
+        }
+
+        .tab {
+            background-color: #888;
+            color: #eee;
+            padding: 10px 20px;
+            border-radius: 0 10px 0 0;
+            /* border: 2px solid #000; */
+            border-bottom: 0;
+            position: relative;
+            cursor: pointer;
+        }
+
+        .tab-active {
+            background-color: #eee;
+            color: #333;
+            font-weight: bold;
+        }
+
+        /* tab左上色塊補齊 */
+        .tab:not(:first-child)::before {
+            content: '';
+            width: 10px;
+            height: 20px;
+            background-color: inherit;
+            position: absolute;
+            top: 0;
+            left: -10px;
+            z-index: -1;
+        }
+
+        .content {
+            background-color: #eee;
+            height: 450px;
+            padding-top: 20px;
+            border-radius: 0 15px 15px 15px;
+            
+            
+
+        }
+
+        .content div {
+            padding: 15px 15px;
+            margin-bottom: 10px;
+            border-bottom: 2px solid #888;
+        }
+
+        .remove {
+            background-color: transparent;
+            color: transparent;
+            border: transparent;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="all">
+        <div class="tabs">
+            <div class="tab">北部</div>
+            <div class="tab">中部</div>
+            <div class="tab">南部</div>
+            <div class="tab">東部</div>
+            <div class="tab">離島</div>
+        </div>
+        <div class="content">
+            <div>基隆市</div>
+            <div>台北市</div>
+            <div>新北市</div>
+            <div>桃園市</div>
+            <div>新竹市</div>
+        </div>
+    </div>
+
+
+
+
+    <script>
+        // 1.利用fetch取得天氣資料顯示在網頁上
+        // 2.實作頁籤切換不同區域的天氣卡片
+        // 3.天氣卡片需要有
+        // (1)地區名字
+        // (2)最高溫到最低溫
+        // (3)降雨機率
+        // (4)天氣體感敘述
+        // (5)依據天氣描述顯示圖片
+        console.log('-----------------------------------');
+        fetch('https://opendata.cwa.gov.tw/api/v1/rest/datastore/F-C0032-001?Authorization=CWA-2497FEFB-378D-4EE8-B9BE-C99ACEB8E680')
+            .then(res => {
+                // console.log(res);
+                return res.json();
+            }).then(data => {
+                // console.log(data.records.location);
+                const dataList = data.records.location;
+                console.log(dataList);
+                // place.innerHTML = `${dataList[0].locationName}`;
+                // dataList.forEach((element, index) => {
+                //     place.innerHTML += `${dataList[index].locationName}`;
+
+                // });
+
+            });
+
+        // 宣告變數
+        const tabs = document.querySelectorAll('.tab');
+        const content = document.querySelector('.content');
+        console.log(tabs);
+
+
+        // 測試陣列
+        let locArr = [
+            ['基隆', '台北', '新北', '桃園', '新竹'],
+            ['苗栗', '台中', '彰化', '南投', '雲林'],
+            ['嘉義', '台南', '高雄', '屏東'],
+            ['宜蘭', '花蓮', '台東'],
+            ['澎湖', '金門', '連江'],
+        ];
+        // 預設點選北部資料
+        content.innerHTML = '';
+        tabs[0].classList.add('tab-active');
+        locArr[0].forEach((value) => {
+            content.innerHTML +=`
+            <div>${value}</div>     
+            `;
+        })
+
+        // 透過foeEach得到所有nodeList的結果
+        tabs.forEach((element, index) => {
+            element.addEventListener('click', () => {
+                tabs.forEach((removeTab) => {
+
+                    removeTab.classList.remove('tab-active');
+                })
+                element.classList.add('tab-active');
+
+                // 點擊頁籤更換內容
+                content.innerHTML = '';
+                locArr[index].forEach((value) => {
+                    if (value !== undefined) {
+                        content.innerHTML += `
+                        <div>${value}</div>
+                        `;
+                    }
+                });
+            });
+        });
+
+    </script>
+</body>
+
+</html>

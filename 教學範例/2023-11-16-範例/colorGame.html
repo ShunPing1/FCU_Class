@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+    body {
+      margin: 0px;
+      padding: 0px;
+    }
+    .container {
+      width: 100%;
+      height: 100vh;
+      background-color: wheat;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .plate {
+      width: 600px;
+      height: 600px;
+      background-color: #fff;
+      border-radius: 15px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 15px;
+      padding: 15px;
+    }
+    .box {
+      width: calc(555px / 2);
+      height: calc(555px / 2);
+      background-color: skyblue;
+      border-radius: 15px;
+      cursor: pointer;
+    }
+    .ans {
+      opacity: 0.3;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="plate">
+      <!-- <div class="box ans"></div>
+      <div class="box"></div>
+      <div class="box"></div>
+      <div class="box"></div> -->
+    </div>
+  </div>
+
+  <script>
+    // 初步想法
+    // querySelector 單一元素
+    // querySelectorAll 符合css選擇器的多個元素
+    // const boxes = document.querySelectorAll('.plate>.box');
+    // console.log(boxes);
+    // i => 0, 1, 2, 3
+    // for (let i = 0; i < 4; i++) {
+    //   boxes[i].addEventListener('click', function () {
+    //     console.log(`你點到了`, boxes[i]);
+    //   })
+    // }
+    // i = 0
+    // boxes[0].addEventListener('click', function () {
+    //   console.log(`你點到了`, boxes[0]);
+    // })
+    // // i = 1
+    // boxes[1].addEventListener('click', function () {
+    //   console.log(`你點到了`, boxes[1]);
+    // })
+    // // i = 2
+    // boxes[2].addEventListener('click', function () {
+    //   console.log(`你點到了`, boxes[2]);
+    // })
+    // // i = 3
+    // boxes[3].addEventListener('click', function () {
+    //   console.log(`你點到了`, boxes[3]);
+    // })
+
+    // 進階
+    const plate = document.querySelector('.plate');
+    // console.log(plate);
+    plate.addEventListener('click', function(event){
+      // 點擊事件會獲得event，要自己寫變數去取得
+      // console.log(event);
+      // event.target 會是個元素
+      // 可以依據此元素是否含有box來決定要不要繼續往下執行
+      // 假設元素class含有box => true 再配驚嘆號反轉 變成false 就不會被return
+      // 假設元素class不含有box => false 再配驚嘆號反轉 變成true 就會被return
+      if (!event.target.classList.contains('box')) return;
+
+      console.log(`你點到了`, event.target);
+
+      // 點到含有ans的箱子
+      if (event.target.classList.contains('ans')) {
+        // 重新加入新盒子
+        addBoxes();
+      } else {
+        alert('不要瞎掰好嗎')
+      }
+    });
+
+    addBoxes();
+
+    // 塞入盒子
+    function addBoxes() {
+      const ansNumber = getRandomInt(4, 0);
+      // 加入盒子前 先清空盒子
+      plate.innerHTML = '';
+
+      for(let i = 0; i < 4; i++) {
+        if (i == ansNumber) {
+          plate.innerHTML += `<div class="box ans"></div>`;
+        } else {
+          plate.innerHTML += `<div class="box"></div>`;
+        }
+      }
+      // plate.innerHTML = `
+      //   <div class="box ans"></div>
+      //   <div class="box"></div>
+      //   <div class="box"></div>
+      //   <div class="box"></div>
+      // `;
+    }
+
+    // 取得min~max之間的隨機亂數(整數)
+    // max => 最大值
+    // min => 最小值 (起始數值)
+    function getRandomInt(max, min) {
+      return Math.floor(Math.random() * max) + min;
+      // 0 ~ 0.99999999 => 0 ~ 3.9999999
+      // 0.5123             0  1 2 3 4 5 , 1~6
+    }
+  </script>
+</body>
+</html>

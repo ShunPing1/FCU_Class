@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .flex {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+    </style>
+</head>
+<body>
+    <div class="array">
+    </div>
+    <ul>
+    </ul>
+    <input type="text">
+    <div class="flex">
+        <div>
+            <button class="push" type="button">從右邊加入(push)</button>
+        </div>
+        <div>
+            <button class="pop" type="button">從右邊移除(pop)</button>
+        </div>
+        <div>
+            <button class="unshift" type="button">從左邊加入(unshift)</button>
+        </div>
+        <div>
+            <button class="shift" type="button">從左邊移除(shift)</button>
+        </div>
+    </div>
+    <script>
+        // array 陣列
+        const arrEl = document.querySelector('.array');
+        const input = document.querySelector('input');
+        const pushBtn = document.querySelector('.push');
+        const popBtn = document.querySelector('.pop');
+        const unshiftBtn = document.querySelector('.unshift');
+        const shiftBtn = document.querySelector('.shift');
+        const ul = document.querySelector('ul');
+        // 宣告一個空的陣列
+        const arr = [];
+        // 最左邊的元素索引值為0
+        // 可以塞字串、數字、陣列
+        const arr2 = [2, 'link', ['lexus', 'benz']];
+
+
+        pushBtn.addEventListener('click', function() {
+            arr.push(input.value);
+            arrEl.textContent = arr;
+            ul.innerHTML = '';
+            // for (let i = 0; i < arr.length; i++) {
+            //     ul.innerHTML += `<li>${arr[i]}</li>`;
+            // }
+
+            // [15, 20, 25]
+            // forEach 會執行3次
+            // 第一次 以15為主角下去執行
+            // 第二次 以20為主角下去執行
+            // 第三次 以25為主角下去執行
+            console.log('===========');
+            arr.forEach(function(item, index) {
+                ul.innerHTML += `<li>(${index}) => ${item}</li>`;
+            });
+            input.value = '';
+        });
+
+        popBtn.addEventListener('click', () => {
+            arr.pop();
+            arrEl.textContent = arr;
+        });
+
+        unshiftBtn.addEventListener('click', () => {
+            arr.unshift(input.value)
+            arrEl.textContent = arr;
+            input.value = '';
+        });
+
+        shiftBtn.addEventListener('click', () => {
+            arr.shift()
+            arrEl.textContent = arr;
+        });
+
+        
+
+        
+
+
+    </script>
+</body>
+</html>

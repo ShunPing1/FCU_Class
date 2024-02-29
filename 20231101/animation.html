@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            padding-top: 100px;
+        }
+
+        .item {
+            width: 300px;
+            height: 500px;
+            position: relative;
+            top: 30px;
+            left: 150px;
+            border-top: 480px solid #ccc;
+            border-left: 150px solid transparent;
+            /* border-bottom: 50px solid #ccc; */
+            border-right: 150px solid transparent;
+            box-sizing: border-box;
+
+        }
+
+        .turn {
+            width: 100px;
+            height: 100px;
+            color: #fff;
+            background-color: #000;
+            text-align: center;
+            line-height: 100px;
+            font-size: 30px;
+            /* animation: name duration timing-function delay iteration-count direction fill-mode; */
+            animation-name: turn;
+            animation-duration: 15s;
+            animation-iteration-count: infinite;
+            position: absolute;
+            top: 0;
+            left: -50px;
+
+            /* --position test-- */
+            /* top: -585px;
+            left: -260px; */
+        }
+
+        @keyframes turn {
+            0% {
+                background-color: #f00;
+                border-radius: 0%;
+                /* transform: rotate(0); */
+
+            }
+
+            25% {
+                background-color: #a0c;
+                border-radius: 50%;
+                /* transform: rotate(720deg); */
+                top: -585px;
+                left: 160px;
+            }
+
+            50% {
+                background-color: #f00;
+                border-radius: 0%;
+                /* transform: rotate(1440deg); */
+
+
+            }
+
+            75% {
+                background-color: #a0c;
+                border-radius: 50%;
+                /* transform: rotate(2160deg); */
+                top: -585px;
+                left: -260px;
+
+            }
+
+            100% {
+                background-color: #f00;
+                border-radius: 0%;
+                /* transform: rotate(2880deg); */
+                top: 0;
+                left: -50px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="item">
+        <div class="turn"></div>
+    </div>
+</body>
+
+</html>

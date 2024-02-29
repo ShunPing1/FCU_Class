@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS this test</title>
+</head>
+<body>
+    
+
+
+
+    <script>
+        // this會依據是哪個物件所引發的函式，那個物件就是this
+
+        let obj ={
+            name: 'herry',
+            fn: function () {
+                console.log(this.name);
+            }
+
+        };
+
+        // 此函式由obj所引發，因此this為obj.name
+        obj.fn();
+
+        // ------------------------//
+        var name = 'herry才怪';
+        const myfn = obj.fn;
+        myfn();
+        
+
+        
+       
+    </script>
+</body>
+</html>

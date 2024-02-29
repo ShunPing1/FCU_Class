@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            padding: 20px;
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+
+        }
+
+        .container {
+            width: calc(300px + 5px*2);
+            display: flex;
+            flex-wrap: wrap;
+            gap: 5px;
+            background-color: #000;
+            margin-bottom: 50px;
+        }
+
+        .box {
+            width: 100px;
+            height: 100px;
+            background-color: #fff;
+            text-align: center;
+            line-height: 100px;
+            font-size: 50px;
+            cursor: pointer;
+        }
+
+        .result{
+            width: 300px;
+            height: 50px;
+            text-align: center;
+            border: 5px dashed #ccc;
+            font-size: 30px;
+            margin-bottom: 20px;
+        }
+
+        button{
+            width: 300px;
+            height: 50px;
+            font-size: 30px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+    </div>
+
+    <div class="result"></div>
+    <button>Restart</button>
+
+
+    <script>
+        // 宣告變數
+        const container = document.querySelector('.container');
+        const boxes = document.querySelectorAll('.box');
+        const result = document.querySelector('.result');
+        const restart = document.querySelector('button');
+        let count = 0;
+        // 事件監聽 container
+        container.addEventListener('click', () => {
+            // event.target == container (預防點到container發生錯誤)
+            // event.target.textContent !== ""(防止更改圈叉結果)
+            // result.textContent == `X WIN` || `O WIN`(當一方勝利實則結束遊戲)
+            if (event.target == container || event.target.textContent !== "" || result.textContent == `X WIN` ||
+                result.textContent == `O WIN`) return;
+            count++;
+            console.log(count);
+            if (count % 2 == 0) {
+                event.target.textContent = `X`;
+            } else {
+                event.target.textContent = `O`;
+            };
+
+
+            // 判斷結果
+            if (boxes[0].textContent == `X` && boxes[1].textContent == `X` && boxes[2].textContent == `X` ||
+                boxes[3].textContent == `X` && boxes[4].textContent == `X` && boxes[5].textContent == `X` || 
+                boxes[6].textContent == `X` && boxes[7].textContent == `X` && boxes[8].textContent == `X` ||
+                boxes[0].textContent == `X` && boxes[3].textContent == `X` && boxes[6].textContent == `X` ||
+                boxes[1].textContent == `X` && boxes[4].textContent == `X` && boxes[7].textContent == `X` ||
+                boxes[2].textContent == `X` && boxes[5].textContent == `X` && boxes[8].textContent == `X` ||
+                boxes[0].textContent == `X` && boxes[4].textContent == `X` && boxes[8].textContent == `X` ||
+                boxes[2].textContent == `X` && boxes[4].textContent == `X` && boxes[6].textContent == `X` ) {
+                return result.textContent = `X WIN`;
+            }else if(boxes[0].textContent == `O` && boxes[1].textContent == `O` && boxes[2].textContent == `O` ||
+                     boxes[3].textContent == `O` && boxes[4].textContent == `O` && boxes[5].textContent == `O` || 
+                     boxes[6].textContent == `O` && boxes[7].textContent == `O` && boxes[8].textContent == `O` ||
+                     boxes[0].textContent == `O` && boxes[3].textContent == `O` && boxes[6].textContent == `O` ||
+                     boxes[1].textContent == `O` && boxes[4].textContent == `O` && boxes[7].textContent == `O` ||
+                     boxes[2].textContent == `O` && boxes[5].textContent == `O` && boxes[8].textContent == `O` ||
+                     boxes[0].textContent == `O` && boxes[4].textContent == `O` && boxes[8].textContent == `O` ||
+                     boxes[2].textContent == `O` && boxes[4].textContent == `O` && boxes[6].textContent == `O` ){
+                return result.textContent = `O WIN`;
+            }else if(boxes[0].textContent !== `` && boxes[1].textContent !== `` && boxes[2].textContent !== `` &&
+                     boxes[3].textContent !== `` && boxes[4].textContent !== `` && boxes[5].textContent !== `` &&
+                     boxes[6].textContent !== `` && boxes[7].textContent !== `` && boxes[8].textContent !== `` ){
+                    
+                return result.textContent = `TIE!`;
+
+            };
+        });
+
+        restart.addEventListener('click', () => {
+            boxes.forEach((box) => {
+                box.textContent = ``;
+                result.textContent = ``;
+                count = 0;
+            });
+        });
+
+
+
+    </script>
+</body>
+
+</html>

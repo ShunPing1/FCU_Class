@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>20231101</title>
+    <style>
+        body{
+            padding-top: 0px;
+        }
+        .temple-main{
+            width: 500px;
+            height: 400px;
+            border-width: 100px;
+            border-style: solid;
+            border-top-color: transparent;
+            border-left-color: transparent;
+            border-bottom-color: #333;
+            border-right-color: transparent;
+            position: relative;
+            left: 20%;
+        }
+        .temple-main::after{
+            content: " ";
+            width: 400px;
+            /* height: 500px;  */
+            border-width: 100px;
+            border-style: solid;
+            border-top-color: transparent;
+            border-right-color: transparent;
+            border-bottom-color: #333;
+            border-left-color: transparent;
+            position: absolute;
+            top: -50%;
+            left: -8%;
+        }
+        .temple-paller{
+            content: " ";
+            width: 60px;
+            height: 263px; 
+            background-color: #000;
+            border-width: 70px;
+            border-style: solid;
+            border-top-color: #aaa;
+            border-right-color: #fff;
+            border-bottom-color: #aaa ;
+            border-left-color: #fff;
+            position: absolute;
+            top: 14.3%;
+            left: 30%;
+        }
+        .temple-paller::before{
+            content: " ";
+            width: 60px;
+            height: 263px; 
+            background-color: #000;
+            border-width: 70px;
+            border-style: solid;
+            border-top-color: #aaa;
+            border-right-color: #fff;
+            border-bottom-color: #aaa ;
+            border-left-color: #fff;
+            position: absolute;
+            top: -26.9%;
+            left: 300%;
+        }
+    </style>
+</head>
+<body>
+    <div class="temple-main"></div>
+    <div class="temple-paller"></div>
+</body>
+</html>

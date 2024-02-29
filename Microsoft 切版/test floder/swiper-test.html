@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./CSS/swiper-test.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+        integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>Document</title>
+</head>
+<body>
+    <header>
+        <div class="swiper mySwiper">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide">
+                    <a href="">
+                        <picture>
+                            <source media="(min-width:1400px)" srcset="./img/swiper/Surface-Pro-9-1920x600.avif">
+                            <source media="(min-width:1084px)" srcset="./img/swiper/Surface-Pro-9-1399x600.avif">
+                            <source media="(min-width:860px)" srcset="./img/swiper/Surface-Pro-9-1083x600.avif">
+                            <source media="(min-width:540px)" srcset="./img/swiper/Surface-Pro-9-859x540.avif">
+                            <img src="./img/swiper/Surface-Pro-9-859x540.avif" alt="Flowers" >
+                        </picture>
+                        <div class="slide-container slide-container-1">
+                            <h2>Surface Pro 9</h2>
+                            <div class="slide-content">平板電腦的彈性和筆記型電腦的效能 — 全都在一台攜帶超方便的裝置</div>
+                            <div class="slide-href-btn" tabindex="1">深入了解</div>
+                        </div>
+                    </a>
+                </div>
+                <div class="swiper-slide">
+                    <a href="">
+                        <picture>
+                            <source media="(min-width:1400px)" srcset="./img/swiper/Surface-Laptop-1920x600.webp">
+                            <source media="(min-width:1084px)" srcset="./img/swiper/Surface-Laptop-1399x600.webp">
+                            <source media="(min-width:860px)" srcset="./img/swiper/Surface-Laptop-1083x600.avif">
+                            <source media="(min-width:540px)" srcset="./img/swiper/Surface-Laptop-859x540.avif">
+                            <img src="./img/swiper/Surface-Laptop-859x540.avif" alt="Flowers" >
+                        </picture>
+                        <div class="slide-container slide-container-2">
+                            <div class="new">新上市</div>
+                            <h2>Surface Laptop Studio 2</h2>
+                            <div class="slide-content">這台多功能的筆記型電腦配備頂尖的設計和驚人的效能，為您帶來創意和娛樂。</div>
+                            <div class="slide-href-btn">深入了解</div>
+                        </div>
+                    </a>
+
+
+
+                </div>
+            </div>
+            
+            <div class="swiper-btn-all">
+                <!-- chevron icon -->
+                <div class="swiper-button-next" tabindex="1"></div>
+                <div class="swiper-button-prev" tabindex="1"></div>
+                <!-- page swiper -->
+                <div class="swiper-pagination"></div>
+            </div>
+            
+
+        </div>
+    </header>
+
+
+        <!-- Swiper JS -->
+        <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+        <script>
+            var swiper = new Swiper(".mySwiper", {
+    
+                navigation: {
+                    nextEl: ".swiper-button-next",
+                    prevEl: ".swiper-button-prev",
+                },
+                // 加入控制page的JS語法
+                pagination: {
+                    el: ".swiper-pagination",
+                },
+                loop: true,
+            });
+    
+        </script>
+</body>
+</html>

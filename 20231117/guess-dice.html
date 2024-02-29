@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            box-sizing: border-box;
+            margin-left: 20px;
+        }
+        .seq input,
+        .seq label{
+            margin: 0;
+        }
+
+        table,
+        th,
+        td {
+            border: 2px solid #000;
+            border-collapse: collapse;
+        }
+
+        th,
+        td {
+            width: 100px;
+        }
+
+        button {
+            width: 200px;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <p>⚀ ⚁ ⚂ ⚃ ⚄ ⚅</p>
+    <label>
+        第一顆骰子：
+        <select name="" id="">
+            <option value="1">⚀</option>
+            <option value="2">⚁</option>
+            <option value="3">⚂</option>
+            <option value="4">⚃</option>
+            <option value="5">⚄</option>
+            <option value="6">⚅</option>
+        </select>
+    </label>
+    <br>
+    <label>
+        第二顆骰子：
+        <select name="" id="">
+            <option value="1">⚀</option>
+            <option value="2">⚁</option>
+            <option value="3">⚂</option>
+            <option value="4">⚃</option>
+            <option value="5">⚄</option>
+            <option value="6">⚅</option>
+        </select>
+    </label>
+    <br>
+    <label>
+        第三顆骰子：
+        <select name="" id="">
+            <option value="1">⚀</option>
+            <option value="2">⚁</option>
+            <option value="3">⚂</option>
+            <option value="4">⚃</option>
+            <option value="5">⚄</option>
+            <option value="6">⚅</option>
+        </select>
+    </label>
+    <br>
+    <div class="seq">
+        注重順序：
+        <input id="yes" type="radio" name="sequence">
+        <label for="yes">
+            要
+        </label>
+        <input id="no" type="radio" name="sequence">
+        <label for="no">
+            不要
+        </label>
+    </div>
+
+    <button type="button">開始模擬</button>
+    <br>
+    <a href="#gotop">看結果</a>
+    <table>
+        <thead>
+            <tr>
+                <th>次數</th>
+                <th>結果</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- <tr>
+                <td></td>
+                <td></td>
+            </tr> -->
+        </tbody>
+    </table>
+    <a href="#" id="gotop">回頂部</a>
+
+
+
+
+
+    <script>
+        // 誰
+        let selects = document.querySelectorAll('select');
+        let startBtn = document.querySelector('button');
+        let ansResult = document.querySelector('tbody');
+        console.log(selects);
+        // 什麼時候
+        startBtn.addEventListener('click', function () {
+            // 要做什麼
+            // 1.取得select的值，預設123
+            // 2.迴圈不斷執行直到數字出現123
+            // 3.迴圈過程紀錄每一次出現的值
+
+            ansResult.innerHTML = '';
+            let ans = '';
+            for (let i = 0; i < selects.length; i++) {
+
+                ans += selects[i].value;
+
+            }
+            console.log(ans);
+
+            let count = 1;
+            let systemAns = '';
+            for (let i = 1; ans !== systemAns; i++) {
+                systemAns = '';
+                for (let i = 0; i < ans.length; i++) {
+
+                    systemAns += randomNumber(6, 1);
+
+                };
+                console.log(systemAns);
+                ansResult.innerHTML += `
+                    <tr>
+                        <td>第${count}次</td>
+                        <td>${systemAns}</td>
+                    </tr>
+                    `;
+                count++;
+            }
+        });
+
+
+
+        // fn
+        function randomNumber(max, min) {
+            return Math.floor(Math.random() * max) + min;
+        };
+
+
+
+    </script>
+</body>
+
+</html>

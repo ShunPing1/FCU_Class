@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .ans {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            background-color: #aff;
+            margin-bottom: 10px;
+
+        }
+
+        .ani {
+
+            animation: flashing 0.8s 3;
+        }
+
+        @keyframes flashing {
+
+            0%,
+            100% {  
+                box-shadow: 0 0 0px 0px#fff;
+            }
+
+            50% {
+                box-shadow: 0 0 50px 20px#ff0;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="ans"></div>
+    <button class="prompt-btn" type="button">提示剩餘3次</button>
+
+
+    <script>
+        const ans = document.querySelector('.ans');
+        const promptBtn = document.querySelector('.prompt-btn');
+
+        let clickTimes = 3;
+        promptBtn.addEventListener('click', clickPromptBtn);
+        
+        function clickPromptBtn() {
+            if (ans.classList.contains('ani') == false) {
+                ans.classList.add('ani');
+            };
+            setTimeout(function () {
+                ans.classList.remove('ani');
+            }, 2000);
+            clickTimes--;
+            promptBtn.innerHTML = `提示剩餘${clickTimes}次`;
+            if (clickTimes < 0) {
+                clickTimes = 0;
+                console.log(clickTimes);
+                alert('提示已用盡！！')
+                promptBtn.innerHTML = `提示剩餘0次`;
+                promptBtn.removeEventListener('click', clickPromptBtn);
+            }
+        }
+        
+
+
+
+
+
+
+    </script>
+</body>
+
+</html>

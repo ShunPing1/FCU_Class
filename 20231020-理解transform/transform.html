@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .item {
+            width: 200px;
+            height: 200px;
+            background-color: #faa;
+            border-radius: 20px;
+            text-align: center;
+            line-height: 200px;
+            margin-bottom: 50px;
+        }
+
+        .item01 {
+            /* 設定X軸移動 */
+            transform: translateX(50%);
+            /* 設定Y軸移動 */
+            transform: translateY(-100px);
+            /* 同時設定X軸與Y軸 */
+            transform: translate(500px, 50%);
+            /* 設定Z軸移動，須配合旋轉效果 */
+            transform: translateZ(0);
+            /* 同時設定X、Y、Z軸移動 */
+            transform: translate3d(50%, -50%, 0);
+        }
+
+        .item02 {
+            background-color: #aaf;
+            /* 調整X軸進行倍數縮放 */
+            transform: scaleX(2);
+            /* 調整Y軸進行倍數縮放 */
+            transform: scaleY(2);
+            /* 沿著Z軸進行倍數縮放 */
+            transform: scaleZ(0);
+            /* 同時設定X軸與Y軸 */
+            transform: scale(4, 2);
+            /* 同時調整X、Y、Z軸倍數縮放 */
+            transform: scale3d(1.5, 1.2, 1);
+        }
+
+        .item03{
+            width: 200px;
+            height: 300px;
+            position: relative;
+            /* transform-style必須同時設置preserve-3d才會有3d效果，此範例有子層繼承父層屬性的效果 */
+            transform-style: preserve-3d;
+            transform: rotateY(50deg);
+        }
+        .item3-1{
+            width: 200px;
+            height: 300px;
+            background-color: #000;
+            position: absolute;
+            top: 0%;
+            left: 0%;
+            transform:  rotateX(60deg);
+        }
+
+        .item04 {
+            /* 調整元素旋轉角度 */
+            transform: rotate(45deg);
+            /* 調整元素旋轉梯度 */
+            transform: rotate(45grad);
+            /* 調整元素旋轉弧度 */
+            transform: rotate(0rad);
+            /* 調整元素旋轉圈數 */
+            transform: rotate(0.8turn);
+            /* 也可以調整X/Y軸達到水平/垂直透視效果 */
+            /* transform: rotateX(80deg); */
+        }
+
+        .item05 {
+            /* 調整元件X軸歪斜角度 */
+            transform: skew(3deg);
+            /* 調整元件Y軸歪斜角度 */
+            transform: skewY(5deg);
+            /* 同時調整元件X軸、Y軸歪斜角度 */
+            transform: skew(8deg, 2deg);
+        }
+
+        .item06 {
+            background-color: #aaa;
+            /* X軸透視效果 */
+            transform: perspective(500px) rotateX(50deg);
+            /* Y軸透視效果 */
+            /* transform: perspective(500px) rotateY(30deg); */
+        }
+
+        .item07-container {
+            width: 800px;
+            height: 200px;
+            outline: 2px solid #000;
+            margin-bottom: 50px;
+            display: flex;
+            justify-content: space-around;
+        }
+
+        /* item07待理解 */
+        .item07 {
+
+            background-color: #aaa;
+            perspective: 200px;
+        }
+
+        .item07 .box {
+            width: 200px;
+            height: 200px;
+            color: #fff;
+            border-radius: 20px;
+            background-color: #000;
+            opacity: 0.8;
+            transform: rotateX(45deg);
+        }
+
+        .item07 .box.b1 {
+            perspective-origin: 0%;
+            color: #faa;
+
+        }
+
+        .item08 {
+            transform: rotate(15deg);
+            /* 改變設置transform元素的中心點，50%為原始值 */
+            transform-origin: 20% 500px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="item item01">Translate</div>
+    <div class="item item02">Scale</div>
+
+    <div class="item item03">
+        <div class="item item3-1"></div>
+    </div>
+
+    <div class="item item04">Rotate</div>
+    <div class="item item05">Skew</div>
+    <div class="item item06">Perspective</div>
+
+    <!-- item07待理解 -->
+    <div class="item07-container">
+        <div class="item item07">
+            <div class="box b1">perspective-origin</div>
+        </div>
+        <div class="item item07">
+            <div class="box b2">perspective-origin</div>
+        </div>
+        <div class="item item07">
+            <div class="box b3">perspective-origin</div>
+        </div>
+    </div>
+
+    <div class="item item08">transform-origin</div>
+
+    <!-- item09待理解 -->
+    <div class="item item09">backface-visibility</div>
+
+
+</body>
+
+</html>

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    // for
+    // while
+    // dowhile
+
+
+    // continue 繼續
+    // 停止往下執行 繼續下一個迴圈
+    for (let i = 0; i < 6; i++) {
+
+      if (i == 3) {
+        continue;
+      }
+
+      console.log(i);
+    }
+    console.log('=================');
+    // break 停止
+    // 完全脫離迴圈
+    for (let i = 0; i < 6; i++) {
+
+      if (i == 3) break;
+
+      console.log(i);
+    }
+
+    console.log('======while=======');
+    let j = 0;
+    while (j < 6) {
+      if (j == 3) {
+        // 不+1會讓J卡在3形成死迴圈
+        j++;
+        continue;
+      }
+      console.log(j);
+      j++;
+    }
+    console.log('==================');
+    let x = 0;
+    while (x < 6) {
+      if (x == 3) {
+        break;
+      }
+      console.log(x);
+      x++;
+    }
+    console.log('======dowhile=======');
+
+    let y = 0;
+    do {
+      if (y == 3) {
+        // 不+1會讓y卡在3形成死迴圈
+        y++;
+        continue;
+      };
+      console.log(y);
+      y++;
+    } while (y < 6);
+    console.log('==================');
+    let z = 0;
+    do {
+      if (z == 3) break;
+      console.log(z);
+      z++;
+    } while (z < 6);
+
+  </script>
+</body>
+
+</html>

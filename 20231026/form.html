@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- form 表單元件，與使用者互動有關-->
+    <form>
+        <!-- input type="text" 輸入格 -->
+        <p>姓名：<input type="text"></p>
+        <!-- input type="number" 數字輸入格 -->
+        <!-- 可指定最小值最大值 -->
+        <p>年齡：<input type="number" min="0" max="200"></p>   
+        <!-- input type="radio" 圓形選單 -->
+        <!-- label綁定id達成點選文字自動選取表單 -->
+        <p>性別：<input id="boy" type="radio" name="gender"><label for="boy"> 男</label>
+        <input id="girl" type="radio" name="gender"><label for="girl"> 女</label></p>
+        <!-- checkbox-複選表單 -->
+        <p>
+            早餐：
+            <input type="checkbox" id="01">
+            <label for="01">可頌</label>
+            <input type="checkbox" id="02">
+            <label for="02">漢堡</label>
+            <input type="checkbox" id="03">
+            <label for="03">吐司</label>
+            <input type="checkbox" id="04">
+            <label for="04">貝果</label>
+        </p>
+        <!-- required 必填欄位-->
+        <p> 
+            email:<input type="email" placeholder="              
+            @gmal.com" required>
+        </p>
+
+        <!-- btn的呈現方法 -->
+        <input type="button" value="我是按鈕">
+        <button>我是按紐</button>
+
+        <!-- select 直式選單 -->
+        <!-- 搭配option完成選單 -->
+        <select>
+            <option value="01">台北市</option>
+            <option value="02">桃園市</option>
+            <option value="03">新竹市</option>
+            <option value="04">台中市</option>
+            <option value="05">高雄市</option>
+        </select>
+
+
+
+
+        
+        
+        
+        
+        
+        
+        
+        
+        <!-- test -->
+
+       <p> 
+            img:<input type="image" name="" id="">
+        </p>
+        <!-- 待理解 -->
+       <p> 
+            hidde:<input type="hidden" name="" id="hide">
+            <label for="hide">隱藏</label>
+        </p>
+       <p> 
+            color:<input type="color" name="" id="">
+        </p>
+    </form>
+</body>
+</html>

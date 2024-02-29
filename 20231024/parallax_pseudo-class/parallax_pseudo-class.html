@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>parallax_Advanced</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        nav {
+            width: calc(80% - 10px * 2);
+            height: calc(100px - 10px * 2);
+            /* background-color: #000; */
+            /* opacity: 0.5; */
+            position: fixed;
+            left: 10%;
+            padding: 10px 10px;
+            z-index: 3;
+        }
+
+        .logo {
+            width: 80px;
+            height: 80px;
+            /* background-color: #faa; */
+            background-image: url(./img/logo.jpg);
+            background-size: cover;
+            border-radius: 50%;
+            float: left;
+        }
+
+        .navBtnArea {
+
+            margin-top: 20px;
+            /* background-color: #aaf; */
+            float: right;
+        }
+        .nav-Btn{
+            background-color: #000;
+            color: #aaf;
+            font-size: 18px;
+            text-decoration: none;
+            border-radius: 5px;
+            float: left;
+            margin-left: 10px;
+            padding: 10px 20px;
+        }
+        /* 游標經過時觸發 */
+        .nav-Btn:hover{
+            background-color: #aaf;
+            color: #000;
+        }
+        /* cli時觸發， */
+        .nav-Btn:active{
+            color: #fff;
+        }
+        /* 拜訪後連結屬性改變 */
+        /* .nav-Btn:visited{
+            color: #faa;
+        } */
+        
+        
+
+        .container {
+            width: 80%;
+            margin: auto;
+
+        }
+
+        .banner {
+            height: 50vh;
+            background-color: #ccc;
+            background-position: center;
+            background-attachment: fixed;
+            background-repeat: no-repeat;
+            background-size: cover;
+            padding-top: 50vh;
+        }
+
+        #banner-1 {
+            background-image: url(./img/img01.jpg);
+
+        }
+
+        #banner-2 {
+            background-image: url(./img/img02.jpg);
+
+        }
+
+        #banner-3 {
+            background-image: url(./img/img03.jpg);
+
+        }
+
+        .mask {
+            width: 100%;
+            height: 50vh;
+            background-color: #000;
+            opacity: 0.7;
+            position: relative;
+        }
+
+        .btn {
+            background-color: #fff;
+            padding: 10px 20px;
+            font-size: 24px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+
+        }
+
+        .gotop{
+            padding: 25px 10px;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 50%;
+            background-color: #aaf;
+            position: fixed;
+            bottom: 2%;
+            right: 12%;
+
+
+        }
+    </style>
+</head>
+
+<body>
+    <!--1.nav Area
+            A.nav opacity
+            B.LOGO
+            C.nav-BtnArea
+                a. nav-Btn*3
+        2.pic Area
+            A.Banner*1
+            B. half opacity
+                a.opacity color#000
+                b.Btn position
+                 a01.horizontal && vertical center
+        3.gotop Btn
+            A.position
+                a.right:0
+                b.bottom:0
+     -->
+
+    <nav>
+        <div class="logo"></div>
+        <div class="navBtnArea">
+            <a href="#banner-1" class="nav-Btn nav-Btn-1">第一區</a>
+            <a href="#banner-2" class="nav-Btn nav-Btn-2">第二區</a>
+            <a href="#banner-3" class="nav-Btn nav-Btn-3">第三區</a>
+        </div>
+    </nav>
+    <div class="container">
+        <div class="banner" id="banner-1">
+            <div class="mask">
+                <div class="btn">第一區</div>
+            </div>
+        </div>
+        <div class="banner" id="banner-2">
+            <div class="mask">
+                <div class="btn">第二區</div>
+            </div>
+        </div>
+        <div class="banner" id="banner-3">
+            <div class="mask">
+                <div class="btn">第三區</div>
+            </div>
+        </div>
+        <a href="#" class="gotop">GOTOP</a>
+    </div>
+</body>
+
+</html>

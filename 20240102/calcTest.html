@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .btns{
+            width: 80px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+    </style>
+</head>
+<body>
+    <input type="number" placeholder="數字A" class="numA" readonly>
+    <input type="number" placeholder="數字B:" class="numB" readonly>
+    <input type="text" placeholder="結果:" class="result" readonly>
+    <div class="calcBtns">
+        <button class="calcBtn">+</button>
+        <button class="calcBtn">-</button>
+        <button class="calcBtn">*</button>
+        <button class="calcBtn">/</button>
+    </div>
+    <div class="btns">
+        <button class="numbtn numbtn-1">9</button>
+        <button class="numbtn numbtn-2">8</button>
+        <button class="numbtn numbtn-3">7</button>
+        <button class="numbtn numbtn-4">6</button>
+        <button class="numbtn numbtn-5">5</button>
+        <button class="numbtn numbtn-6">4</button>
+        <button class="numbtn numbtn-7">3</button>
+        <button class="numbtn numbtn-8">2</button>
+        <button class="numbtn numbtn-9">1</button>
+        <button class="numbtn numbtn-10">0</button>
+    </div>
+
+
+
+    <script>
+        const numA = document.querySelector('.numA');
+        const numB = document.querySelector('.numB');
+        const result = document.querySelector('.result');
+        const calcBtns = document.querySelector('.calcBtns')
+        const btns = document.querySelector('.btns')
+        console.log(numA.value);
+
+        btns.addEventListener('click',() => {
+            console.log((event.target));
+            numA.value += (event.target.textContent * 1);
+            numB.value += (event.target.textContent * 1);
+        });
+        calcBtns.addEventListener('click', () => {
+            if (result.value === "") {
+                return;
+            };
+            if (event.target.textContent === "=") {
+                if (condition) {
+                    
+                }
+            }
+            result.value += (event.target.textContent);
+        })
+    </script>
+</body>
+</html>
